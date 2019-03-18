@@ -1,0 +1,16 @@
+D:\mine\study\大四\电子麻单\test\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+D:\mine\study\大四\电子麻单\test\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+D:\mine\study\大四\电子麻单\test\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+D:\mine\study\大四\电子麻单\test\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+D:\mine\study\大四\电子麻单\test\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+D:\mine\study\大四\电子麻单\test\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+D:\mine\study\大四\电子麻单\test\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+D:\mine\study\大四\电子麻单\test\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+D:\mine\study\大四\电子麻单\test\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+D:\mine\study\大四\电子麻单\test\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\MySql.Data.dll
+D:\mine\study\大四\电子麻单\test\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Google.Protobuf.dll
+D:\mine\study\大四\电子麻单\test\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\MySql.Data.xml
+D:\mine\study\大四\电子麻单\test\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
+D:\mine\study\大四\电子麻单\test\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MainHome.resources
+D:\mine\study\大四\电子麻单\test\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MedicineDataAdd.resources
+D:\mine\study\大四\电子麻单\test\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MedicineDataUpdate.resources
