@@ -46,7 +46,7 @@ namespace WindowsFormsApp1
                 listView1.Items.Add(it);
             }
 
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.View = View.Details;
 
         }
 

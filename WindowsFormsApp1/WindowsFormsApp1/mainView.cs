@@ -26,6 +26,7 @@ namespace WindowsFormsApp1
             CreateChart();
             createSeries();
             t.Start();
+            this.MaximumSize = new Size(this.Width,this.Height);
         }
 
         private void CreateChart()
@@ -33,6 +34,7 @@ namespace WindowsFormsApp1
             ChartArea chartArea = new ChartArea();
             chartArea.Name = "FirstArea";
 
+            /*
             chartArea.CursorX.IsUserEnabled = true;
             chartArea.CursorX.IsUserSelectionEnabled = true;
             chartArea.CursorX.SelectionColor = Color.SkyBlue;
@@ -44,8 +46,9 @@ namespace WindowsFormsApp1
             chartArea.CursorX.IntervalType = DateTimeIntervalType.Auto;
             chartArea.AxisX.ScaleView.Zoomable = false;
             chartArea.AxisX.ScrollBar.ButtonStyle = ScrollBarButtonStyles.All;//启用X轴滚动条按钮
+            */
 
-            chartArea.BackColor = Color.White;                      //背景色
+            chartArea.BackColor = Color.Snow;                      //背景色
             //chartArea.BackSecondaryColor = Color.White;                 //渐变背景色
             //chartArea.BackGradientStyle = GradientStyle.TopBottom;      //渐变方式
             chartArea.BackHatchStyle = ChartHatchStyle.None;            //背景阴影
@@ -63,7 +66,7 @@ namespace WindowsFormsApp1
             chartArea.AxisY.LabelStyle.Font = new Font(chartArea.AxisY.LabelStyle.Font.Name, 9);
             chartArea.AxisY.Maximum = 240;
             chartArea.AxisY.Minimum = 0;
-            chartArea.AxisY.Interval = 20;
+            chartArea.AxisY.Interval = 10;
             chartArea.AxisY.LineWidth = 1;
             chartArea.AxisY.LineColor = Color.Black;
             chartArea.AxisY.Enabled = AxisEnabled.True;
@@ -72,9 +75,10 @@ namespace WindowsFormsApp1
             chartArea.AxisX.LabelAutoFitMinFontSize = 5;
             chartArea.AxisX.LabelStyle.Angle = -15;
 
-
+            chartArea.AxisX.Interval = 1D;
+            chartArea.AxisX.ScaleView.Size = 50D;
+            
             chartArea.AxisX.LabelStyle.IsEndLabelVisible = true;        //show the last label
-            chartArea.AxisX.Interval = 10;
             chartArea.AxisX.IntervalAutoMode = IntervalAutoMode.FixedCount;
             chartArea.AxisX.IntervalType = DateTimeIntervalType.NotSet;
             chartArea.AxisX.TextOrientation = TextOrientation.Auto;
@@ -85,10 +89,13 @@ namespace WindowsFormsApp1
             chartArea.AxisX.Crossing = 0;
             chartArea.AxisX.LabelStyle.Enabled = false;
 
+            /*
             chartArea.Position.Height = 95;
             chartArea.Position.Width = 98;
             chartArea.Position.X = 1;
             chartArea.Position.Y = 1;
+            */
+            chartArea.Position = new ElementPosition(0, 2, 98, 97);
 
             chart.ChartAreas.Add(chartArea);
             chart.BackGradientStyle = GradientStyle.TopBottom;
@@ -103,6 +110,11 @@ namespace WindowsFormsApp1
             //图表边框的皮肤
             //chart.BorderSkin.SkinStyle = BorderSkinStyle.None;
 
+        }
+
+        private void createViewList()
+        {
+            
         }
 
         private void createSeries()
@@ -147,6 +159,9 @@ namespace WindowsFormsApp1
             series2.MarkerSize = 8;
             series2.MarkerColor = Color.Blue;
 
+            series1.Points.Add();
+            series1.Points[0].IsEmpty = true;
+            flag = true;
             this.chart.Legends.Clear();
         }
 
@@ -158,10 +173,7 @@ namespace WindowsFormsApp1
         //用来设置切换视图时的视角
         private void chart_SelectionRangeChanged(object sender, CursorEventArgs e)
         {
-            //无数据时返回
-            if (chart.Series[0].Points.Count == 0)
-                return;
-
+           
             double start_position = 0.0;
             double end_position = 0.0;
             double myInterval = 0.0;
@@ -191,21 +203,21 @@ namespace WindowsFormsApp1
         private void t_Tick(object sender, EventArgs e)         //timer事件
         {
             if (flag)
-                return;
-            else
             {
-                range = r.Next(140, 200);    //随机取数 
-                range1 = r1.Next(80, 120);
-                series1.Points.AddXY(sum, range);   //设置series点    
-                series2.Points.AddXY(sum, range1);
-                sum++;
-                chart.ChartAreas[0].AxisX.Interval = 1D;
-                chart.ChartAreas[0].AxisX.ScaleView.Size = 10D;
-                if (sum <= chart.ChartAreas[0].AxisX.ScaleView.Size)
-                    chart.ChartAreas[0].AxisX.ScaleView.Position = 1;
-                else
-                    chart.ChartAreas[0].AxisX.ScaleView.Position = sum - chart.ChartAreas[0].AxisX.ScaleView.Size;
+                flag = false;
+                chart.Series[0].Points.Clear();
             }
+            range = r.Next(140, 200);    //随机取数 
+            range1 = r1.Next(80, 120);
+            series1.Points.AddXY(sum, range);   //设置series点    
+            series2.Points.AddXY(sum, range1);
+            this.medicineList.Columns.Add("t" + sum);
+            this.medicineList.View = View.Details;
+            sum++;
+            if (sum <= chart.ChartAreas[0].AxisX.ScaleView.Size)
+                chart.ChartAreas[0].AxisX.ScaleView.Position = 1;
+            else
+                chart.ChartAreas[0].AxisX.ScaleView.Position = sum - chart.ChartAreas[0].AxisX.ScaleView.Size;
         }
 
         private void button_Stop_Click(object sender, EventArgs e)  //切换停止开始按钮
@@ -227,11 +239,35 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void mainView_SizeChanged(object sender, EventArgs e)
+        {
+            if(chart.ChartAreas.Count != 0)
+            {
+                chart.ChartAreas[0].AxisX.Interval = 1D;
+                double x = this.Size.Width - this.MinimumSize.Width;
+                double l = this.MaximumSize.Width - this.MinimumSize.Width;
+                chart.ChartAreas[0].AxisX.ScaleView.Size = (int)(x / l * 20) + 30;
+            
+                if(this.Size.Height == this.MaximumSize.Height)
+                    chart.ChartAreas[0].AxisY.Interval = 10;
+                else
+                    chart.ChartAreas[0].AxisY.Interval = 20;
+
+            }
+        }
+
+        private void patientDetail_Click(object sender, EventArgs e)
         {
 
         }
+
         
+        
+        private void keyTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
     
 }
