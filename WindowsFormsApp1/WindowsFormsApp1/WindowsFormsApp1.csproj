@@ -51,6 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dzmdDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dzmdDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +96,13 @@
     <Compile Include="patientData.Designer.cs">
       <DependentUpon>patientData.cs</DependentUpon>
     </Compile>
+    <Compile Include="patientDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="patientDetail.Designer.cs">
+      <DependentUpon>patientDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\PatientBasicRepository.cs" />
     <Compile Include="Repository\MedicineDataRepository.cs" />
     <Compile Include="SQLConecter\sqlBase.cs" />
     <Compile Include="Model\User.cs" />
@@ -120,6 +132,9 @@
     <EmbeddedResource Include="patientData.resx">
       <DependentUpon>patientData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="patientDetail.resx">
+      <DependentUpon>patientDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -132,6 +147,17 @@
     <EmbeddedResource Include="timeRecord.resx">
       <DependentUpon>timeRecord.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dzmdDataSet.xsc">
+      <DependentUpon>dzmdDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dzmdDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dzmdDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dzmdDataSet.xss">
+      <DependentUpon>dzmdDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

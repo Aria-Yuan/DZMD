@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dzmdDataSet" targetNamespace="http://tempuri.org/dzmdDataSet.xsd" xmlns:mstns="http://tempuri.org/dzmdDataSet.xsd" xmlns="http://tempuri.org/dzmdDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="patientName" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="patientName (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WindowsFormsApp1.Properties.Settings.GlobalReference.Default.patientName" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="anesthesiadataTableAdapter" GeneratorDataComponentClassName="anesthesiadataTableAdapter" Name="anesthesiadata" UserDataComponentName="anesthesiadataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="patientName (Settings)" DbObjectName="dzmd.anesthesiadata" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `AnesthesiaID`, `ChartNo`, `OperationDate`, `SugeryDiagnosis`, `SugeryName`, `Surgeon`, `OperatingRoom`, `Emergencyoperation`, `Thepreparingofsurgery`, `Thebeginningofsurgery`, `ExcisionTime`, `Theendofsurgery`, `IntotheOperatingRoom`, `SubmitOperatingRoom`, `Anesthesiapretime`, `Anesthesiaindstarttime`, `Anesthesiaindendtime`, `Anesthesiaendtime`, `Anesthesialine`, `Anesthesiadoctor`, `Anesthesianurse`, `AnesthesiaRISKLEVEL`, `TestValueBefore`, `SBPBefore`, `DBPBefore`, `MAPBefore`, `BOLDBefore`, `PluseBefore`, `ConsciousnessBefore`, `SBPAfter`, `DBPAfter`, `MAPAfter`, `BOLDAfter`, `PluseAfter`, `ConsciousnessAfter` FROM `anesthesiadata`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="anesthesiamedicinerecordTableAdapter" GeneratorDataComponentClassName="anesthesiamedicinerecordTableAdapter" Name="anesthesiamedicinerecord" UserDataComponentName="anesthesiamedicinerecordTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="patientName (Settings)" DbObjectName="dzmd.anesthesiamedicinerecord" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `AnesthesiaID`, `MedicineID`, `AnesthesiaType`, `Time`, `ActualAmount` FROM `anesthesiamedicinerecord`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="medicinedataTableAdapter" GeneratorDataComponentClassName="medicinedataTableAdapter" Name="medicinedata" UserDataComponentName="medicinedataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="patientName (Settings)" DbObjectName="dzmd.medicinedata" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `MedicineID`, `MedicineName`, `Unit` FROM `medicinedata`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="patientbasicdataTableAdapter" GeneratorDataComponentClassName="patientbasicdataTableAdapter" Name="patientbasicdata" UserDataComponentName="patientbasicdataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="patientName (Settings)" DbObjectName="dzmd.patientbasicdata" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `ChartNo`, `PersonalIDNumber`, `Name`, `BodyHeight`, `BodyWeight`, `BloodType`, `BirthDate`, `MedicalHistory` FROM `patientbasicdata`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vitalrecordTableAdapter" GeneratorDataComponentClassName="vitalrecordTableAdapter" Name="vitalrecord" UserDataComponentName="vitalrecordTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="patientName (Settings)" DbObjectName="dzmd.vitalrecord" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `AnesthesiaID`, `VitalSigns`, `VitalTime`, `VitalDetail` FROM `vitalrecord`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dzmdDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dzmdDataSet" msprop:Generator_UserDSName="dzmdDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="anesthesiadata" msprop:Generator_TableClassName="anesthesiadataDataTable" msprop:Generator_TableVarName="tableanesthesiadata" msprop:Generator_TablePropName="anesthesiadata" msprop:Generator_RowDeletingName="anesthesiadataRowDeleting" msprop:Generator_RowChangingName="anesthesiadataRowChanging" msprop:Generator_RowEvHandlerName="anesthesiadataRowChangeEventHandler" msprop:Generator_RowDeletedName="anesthesiadataRowDeleted" msprop:Generator_UserTableName="anesthesiadata" msprop:Generator_RowChangedName="anesthesiadataRowChanged" msprop:Generator_RowEvArgName="anesthesiadataRowChangeEvent" msprop:Generator_RowClassName="anesthesiadataRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="anesthesiamedicinerecord" msprop:Generator_TableClassName="anesthesiamedicinerecordDataTable" msprop:Generator_TableVarName="tableanesthesiamedicinerecord" msprop:Generator_TablePropName="anesthesiamedicinerecord" msprop:Generator_RowDeletingName="anesthesiamedicinerecordRowDeleting" msprop:Generator_RowChangingName="anesthesiamedicinerecordRowChanging" msprop:Generator_RowEvHandlerName="anesthesiamedicinerecordRowChangeEventHandler" msprop:Generator_RowDeletedName="anesthesiamedicinerecordRowDeleted" msprop:Generator_UserTableName="anesthesiamedicinerecord" msprop:Generator_RowChangedName="anesthesiamedicinerecordRowChanged" msprop:Generator_RowEvArgName="anesthesiamedicinerecordRowChangeEvent" msprop:Generator_RowClassName="anesthesiamedicinerecordRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="medicinedata" msprop:Generator_TableClassName="medicinedataDataTable" msprop:Generator_TableVarName="tablemedicinedata" msprop:Generator_TablePropName="medicinedata" msprop:Generator_RowDeletingName="medicinedataRowDeleting" msprop:Generator_RowChangingName="medicinedataRowChanging" msprop:Generator_RowEvHandlerName="medicinedataRowChangeEventHandler" msprop:Generator_RowDeletedName="medicinedataRowDeleted" msprop:Generator_UserTableName="medicinedata" msprop:Generator_RowChangedName="medicinedataRowChanged" msprop:Generator_RowEvArgName="medicinedataRowChangeEvent" msprop:Generator_RowClassName="medicinedataRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="patientbasicdata" msprop:Generator_TableClassName="patientbasicdataDataTable" msprop:Generator_TableVarName="tablepatientbasicdata" msprop:Generator_TablePropName="patientbasicdata" msprop:Generator_RowDeletingName="patientbasicdataRowDeleting" msprop:Generator_RowChangingName="patientbasicdataRowChanging" msprop:Generator_RowEvHandlerName="patientbasicdataRowChangeEventHandler" msprop:Generator_RowDeletedName="patientbasicdataRowDeleted" msprop:Generator_UserTableName="patientbasicdata" msprop:Generator_RowChangedName="patientbasicdataRowChanged" msprop:Generator_RowEvArgName="patientbasicdataRowChangeEvent" msprop:Generator_RowClassName="patientbasicdataRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vitalrecord" msprop:Generator_TableClassName="vitalrecordDataTable" msprop:Generator_TableVarName="tablevitalrecord" msprop:Generator_TablePropName="vitalrecord" msprop:Generator_RowDeletingName="vitalrecordRowDeleting" msprop:Generator_RowChangingName="vitalrecordRowChanging" msprop:Generator_RowEvHandlerName="vitalrecordRowChangeEventHandler" msprop:Generator_RowDeletedName="vitalrecordRowDeleted" msprop:Generator_UserTableName="vitalrecord" msprop:Generator_RowChangedName="vitalrecordRowChanged" msprop:Generator_RowEvArgName="vitalrecordRowChangeEvent" msprop:Generator_RowClassName="vitalrecordRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

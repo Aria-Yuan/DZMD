@@ -256,6 +256,12 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form f = new patientData();
+            f.Show();
+        }
+
         private void patientDetail_Click(object sender, EventArgs e)
         {
 

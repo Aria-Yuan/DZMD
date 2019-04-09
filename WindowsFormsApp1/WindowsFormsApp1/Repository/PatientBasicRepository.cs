@@ -34,7 +34,7 @@ namespace WindowsFormsApp1.Repository
                 pb.Weight = float.Parse(sdr[4].ToString());
                 pb.BloodType = sdr[5].ToString();
                 pb.BirthDate = (DateTime)sdr[6];
-
+                list.Add(pb);
             }
 
             return list;
@@ -44,13 +44,13 @@ namespace WindowsFormsApp1.Repository
         {
             List<PatientBasic> list = new List<PatientBasic>();
 
-            string cmd = "select name from patientbasicdata";
+            string cmd = "select name from dzmd.patientbasicdata";
             MySqlDataReader sdr = mycom.executeSQLR(cmd);
             while (sdr.Read())
             {
                 PatientBasic pb = new PatientBasic();
                 pb.Name = sdr[0].ToString();
-
+                list.Add(pb);
             }
 
             return list;
