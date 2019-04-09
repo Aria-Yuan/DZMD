@@ -28,33 +28,19 @@ namespace WindowsFormsApp1
             CreateChart();
             CreateMedicineChart();
             createSeries();
-            t.Start();
             medicineLst_init();
+            t.Start();
             this.MaximumSize = new Size(this.Width,this.Height);
         }
 
         private void CreateChart()
         {
             ChartArea chartArea = new ChartArea();
-            chartArea.Name = "FirstArea";
+            chartArea.Name = "vitalSignsArea";
 
-            /*
-            chartArea.CursorX.IsUserEnabled = true;
-            chartArea.CursorX.IsUserSelectionEnabled = true;
-            chartArea.CursorX.SelectionColor = Color.SkyBlue;
-            chartArea.CursorY.IsUserEnabled = true;
-            chartArea.CursorY.AutoScroll = true;
-            chartArea.CursorY.IsUserSelectionEnabled = true;
-            chartArea.CursorY.SelectionColor = Color.SkyBlue;
-
-            chartArea.CursorX.IntervalType = DateTimeIntervalType.Auto;
-            chartArea.AxisX.ScaleView.Zoomable = false;
-            */
             chartArea.AxisX.ScrollBar.ButtonStyle = ScrollBarButtonStyles.All;//启用X轴滚动条按钮
 
             chartArea.BackColor = Color.Snow;                      //背景色
-            //chartArea.BackSecondaryColor = Color.White;                 //渐变背景色
-            //chartArea.BackGradientStyle = GradientStyle.TopBottom;      //渐变方式
             chartArea.BackHatchStyle = ChartHatchStyle.None;            //背景阴影
             chartArea.BorderDashStyle = ChartDashStyle.NotSet;          //边框线样式
             chartArea.BorderWidth = 1;                                  //边框宽度
@@ -92,18 +78,12 @@ namespace WindowsFormsApp1
             chartArea.AxisX.ScaleView.MinSizeType = DateTimeIntervalType.Months;
             chartArea.AxisX.Crossing = 0;
             chartArea.AxisX.LabelStyle.Enabled = false;
-
-            /*
-            chartArea.Position.Height = 95;
-            chartArea.Position.Width = 98;
-            chartArea.Position.X = 1;
-            chartArea.Position.Y = 1;
-            */
+            
             chartArea.Position = new ElementPosition(7, 2, 92, 97);
 
             chart.ChartAreas.Add(chartArea);
             chart.BackGradientStyle = GradientStyle.TopBottom;
-            //图表的边框颜色、
+            //图表的边框颜色
             chart.BorderlineColor = Color.DarkGray;
             //图表的边框线条样式
             chart.BorderlineDashStyle = ChartDashStyle.DashDot;
@@ -120,23 +100,10 @@ namespace WindowsFormsApp1
         {
             ChartArea chartArea = new ChartArea();
             chartArea.Name = "MedicineArea";
-            /*
-            chartArea.CursorX.IsUserEnabled = true;
-            chartArea.CursorX.IsUserSelectionEnabled = true;
-            chartArea.CursorX.SelectionColor = Color.SkyBlue;
-            chartArea.CursorY.IsUserEnabled = true;
-            chartArea.CursorY.AutoScroll = true;
-            chartArea.CursorY.IsUserSelectionEnabled = true;
-            chartArea.CursorY.SelectionColor = Color.SkyBlue;
 
-            chartArea.CursorX.IntervalType = DateTimeIntervalType.Auto;
-            chartArea.AxisX.ScaleView.Zoomable = false;
-            */
             chartArea.AxisX.ScrollBar.ButtonStyle = ScrollBarButtonStyles.All;//启用X轴滚动条按钮
 
             chartArea.BackColor = Color.Snow;                      //背景色
-            //chartArea.BackSecondaryColor = Color.White;                 //渐变背景色
-            //chartArea.BackGradientStyle = GradientStyle.TopBottom;      //渐变方式
             chartArea.BackHatchStyle = ChartHatchStyle.None;            //背景阴影
             chartArea.BorderDashStyle = ChartDashStyle.NotSet;          //边框线样式
             chartArea.BorderWidth = 1;                                  //边框宽度
@@ -158,7 +125,7 @@ namespace WindowsFormsApp1
             chartArea.AxisY.Enabled = AxisEnabled.True;
             chartArea.AxisY.IsLabelAutoFit = false;
 
-            //chartArea.AxisX.IsLabelAutoFit = true;
+            chartArea.AxisX.IsLabelAutoFit = true;
             chartArea.AxisX.LabelAutoFitMinFontSize = 5;
             chartArea.AxisX.LabelStyle.Angle = -15;
 
@@ -175,14 +142,8 @@ namespace WindowsFormsApp1
             chartArea.AxisX.ScaleView.MinSizeType = DateTimeIntervalType.Months;
             chartArea.AxisX.Crossing = 0;
             chartArea.AxisX.LabelStyle.Enabled = false;
-
-            /*
-            chartArea.Position.Height = 95;
-            chartArea.Position.Width = 98;
-            chartArea.Position.X = 1;
-            chartArea.Position.Y = 1;
-            */
-            chartArea.Position = new ElementPosition(0, 1, 99, 97);
+            
+            chartArea.Position = new ElementPosition(0, 0, 99, 97);
 
             medicineChart.ChartAreas.Add(chartArea);
             medicineChart.BackGradientStyle = GradientStyle.TopBottom;
@@ -223,13 +184,13 @@ namespace WindowsFormsApp1
         {
             //收缩压
             series1 = new Series();
-            series1.ChartArea = "FirstArea";
+            series1.ChartArea = "vitalSignsArea";
             chart.Series.Add(series1);
 
             //Series style
             series1.ToolTip = "#VALX,#VALY";    //鼠标停留在数据点上，显示XY值
 
-            series1.Name = "series1";
+            series1.Name = "SystolicBP";
             series1.ChartType = SeriesChartType.Spline;  // type
             series1.BorderWidth = 0;
             series1.Color = Color.Red;
@@ -244,13 +205,13 @@ namespace WindowsFormsApp1
 
             //舒张压
             series2 = new Series();
-            series2.ChartArea = "FirstArea";
+            series2.ChartArea = "vitalSignsArea";
             chart.Series.Add(series2);
 
             //Series style
             series2.ToolTip = "#VALX,#VALY";    //鼠标停留在数据点上，显示XY值
 
-            series2.Name = "series2";
+            series2.Name = "DiastolicBP";
             series2.ChartType = SeriesChartType.Spline;  // type
             series2.BorderWidth = 0;
             series2.Color = Color.Blue;
@@ -266,13 +227,13 @@ namespace WindowsFormsApp1
 
             //心跳
             series3 = new Series();
-            series3.ChartArea = "FirstArea";
+            series3.ChartArea = "vitalSignsArea";
             chart.Series.Add(series3);
 
             //Series style
             series3.ToolTip = "#VALX,#VALY";    //鼠标停留在数据点上，显示XY值
 
-            series3.Name = "series3";
+            series3.Name = "Heartbeat";
             series3.ChartType = SeriesChartType.Line;  // type
             series3.BorderWidth = 1;
             series3.Color = Color.DeepPink;
@@ -311,14 +272,14 @@ namespace WindowsFormsApp1
             series2.Points.AddXY(sum, range1);
             series3.Points.AddXY(sum, range2);
             sum++;
-            if (sum <= chart.ChartAreas[0].AxisX.ScaleView.Size)
+            if (sum < chart.ChartAreas[0].AxisX.ScaleView.Size)
                 chart.ChartAreas[0].AxisX.ScaleView.Position = 0;
             else if(!stop_flag)
-                chart.ChartAreas[0].AxisX.ScaleView.Position = sum - chart.ChartAreas[0].AxisX.ScaleView.Size + 1;
+                chart.ChartAreas[0].AxisX.ScaleView.Position = sum - chart.ChartAreas[0].AxisX.ScaleView.Size;
         }
 
         
-
+        //随窗口大小变动事件
         private void mainView_SizeChanged(object sender, EventArgs e)
         {
             if (chart.ChartAreas.Count != 0)
@@ -345,6 +306,7 @@ namespace WindowsFormsApp1
            
         }
 
+        //调整生命体征图形大小
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             double x = this.Size.Width - this.MinimumSize.Width;

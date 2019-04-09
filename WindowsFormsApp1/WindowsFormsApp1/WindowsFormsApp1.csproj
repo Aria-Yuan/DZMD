@@ -68,11 +68,11 @@
     <Compile Include="MainHome.Designer.cs">
       <DependentUpon>MainHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="mainView.cs">
+    <Compile Include="MainView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mainView.Designer.cs">
-      <DependentUpon>mainView.cs</DependentUpon>
+    <Compile Include="MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
     <Compile Include="MedicineDataAdd.cs">
       <SubType>Form</SubType>
@@ -120,8 +120,8 @@
     <EmbeddedResource Include="MainHome.resx">
       <DependentUpon>MainHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="mainView.resx">
-      <DependentUpon>mainView.cs</DependentUpon>
+    <EmbeddedResource Include="MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MedicineDataAdd.resx">
       <DependentUpon>MedicineDataAdd.cs</DependentUpon>
