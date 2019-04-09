@@ -45,7 +45,7 @@ namespace WindowsFormsApp1
 
         private void confirm_Click(object sender, EventArgs e)
         {
-            new mainView().Show();
+            new MainView().Show();
             this.Close();
         }
     }
