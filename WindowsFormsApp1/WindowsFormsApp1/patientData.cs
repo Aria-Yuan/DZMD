@@ -42,6 +42,7 @@ namespace WindowsFormsApp1
             patientDetail detail = new patientDetail();
             detail.Owner = this;
             detail.Show();
+            patientBasicRepository.close();
         }
 
         private void patientName_SelectedIndexChanged(object sender, EventArgs e)

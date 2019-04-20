@@ -35,19 +35,21 @@
             // 
             // patientName
             // 
+            this.patientName.Font = new System.Drawing.Font("Microsoft JhengHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patientName.FormattingEnabled = true;
-            this.patientName.Location = new System.Drawing.Point(107, 100);
+            this.patientName.ItemHeight = 26;
+            this.patientName.Location = new System.Drawing.Point(860, 240);
             this.patientName.Name = "patientName";
-            this.patientName.Size = new System.Drawing.Size(120, 186);
+            this.patientName.Size = new System.Drawing.Size(200, 576);
             this.patientName.TabIndex = 0;
             this.patientName.SelectedIndexChanged += new System.EventHandler(this.patientName_SelectedIndexChanged);
             // 
             // goPatientDetail
             // 
-            this.goPatientDetail.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goPatientDetail.Location = new System.Drawing.Point(107, 311);
+            this.goPatientDetail.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.goPatientDetail.Location = new System.Drawing.Point(860, 880);
             this.goPatientDetail.Name = "goPatientDetail";
-            this.goPatientDetail.Size = new System.Drawing.Size(120, 30);
+            this.goPatientDetail.Size = new System.Drawing.Size(200, 60);
             this.goPatientDetail.TabIndex = 1;
             this.goPatientDetail.Text = "病人詳細資訊";
             this.goPatientDetail.UseVisualStyleBackColor = true;
@@ -56,10 +58,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(104, 41);
+            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(850, 150);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 34);
+            this.label1.Size = new System.Drawing.Size(219, 61);
             this.label1.TabIndex = 2;
             this.label1.Text = "選擇病人";
             // 
@@ -67,13 +69,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 381);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.goPatientDetail);
             this.Controls.Add(this.patientName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "patientData";
             this.Text = "patientData";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 
