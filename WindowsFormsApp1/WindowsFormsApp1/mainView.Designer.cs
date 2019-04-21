@@ -30,14 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.medicineData = new System.Windows.Forms.ListView();
             this.medicineLst = new System.Windows.Forms.ListView();
-            this.medicineChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
@@ -64,9 +62,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
-            this.panel1.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.medicineChart)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -89,7 +85,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.28205F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 780F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1134, 619);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1900, 1031);
             this.tableLayoutPanel3.TabIndex = 18;
             // 
             // tableLayoutPanel4
@@ -97,14 +93,14 @@
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.chart, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.panel1, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel6, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(353, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.63158F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.36842F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(778, 613);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1544, 1025);
             this.tableLayoutPanel4.TabIndex = 22;
             // 
             // chart
@@ -113,62 +109,57 @@
             this.chart.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
             this.chart.Legends.Add(legend1);
-            this.chart.Location = new System.Drawing.Point(6, 3);
-            this.chart.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
+            this.chart.Location = new System.Drawing.Point(0, 0);
+            this.chart.Margin = new System.Windows.Forms.Padding(0);
             this.chart.Name = "chart";
-            this.chart.Size = new System.Drawing.Size(769, 316);
+            this.chart.Size = new System.Drawing.Size(1544, 539);
             this.chart.TabIndex = 19;
             this.chart.Text = "chart1";
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.tableLayoutPanel6);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 325);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(772, 285);
-            this.panel1.TabIndex = 20;
             // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel6.Controls.Add(this.medicineData, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.medicineLst, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.medicineChart, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 542);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(770, 283);
-            this.tableLayoutPanel6.TabIndex = 21;
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1538, 480);
+            this.tableLayoutPanel6.TabIndex = 20;
+            // 
+            // medicineData
+            // 
+            this.medicineData.Activation = System.Windows.Forms.ItemActivation.TwoClick;
+            this.medicineData.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
+            this.medicineData.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.medicineData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.medicineData.GridLines = true;
+            this.medicineData.HideSelection = false;
+            this.medicineData.Location = new System.Drawing.Point(153, 3);
+            this.medicineData.Margin = new System.Windows.Forms.Padding(0, 3, 15, 3);
+            this.medicineData.Name = "medicineData";
+            this.medicineData.Size = new System.Drawing.Size(1370, 474);
+            this.medicineData.TabIndex = 23;
+            this.medicineData.UseCompatibleStateImageBehavior = false;
+            this.medicineData.View = System.Windows.Forms.View.List;
             // 
             // medicineLst
             // 
-            this.medicineLst.BackColor = System.Drawing.SystemColors.Control;
-            this.medicineLst.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.medicineLst.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.medicineLst.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.medicineLst.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.medicineLst.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.medicineLst.Location = new System.Drawing.Point(3, 3);
-            this.medicineLst.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.medicineLst.FullRowSelect = true;
+            this.medicineLst.GridLines = true;
+            this.medicineLst.Location = new System.Drawing.Point(0, 3);
+            this.medicineLst.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.medicineLst.Name = "medicineLst";
-            this.medicineLst.Size = new System.Drawing.Size(155, 277);
+            this.medicineLst.Size = new System.Drawing.Size(153, 474);
             this.medicineLst.TabIndex = 0;
             this.medicineLst.UseCompatibleStateImageBehavior = false;
-            // 
-            // medicineChart
-            // 
-            this.medicineChart.BackColor = System.Drawing.SystemColors.Control;
-            this.medicineChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.medicineChart.Legends.Add(legend2);
-            this.medicineChart.Location = new System.Drawing.Point(161, 3);
-            this.medicineChart.Name = "medicineChart";
-            this.medicineChart.Size = new System.Drawing.Size(606, 277);
-            this.medicineChart.TabIndex = 1;
-            this.medicineChart.Text = "chart1";
             // 
             // tableLayoutPanel1
             // 
@@ -183,7 +174,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.63F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.37F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(344, 613);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(344, 1025);
             this.tableLayoutPanel1.TabIndex = 23;
             // 
             // tableLayoutPanel5
@@ -195,7 +186,7 @@
             this.tableLayoutPanel5.Controls.Add(this.button4, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.button2, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 325);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 542);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.Padding = new System.Windows.Forms.Padding(36, 0, 36, 0);
             this.tableLayoutPanel5.RowCount = 3;
@@ -270,7 +261,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 152F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 136F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(338, 316);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(338, 533);
             this.tableLayoutPanel2.TabIndex = 25;
             // 
             // panel2
@@ -445,11 +436,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 619);
+            this.ClientSize = new System.Drawing.Size(1900, 1031);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1152, 666);
+            this.MinimumSize = new System.Drawing.Size(1918, 1078);
             this.Name = "MainView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
@@ -459,9 +450,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.medicineChart)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -502,10 +491,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.ListView medicineData;
         private System.Windows.Forms.ListView medicineLst;
-        private System.Windows.Forms.DataVisualization.Charting.Chart medicineChart;
     }
 }
 
