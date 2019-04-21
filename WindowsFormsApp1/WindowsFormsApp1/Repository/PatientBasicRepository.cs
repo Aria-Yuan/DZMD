@@ -37,6 +37,7 @@ namespace WindowsFormsApp1.Repository
                 list.Add(pb);
             }
 
+            close();
             return list;
         }
 
@@ -54,6 +55,28 @@ namespace WindowsFormsApp1.Repository
             }
 
             return list;
+        }
+
+        public Boolean saveOnePatient(PatientBasic patient)
+        {
+
+            string cmd = "UPDATE patientbasicdata SET";
+            cmd += " Name='" + patient.Name + "'";
+            cmd += " ,BodyWeight=" + patient.Weight;
+            cmd += " ,BodyHeight=" + patient.Height;
+            cmd += " ,BloodType='" + patient.BloodType + "'";
+            cmd += " ,BirthDate='" + patient.BirthDate.ToString("yyyy-MM-dd HH:mm:ss") + "'";
+            cmd += " ,MedicalHistory='" + patient.Comment + "'";
+
+            cmd += " WHERE ChartNo='" + patient.CharNo + "'";
+            cmd += " and PersonalIDNumber='" + patient.PId + "'";
+
+            //Console.Write(cmd);
+            MySqlDataReader sdr = mycom.executeSQLR(cmd);
+
+            close();
+            return true;
+
         }
 
         public void close()
