@@ -215,8 +215,9 @@ namespace WindowsFormsApp1
         {
             foreach (ColumnHeader ch in medicineData.Columns)
             {
-                ch.Width = this.medicineData.Width / (int)(((x / l * 20) + 30 * (
-                                                                1 + trackBar1.Value / 20.0)) / 5);
+                if(ch.Index != 0)
+                    ch.Width = this.medicineData.Width / (int)(((x / l * 20) + 30 * (
+                                                                    1 + trackBar1.Value / 20.0)) / 5);
             }
 
             for (int i = 0; i < 1; i++)
