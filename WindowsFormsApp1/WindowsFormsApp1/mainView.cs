@@ -268,7 +268,19 @@ namespace WindowsFormsApp1
 
         }
 
-        
+        private void medicineRecord_Click(object sender, EventArgs e)
+        {
+            MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView();
+            medicineDataAddForm_InListView.Show();
+        }
+
+        private void timeRecord_Click(object sender, EventArgs e)
+        {
+            TimeRecordForm_inListChart timeRecordForm_InListChart = new TimeRecordForm_inListChart();
+            timeRecordForm_InListChart.Show();
+        }
+
+
         //随窗口大小变动事件
         private void mainView_SizeChanged(object sender, EventArgs e)
         {
@@ -320,5 +332,5 @@ namespace WindowsFormsApp1
         }
 
     }
-    
+
 }

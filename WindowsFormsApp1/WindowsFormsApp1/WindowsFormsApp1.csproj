@@ -56,12 +56,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dzmdDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,12 +74,6 @@
     <Compile Include="MedicineDataAdd.Designer.cs">
       <DependentUpon>MedicineDataAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="MedicineDataUpdate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MedicineDataUpdate.Designer.cs">
-      <DependentUpon>MedicineDataUpdate.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\AnesthesiaMedicineRecord.cs" />
     <Compile Include="Model\Medicinedata.cs" />
     <Compile Include="Model\PatientBasic.cs" />
@@ -102,6 +90,12 @@
     <Compile Include="patientDetail.Designer.cs">
       <DependentUpon>patientDetail.cs</DependentUpon>
     </Compile>
+	<Compile Include="MedicineDataUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicineDataUpdate.Designer.cs">
+      <DependentUpon>MedicineDataUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository\PatientBasicRepository.cs" />
     <Compile Include="Repository\MedicineDataRepository.cs" />
     <Compile Include="SQLConecter\sqlBase.cs" />
@@ -114,9 +108,18 @@
     <Compile Include="timeRecord.Designer.cs">
       <DependentUpon>timeRecord.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
+	<Compile Include="TimeRecordForm_inListChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimeRecordForm_inListChart.Designer.cs">
+      <DependentUpon>TimeRecordForm_inListChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicineDataAddForm_InListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicineDataAddForm_InListView.Designer.cs">
+      <DependentUpon>MedicineDataAddForm_InListView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainHome.resx">
       <DependentUpon>MainHome.cs</DependentUpon>
     </EmbeddedResource>
