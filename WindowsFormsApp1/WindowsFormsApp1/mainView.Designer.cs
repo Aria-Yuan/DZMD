@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -40,8 +40,8 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.timeRecord = new System.Windows.Forms.Button();
+            this.medicineRecord = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button_Stop = new System.Windows.Forms.Button();
@@ -107,8 +107,8 @@
             // 
             this.chart.BackColor = System.Drawing.SystemColors.Control;
             this.chart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.chart.Legends.Add(legend2);
             this.chart.Location = new System.Drawing.Point(0, 0);
             this.chart.Margin = new System.Windows.Forms.Padding(0);
             this.chart.Name = "chart";
@@ -183,8 +183,8 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Controls.Add(this.button5, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.button3, 0, 2);
-            this.tableLayoutPanel5.Controls.Add(this.button4, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.button2, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.timeRecord, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.medicineRecord, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 542);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -207,7 +207,7 @@
             this.button5.Padding = new System.Windows.Forms.Padding(6);
             this.button5.Size = new System.Drawing.Size(248, 53);
             this.button5.TabIndex = 5;
-            this.button5.Text = "時間記錄";
+            this.button5.Text = "不知道是啥";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -223,31 +223,33 @@
             this.button3.Text = "手術結束";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // timeRecord
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(45, 80);
-            this.button4.Margin = new System.Windows.Forms.Padding(9);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(6);
-            this.button4.Size = new System.Drawing.Size(248, 53);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.timeRecord.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeRecord.Location = new System.Drawing.Point(45, 80);
+            this.timeRecord.Margin = new System.Windows.Forms.Padding(9);
+            this.timeRecord.Name = "timeRecord";
+            this.timeRecord.Padding = new System.Windows.Forms.Padding(6);
+            this.timeRecord.Size = new System.Drawing.Size(248, 53);
+            this.timeRecord.TabIndex = 2;
+            this.timeRecord.Text = "事件記錄";
+            this.timeRecord.UseVisualStyleBackColor = true;
+            this.timeRecord.Click += new System.EventHandler(this.timeRecord_Click);
             // 
-            // button2
+            // medicineRecord
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(45, 9);
-            this.button2.Margin = new System.Windows.Forms.Padding(9);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(6);
-            this.button2.Size = new System.Drawing.Size(248, 53);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "藥物記錄";
-            this.button2.UseVisualStyleBackColor = true;
+            this.medicineRecord.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.medicineRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.medicineRecord.Location = new System.Drawing.Point(45, 9);
+            this.medicineRecord.Margin = new System.Windows.Forms.Padding(9);
+            this.medicineRecord.Name = "medicineRecord";
+            this.medicineRecord.Padding = new System.Windows.Forms.Padding(6);
+            this.medicineRecord.Size = new System.Drawing.Size(248, 53);
+            this.medicineRecord.TabIndex = 0;
+            this.medicineRecord.Text = "藥物記錄";
+            this.medicineRecord.UseVisualStyleBackColor = true;
+            this.medicineRecord.Click += new System.EventHandler(this.medicineRecord_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -489,8 +491,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button timeRecord;
+        private System.Windows.Forms.Button medicineRecord;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.ListView medicineData;
         private System.Windows.Forms.ListView medicineLst;
