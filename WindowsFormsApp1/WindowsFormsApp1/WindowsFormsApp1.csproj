@@ -74,6 +74,12 @@
     <Compile Include="MedicineDataAdd.Designer.cs">
       <DependentUpon>MedicineDataAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="MedicineDataAddML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicineDataAddML.Designer.cs">
+      <DependentUpon>MedicineDataAddML.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\AnesthesiaMedicineRecord.cs" />
     <Compile Include="Model\Medicinedata.cs" />
     <Compile Include="Model\PatientBasic.cs" />
@@ -90,7 +96,7 @@
     <Compile Include="patientDetail.Designer.cs">
       <DependentUpon>patientDetail.cs</DependentUpon>
     </Compile>
-	<Compile Include="MedicineDataUpdate.cs">
+    <Compile Include="MedicineDataUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MedicineDataUpdate.Designer.cs">
@@ -108,7 +114,7 @@
     <Compile Include="timeRecord.Designer.cs">
       <DependentUpon>timeRecord.cs</DependentUpon>
     </Compile>
-	<Compile Include="TimeRecordForm_inListChart.cs">
+    <Compile Include="TimeRecordForm_inListChart.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TimeRecordForm_inListChart.Designer.cs">
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MedicineDataAdd.resx">
       <DependentUpon>MedicineDataAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicineDataAddML.resx">
+      <DependentUpon>MedicineDataAddML.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MedicineDataUpdate.resx">
       <DependentUpon>MedicineDataUpdate.cs</DependentUpon>

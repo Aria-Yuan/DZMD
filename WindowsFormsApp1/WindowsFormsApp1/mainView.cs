@@ -137,6 +137,54 @@ namespace WindowsFormsApp1
             this.medicineData.HeaderStyle = ColumnHeaderStyle.None;
             this.medicineData.View = View.Details;
         }
+        public void createViewList_ButtonOnClick(String name)
+        {
+            //medicineList add one item
+            ListViewItem it = new ListViewItem();
+            it.Text = name;
+            it.SubItems.Add(name);
+            medicineLst.Items.Add(it);
+            //medicineData add ml
+            it = new ListViewItem();
+            int count = sum - 1;
+            for (int i = 0; i <= count; i++)
+            {
+                if (i == count)
+                    it.SubItems.Add("ml");
+                else
+                    it.SubItems.Add("-----");
+            }
+            medicineData.Items.Add(it);
+        }
+
+        static int list_view_select_index = 0;
+        private void medicineLst_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            list_view_select_index = medicineLst.FocusedItem.Index;
+            
+        }
+        public void update_Medicine_mark(String medicine_num)
+        {
+
+            int count = (sum - 1) - medicineData.Items[list_view_select_index].SubItems.Count;
+            for (int i = 0; i <= count; i++)
+            {
+                if (i == count)
+                    medicineData.Items[list_view_select_index].SubItems.Add(medicine_num + "ml");
+                else
+                    medicineData.Items[list_view_select_index].SubItems.Add("-----");
+            }
+
+
+;
+        }
+
+
+        private void medicineLst_ItemActivate(object sender, EventArgs e)
+        {
+            MedicineDataAddML medicineDataAddML = new MedicineDataAddML(this);
+            medicineDataAddML.Show();
+        }
 
         private void createSeries()
         {
@@ -249,12 +297,11 @@ namespace WindowsFormsApp1
             series2.Points.AddXY(sum, range1);
             series3.Points.AddXY(sum, range2);
             //判断timer动了几次
-            if (sum%5 == 1)
-            {
+            
                 this.medicineData.Columns.Add("");
                 drawMedicineData();
                 this.medicineData.View = View.Details;
-            }
+            
             sum++;
             if (sum <= chart.ChartAreas[0].AxisX.ScaleView.Size)
                 chart.ChartAreas[0].AxisX.ScaleView.Position = 0;
@@ -270,7 +317,7 @@ namespace WindowsFormsApp1
 
         private void medicineRecord_Click(object sender, EventArgs e)
         {
-            MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView();
+            MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(this);
             medicineDataAddForm_InListView.Show();
         }
 

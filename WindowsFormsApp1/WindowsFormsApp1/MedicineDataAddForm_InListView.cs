@@ -16,10 +16,17 @@ namespace WindowsFormsApp1
         private MedicineDataRepository medicineDataRepository = new MedicineDataRepository();
         private List<Medicinedata> medicineDataList;
         private static Medicinedata choseMedicineData;
-
+        private MainView mainView;
         public MedicineDataAddForm_InListView()
         {
             InitializeComponent();
+        }
+        public MedicineDataAddForm_InListView(MainView mainView)
+        {
+            this.mainView = mainView;
+            InitializeComponent();
+          
+        
         }
 
         private void MedicineDataAddForm_InListView_Load(object sender, EventArgs e)
@@ -39,6 +46,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.mainView.createViewList_ButtonOnClick(comboBox1.Text);
             this.Close();
         }
 
