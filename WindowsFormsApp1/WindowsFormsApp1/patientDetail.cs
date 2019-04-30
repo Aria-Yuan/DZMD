@@ -62,13 +62,16 @@ namespace WindowsFormsApp1
         private void setOriginData()
         {
             chartNo.Text = patient.CharNo;
-            name.Text = patient.Name;
+            //name.Text = patient.Name;
             patientId.Text = patient.PId;
             weight.Text = patient.Weight.ToString();
             height.Text = patient.Height.ToString();
-            blood.Text = patient.BloodType;
+            //blood.Text = patient.BloodType;
             history.Text = patient.Comment;
-            date.Value = patient.BirthDate;
+            //date.Value = patient.BirthDate;
+            date2.Text = patient.BirthDate.ToString();
+            blood2.Text = patient.BloodType.ToString();
+            name2.Text = patient.Name.ToString();
         }
 
         //保存,设定按钮
@@ -83,9 +86,10 @@ namespace WindowsFormsApp1
                 PId = patient.PId,
                 Weight = float.Parse(weight.Text),
                 Height = float.Parse(height.Text),
-                BirthDate = date.Value,
-                BloodType = blood.Text,
-                Name = name.Text
+                BirthDate = patient.BirthDate,
+                BloodType = bloodl.Text,
+                Name = namel.Text,
+                Comment = history.ToString()
             };
             //保存
             pbr.saveOnePatient(newData);
@@ -121,7 +125,9 @@ namespace WindowsFormsApp1
 
         }
 
-        //判断是否有修改病人的数据，如果有就重新设定按钮
+        /*判断是否有修改病人的数据，如果有就重新设定按钮
+        
+        /*
         private void name_TextChanged(object sender, EventArgs e)
         {
 
@@ -130,7 +136,9 @@ namespace WindowsFormsApp1
             setButtom();
 
         }
+        */
 
+        /*
         private void blood_TextChanged(object sender, EventArgs e)
         {
 
@@ -139,6 +147,7 @@ namespace WindowsFormsApp1
             setButtom();
 
         }
+        */
 
         private void height_TextChanged(object sender, EventArgs e)
         {
@@ -167,6 +176,7 @@ namespace WindowsFormsApp1
 
         }
 
+        /*
         private void date_ValueChanged(object sender, EventArgs e)
         {
 
@@ -175,14 +185,15 @@ namespace WindowsFormsApp1
             setButtom();
 
         }
+        */
 
         //身高体重只能输入小数（数字和小数点）以及删除，其他按键无效
         private void height_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != '.')
-            {
+            {
                 e.Handled = true;
-            }
+            }
         }
 
         private void weight_KeyPress(object sender, KeyPressEventArgs e)
