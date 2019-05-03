@@ -44,7 +44,7 @@ namespace WindowsFormsApp1
             ChartArea chartArea = new ChartArea();
             chartArea.Name = "vitalSignsArea";
 
-            chartArea.AxisX.ScrollBar.ButtonStyle = ScrollBarButtonStyles.All;//启用X轴滚动条按钮
+            chartArea.AxisX.ScrollBar.Enabled = false;//启用X轴滚动条按钮
 
             chartArea.BackColor = Color.Snow;                      //背景色
             chartArea.BackHatchStyle = ChartHatchStyle.None;            //背景阴影
@@ -85,7 +85,7 @@ namespace WindowsFormsApp1
             chartArea.AxisX.Crossing = 0;
             chartArea.AxisX.LabelStyle.Enabled = false;
             
-            chartArea.Position = new ElementPosition((float)5.9, 2, (float)93.04, 97);
+            chartArea.Position = new ElementPosition((float)5.95, 2, (float)93.06, 97);
 
             chart.ChartAreas.Add(chartArea);
             chart.BackGradientStyle = GradientStyle.None;
@@ -110,14 +110,22 @@ namespace WindowsFormsApp1
             // 设置行高
             ImageList imgList = new ImageList();
             // 分别是宽和高
-            imgList.ImageSize = new Size(1, 25);
+            imgList.ImageSize = new Size(1, 24);
             // 这里设置listView的SmallImageList ,用imgList将其撑大
-            medicineData.SmallImageList = imgList;
+            //medicineData.SmallImageList = imgList;
             medicineLst.SmallImageList = imgList;
 
             this.medicineLst.Columns.Add("", 0, HorizontalAlignment.Center);
             this.medicineLst.Columns.Add("",this.medicineLst.Width,HorizontalAlignment.Center);
             this.medicineLst.HeaderStyle = ColumnHeaderStyle.None;
+
+            String date_time = DateTime.Now.ToShortTimeString() + ""; 
+            String[] date_time2 = date_time.Split(' ');
+            this.medicineData.Columns.Add(date_time2[1], sum + "");
+            this.medicineData.ColumnHeadersVisible = false;
+            this.medicineData.RowHeadersVisible = false;
+            this.medicineData.RowTemplate.Resizable = DataGridViewTriState.False;
+
             //随机产生，测试资料
             for (int i = 0; i < 10; i++)
             {
@@ -125,17 +133,11 @@ namespace WindowsFormsApp1
                 it.Text = "藥物" + i;
                 it.SubItems.Add("藥物" + i);
                 medicineLst.Items.Add(it);
-                it = new ListViewItem();
-                it.Text = "";
-                medicineData.Items.Add(it);
+                DataGridViewRow row = new DataGridViewRow();
+                medicineData.Rows.Add("剂量" + sum);
             }
             this.medicineLst.View = View.Details;
 
-            String date_time = DateTime.Now.ToShortTimeString() + "";
-            String[] date_time2 = date_time.Split(' ');
-            this.medicineData.Columns.Add(date_time2[1],0);
-            this.medicineData.HeaderStyle = ColumnHeaderStyle.None;
-            this.medicineData.View = View.Details;
         }
         public void createViewList_ButtonOnClick(String name)
         {
@@ -154,7 +156,7 @@ namespace WindowsFormsApp1
                 else
                     it.SubItems.Add("-----");
             }
-            medicineData.Items.Add(it);
+            medicineData.Rows.Add(it);
         }
 
         static int list_view_select_index = 0;
@@ -163,6 +165,7 @@ namespace WindowsFormsApp1
             list_view_select_index = medicineLst.FocusedItem.Index;
             
         }
+        /*
         public void update_Medicine_mark(String medicine_num)
         {
 
@@ -177,13 +180,14 @@ namespace WindowsFormsApp1
 
 
 ;
-        }
+        }*/
 
 
         private void medicineLst_ItemActivate(object sender, EventArgs e)
         {
-            MedicineDataAddML medicineDataAddML = new MedicineDataAddML(this);
-            medicineDataAddML.Show();
+            //gai
+            MedicineRecordOperation medicineRecordOperation = new MedicineRecordOperation(this);
+            medicineRecordOperation.Show();
         }
 
         private void createSeries()
@@ -261,20 +265,19 @@ namespace WindowsFormsApp1
         //添加剂量
         private void drawMedicineData()
         {
-            foreach (ColumnHeader ch in medicineData.Columns)
-            {
-                if(ch.Index != 0)
-                    ch.Width = this.medicineData.Width / (int)(((x / l * 20) + 30 * (
-                                                                    1 + trackBar1.Value / 20.0)) / 5);
-            }
-
             for (int i = 0; i < 1; i++)
             {
-                ListViewItem lv = medicineData.Items[0];
-                lv.SubItems.Add("剂量" + i);
-                medicineData.Items.RemoveAt(i);
-                medicineData.Items.Insert(i,lv);
+                DataGridViewRow row = (DataGridViewRow)medicineData.Rows[0];
+                row.Cells[(sum - 1) / 5].Value = "剂量" + (sum - 1) / 5;
+                medicineData.Rows.RemoveAt(0);
+                medicineData.Rows.Insert(0, row);
             }
+            
+            medicineData.CurrentCell = medicineData.Rows[0].Cells[medicineData.Columns.Count - 1];
+
+            foreach (DataGridViewColumn gCol in medicineData.Columns)
+                gCol.Width = this.medicineData.Width / ((int)chart.ChartAreas[0].AxisX.ScaleView.Size / 5);
+
             
         }
 
@@ -296,23 +299,35 @@ namespace WindowsFormsApp1
             series1.Points.AddXY(sum, range);   //设置series点    
             series2.Points.AddXY(sum, range1);
             series3.Points.AddXY(sum, range2);
-            //判断timer动了几次
-            
-                this.medicineData.Columns.Add("");
-                drawMedicineData();
-                this.medicineData.View = View.Details;
-            
             sum++;
+            //判断timer动了几次
+            if((sum-1) % 5 == 0)
+            {
+                this.medicineData.Columns.Add("", (sum-1)/5 + "");
+                drawMedicineData();
+            }
+
             if (sum <= chart.ChartAreas[0].AxisX.ScaleView.Size)
                 chart.ChartAreas[0].AxisX.ScaleView.Position = 0;
             //记得优化多一格的问题
             else if (!stop_flag)
             {
+                Console.WriteLine(sum);
                 chart.ChartAreas[0].AxisX.ScaleView.Size = (int)(((x / l * 20) + 30 * (
-                                                                1 + trackBar1.Value / 20.0)) / 5) * 5 - 1;
-                chart.ChartAreas[0].AxisX.ScaleView.Position = sum - chart.ChartAreas[0].AxisX.ScaleView.Size;
+                                                                1 + trackBar1.Value / 20.0)) / 5) * 5;
+                if((sum)%5 != 0)
+                    chart.ChartAreas[0].AxisX.ScaleView.Position = sum - chart.ChartAreas[0].AxisX.ScaleView.Size + 5 - sum%5;
+                else
+                    chart.ChartAreas[0].AxisX.ScaleView.Position = sum - chart.ChartAreas[0].AxisX.ScaleView.Size;
             }
 
+        }
+
+        private void patientDetail_Click(object sender, EventArgs e)
+        {
+            PatientDetail detail = new PatientDetail();
+            detail.Owner = this;
+            detail.Show();
         }
 
         private void medicineRecord_Click(object sender, EventArgs e)

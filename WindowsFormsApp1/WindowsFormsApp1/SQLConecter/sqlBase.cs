@@ -17,7 +17,7 @@ namespace WindowsFormsApp1.Model
 
         public sqlBase()
         {
-            myconn = new MySqlConnection("Host=localhost;Database=DZMD;Username=root;Password=1234;Port=8080");
+            myconn = new MySqlConnection("Host=localhost;Database=DZMD;Username=root;Password=1234");
             myconn.Open();
         }
 

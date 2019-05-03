@@ -12,16 +12,16 @@ using WindowsFormsApp1.Repository;
 
 namespace WindowsFormsApp1
 {
-    public partial class patientDetail : Form
+    public partial class PatientDetail : Form
     {
 
         private PatientBasic patient, newData;
         private Boolean isChanged = false;
 
-        public patientDetail()
+        public PatientDetail()
         {
             InitializeComponent();
-            patient = patientData.ChosenPatient;
+            patient = PatientData.ChosenPatient;
             LoadData();
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class patientData
+    partial class PatientData
     {
         /// <summary>
         /// Required designer variable.
@@ -38,13 +38,13 @@
             // patientName
             // 
             this.patientName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.patientName.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientName.Font = new System.Drawing.Font("Microsoft JhengHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patientName.FormattingEnabled = true;
-            this.patientName.ItemHeight = 25;
+            this.patientName.ItemHeight = 29;
             this.patientName.Location = new System.Drawing.Point(185, 124);
             this.patientName.Margin = new System.Windows.Forms.Padding(4);
             this.patientName.Name = "patientName";
-            this.patientName.Size = new System.Drawing.Size(376, 479);
+            this.patientName.Size = new System.Drawing.Size(376, 468);
             this.patientName.TabIndex = 0;
             this.patientName.SelectedIndexChanged += new System.EventHandler(this.patientName_SelectedIndexChanged);
             // 
@@ -90,7 +90,7 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(747, 741);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // patientData
+            // PatientData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -99,7 +99,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "patientData";
+            this.Name = "PatientData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "patientData";
             this.tableLayoutPanel1.ResumeLayout(false);

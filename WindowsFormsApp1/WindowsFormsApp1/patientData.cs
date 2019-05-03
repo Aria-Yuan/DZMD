@@ -12,7 +12,7 @@ using WindowsFormsApp1.Repository;
 
 namespace WindowsFormsApp1
 {
-    public partial class patientData : Form
+    public partial class PatientData : Form
     {
 
         private PatientBasicRepository patientBasicRepository = new PatientBasicRepository();
@@ -21,7 +21,7 @@ namespace WindowsFormsApp1
 
         public static PatientBasic ChosenPatient { get => chosenPatient;}
 
-        public patientData()
+        public PatientData()
         {
             InitializeComponent();
             LoadData();
@@ -39,10 +39,10 @@ namespace WindowsFormsApp1
         private void goPatientDetail_Click(object sender, EventArgs e)
         {
             this.Hide();
-            patientDetail detail = new patientDetail();
+            PatientDetail detail = new PatientDetail();
             detail.Owner = this;
             detail.Show();
-            patientBasicRepository.close();
+            patientBasicRepository.close(); 
         }
 
         private void patientName_SelectedIndexChanged(object sender, EventArgs e)

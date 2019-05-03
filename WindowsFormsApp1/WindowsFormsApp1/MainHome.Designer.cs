@@ -34,7 +34,8 @@
             this.button4 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.listView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -95,13 +96,12 @@
             // 
             // listView1
             // 
-            this.listView1.FullRowSelect = true;
-            this.listView1.Location = new System.Drawing.Point(75, 104);
+            this.listView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listView1.Location = new System.Drawing.Point(45, 92);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(375, 291);
-            this.listView1.TabIndex = 6;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.RowTemplate.Height = 24;
+            this.listView1.Size = new System.Drawing.Size(390, 274);
+            this.listView1.TabIndex = 7;
             // 
             // MainHome
             // 
@@ -117,6 +117,7 @@
             this.Controls.Add(this.button1);
             this.Name = "MainHome";
             this.Text = "藥品信息";
+            ((System.ComponentModel.ISupportInitialize)(this.listView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,7 +131,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.DataGridView listView1;
     }
 }
 
