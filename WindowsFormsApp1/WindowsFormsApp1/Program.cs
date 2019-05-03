@@ -17,7 +17,7 @@ namespace WindowsFormsApp1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainView());
-            Application.Run(new patientData());
+            Application.Run(new PatientData());
         }
     }
 }

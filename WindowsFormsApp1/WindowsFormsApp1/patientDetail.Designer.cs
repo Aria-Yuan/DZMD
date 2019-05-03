@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class patientDetail
+    partial class PatientDetail
     {
         /// <summary>
         /// Required designer variable.

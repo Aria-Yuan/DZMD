@@ -31,8 +31,7 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
 
-            mainView.update_Medicine_mark(textBox1.Text);
-         
+            //mainView.update_Medicine_mark(textBox1.Text);
 
         }
     }

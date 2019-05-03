@@ -56,6 +56,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dzmdDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,21 +86,27 @@
     <Compile Include="MedicineDataAddML.Designer.cs">
       <DependentUpon>MedicineDataAddML.cs</DependentUpon>
     </Compile>
+    <Compile Include="MedicineRecordOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicineRecordOperation.Designer.cs">
+      <DependentUpon>MedicineRecordOperation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\AnesthesiaMedicineRecord.cs" />
     <Compile Include="Model\Medicinedata.cs" />
     <Compile Include="Model\PatientBasic.cs" />
     <Compile Include="Model\VitalRecord.cs" />
-    <Compile Include="patientData.cs">
+    <Compile Include="PatientData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="patientData.Designer.cs">
-      <DependentUpon>patientData.cs</DependentUpon>
+    <Compile Include="PatientData.Designer.cs">
+      <DependentUpon>PatientData.cs</DependentUpon>
     </Compile>
-    <Compile Include="patientDetail.cs">
+    <Compile Include="PatientDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="patientDetail.Designer.cs">
-      <DependentUpon>patientDetail.cs</DependentUpon>
+    <Compile Include="PatientDetail.Designer.cs">
+      <DependentUpon>PatientDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="MedicineDataUpdate.cs">
       <SubType>Form</SubType>
@@ -126,6 +138,9 @@
     <Compile Include="MedicineDataAddForm_InListView.Designer.cs">
       <DependentUpon>MedicineDataAddForm_InListView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainHome.resx">
       <DependentUpon>MainHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,17 +150,23 @@
     <EmbeddedResource Include="MedicineDataAdd.resx">
       <DependentUpon>MedicineDataAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MedicineDataAddForm_InListView.resx">
+      <DependentUpon>MedicineDataAddForm_InListView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MedicineDataAddML.resx">
       <DependentUpon>MedicineDataAddML.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MedicineDataUpdate.resx">
       <DependentUpon>MedicineDataUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="patientData.resx">
-      <DependentUpon>patientData.cs</DependentUpon>
+    <EmbeddedResource Include="MedicineRecordOperation.resx">
+      <DependentUpon>MedicineRecordOperation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="patientDetail.resx">
-      <DependentUpon>patientDetail.cs</DependentUpon>
+    <EmbeddedResource Include="PatientData.resx">
+      <DependentUpon>PatientData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientDetail.resx">
+      <DependentUpon>PatientDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -158,6 +179,9 @@
     </Compile>
     <EmbeddedResource Include="timeRecord.resx">
       <DependentUpon>timeRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeRecordForm_inListChart.resx">
+      <DependentUpon>TimeRecordForm_inListChart.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dzmdDataSet.xsc">
       <DependentUpon>dzmdDataSet.xsd</DependentUpon>
