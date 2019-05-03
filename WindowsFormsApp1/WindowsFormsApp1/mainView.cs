@@ -24,18 +24,29 @@ namespace WindowsFormsApp1
         private int sum = 1;
         private bool flag = false;
         private bool stop_flag = false;
+        private PatientBasic patient = patientData.ChosenPatient;
 
         private void mainView_Load(object sender, EventArgs e)
         {
             this.MaximumSize = new Size(this.Width, this.Height);
             x = this.Size.Width - this.MinimumSize.Width;
             l = this.MaximumSize.Width - this.MinimumSize.Width;
+            BasicData();
             CreateChart();
             //CreateMedicineChart();
             createSeries();
             createViewList();
             //medicineLst_init();
             t.Start();
+        }
+
+        private void BasicData()
+        {
+
+            birthdayd.Text = patient.BirthDate.ToString();
+            named.Text = patient.Name;
+            chartnd.Text = patient.CharNo;
+
         }
 
         //生命体征讯号

@@ -40,12 +40,9 @@
             this.birthdayl = new System.Windows.Forms.Label();
             this.revert = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
-            this.name = new System.Windows.Forms.TextBox();
-            this.blood = new System.Windows.Forms.TextBox();
             this.weight = new System.Windows.Forms.TextBox();
             this.height = new System.Windows.Forms.TextBox();
             this.history = new System.Windows.Forms.TextBox();
-            this.date = new System.Windows.Forms.DateTimePicker();
             this.chartNo = new System.Windows.Forms.Label();
             this.patientId = new System.Windows.Forms.Label();
             this.button = new System.Windows.Forms.FlowLayoutPanel();
@@ -54,10 +51,13 @@
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.name2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.blood2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
+            this.date2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button.SuspendLayout();
@@ -202,24 +202,6 @@
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.save_Click);
             // 
-            // name
-            // 
-            this.name.Font = new System.Drawing.Font("Microsoft JhengHei UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.name.Location = new System.Drawing.Point(126, 3);
-            this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(100, 34);
-            this.name.TabIndex = 22;
-            this.name.TextChanged += new System.EventHandler(this.name_TextChanged);
-            // 
-            // blood
-            // 
-            this.blood.Font = new System.Drawing.Font("Microsoft JhengHei UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.blood.Location = new System.Drawing.Point(126, 3);
-            this.blood.Name = "blood";
-            this.blood.Size = new System.Drawing.Size(100, 34);
-            this.blood.TabIndex = 23;
-            this.blood.TextChanged += new System.EventHandler(this.blood_TextChanged);
-            // 
             // weight
             // 
             this.weight.Font = new System.Drawing.Font("Microsoft JhengHei UI", 15.75F, System.Drawing.FontStyle.Bold);
@@ -244,19 +226,12 @@
             // 
             this.history.Font = new System.Drawing.Font("Microsoft JhengHei UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.history.Location = new System.Drawing.Point(3, 29);
+            this.history.Multiline = true;
             this.history.Name = "history";
-            this.history.Size = new System.Drawing.Size(640, 34);
+            this.history.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.history.Size = new System.Drawing.Size(640, 100);
             this.history.TabIndex = 27;
             this.history.TextChanged += new System.EventHandler(this.history_TextChanged);
-            // 
-            // date
-            // 
-            this.date.Font = new System.Drawing.Font("Microsoft JhengHei UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.date.Location = new System.Drawing.Point(3, 29);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(386, 34);
-            this.date.TabIndex = 28;
-            this.date.ValueChanged += new System.EventHandler(this.date_ValueChanged);
             // 
             // chartNo
             // 
@@ -280,13 +255,13 @@
             // 
             // button
             // 
-            this.button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button.Controls.Add(this.back);
             this.button.Controls.Add(this.revert);
             this.button.Controls.Add(this.save);
             this.button.Controls.Add(this.next);
-            this.button.Location = new System.Drawing.Point(0, 422);
+            this.button.Location = new System.Drawing.Point(0, 498);
             this.button.Margin = new System.Windows.Forms.Padding(0);
             this.button.Name = "button";
             this.button.Size = new System.Drawing.Size(658, 120);
@@ -304,7 +279,7 @@
             this.data.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.data.Location = new System.Drawing.Point(3, 3);
             this.data.Name = "data";
-            this.data.Size = new System.Drawing.Size(652, 416);
+            this.data.Size = new System.Drawing.Size(652, 492);
             this.data.TabIndex = 33;
             // 
             // flowLayoutPanel2
@@ -348,22 +323,42 @@
             this.flowLayoutPanel6.AutoSize = true;
             this.flowLayoutPanel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel6.Controls.Add(this.namel);
-            this.flowLayoutPanel6.Controls.Add(this.name);
+            this.flowLayoutPanel6.Controls.Add(this.name2);
             this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
             this.flowLayoutPanel6.Size = new System.Drawing.Size(229, 40);
             this.flowLayoutPanel6.TabIndex = 0;
+            // 
+            // name2
+            // 
+            this.name2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name2.Location = new System.Drawing.Point(126, 3);
+            this.name2.Margin = new System.Windows.Forms.Padding(3);
+            this.name2.Name = "name2";
+            this.name2.Size = new System.Drawing.Size(100, 34);
+            this.name2.TabIndex = 23;
+            this.name2.Text = "label1";
             // 
             // flowLayoutPanel7
             // 
             this.flowLayoutPanel7.AutoSize = true;
             this.flowLayoutPanel7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel7.Controls.Add(this.bloodl);
-            this.flowLayoutPanel7.Controls.Add(this.blood);
+            this.flowLayoutPanel7.Controls.Add(this.blood2);
             this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 49);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
             this.flowLayoutPanel7.Size = new System.Drawing.Size(229, 40);
             this.flowLayoutPanel7.TabIndex = 1;
+            // 
+            // blood2
+            // 
+            this.blood2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.blood2.Location = new System.Drawing.Point(126, 3);
+            this.blood2.Margin = new System.Windows.Forms.Padding(3);
+            this.blood2.Name = "blood2";
+            this.blood2.Size = new System.Drawing.Size(100, 34);
+            this.blood2.TabIndex = 24;
+            this.blood2.Text = "label2";
             // 
             // flowLayoutPanel8
             // 
@@ -392,12 +387,23 @@
             this.flowLayoutPanel10.AutoSize = true;
             this.flowLayoutPanel10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel10.Controls.Add(this.birthdayl);
-            this.flowLayoutPanel10.Controls.Add(this.date);
+            this.flowLayoutPanel10.Controls.Add(this.date2);
             this.flowLayoutPanel10.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 275);
             this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(392, 66);
+            this.flowLayoutPanel10.Size = new System.Drawing.Size(165, 76);
             this.flowLayoutPanel10.TabIndex = 3;
+            // 
+            // date2
+            // 
+            this.date2.AutoSize = true;
+            this.date2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date2.Location = new System.Drawing.Point(3, 36);
+            this.date2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.date2.Name = "date2";
+            this.date2.Size = new System.Drawing.Size(84, 30);
+            this.date2.TabIndex = 29;
+            this.date2.Text = "label3";
             // 
             // flowLayoutPanel11
             // 
@@ -406,9 +412,9 @@
             this.flowLayoutPanel11.Controls.Add(this.historyl);
             this.flowLayoutPanel11.Controls.Add(this.history);
             this.flowLayoutPanel11.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel11.Location = new System.Drawing.Point(3, 347);
+            this.flowLayoutPanel11.Location = new System.Drawing.Point(3, 357);
             this.flowLayoutPanel11.Name = "flowLayoutPanel11";
-            this.flowLayoutPanel11.Size = new System.Drawing.Size(646, 66);
+            this.flowLayoutPanel11.Size = new System.Drawing.Size(646, 132);
             this.flowLayoutPanel11.TabIndex = 4;
             // 
             // flowLayoutPanel1
@@ -421,7 +427,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(50, 50);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(50);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(658, 542);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(658, 618);
             this.flowLayoutPanel1.TabIndex = 34;
             // 
             // patientDetail
@@ -431,7 +437,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(766, 635);
+            this.ClientSize = new System.Drawing.Size(766, 683);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "patientDetail";
@@ -483,14 +489,9 @@
         private System.Windows.Forms.Button revert;
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.Button next;
-
-        private System.Windows.Forms.TextBox name;
-        private System.Windows.Forms.TextBox blood;
         private System.Windows.Forms.TextBox weight;
         private System.Windows.Forms.TextBox height;
         private System.Windows.Forms.TextBox history;
-
-        private System.Windows.Forms.DateTimePicker date;
         private System.Windows.Forms.FlowLayoutPanel button;
         private System.Windows.Forms.FlowLayoutPanel data;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
@@ -503,5 +504,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel10;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel11;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label name2;
+        private System.Windows.Forms.Label blood2;
+        private System.Windows.Forms.Label date2;
     }
 }
