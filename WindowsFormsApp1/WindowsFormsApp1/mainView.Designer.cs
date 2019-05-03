@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -46,12 +46,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.button_Stop = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.patientData = new System.Windows.Forms.Panel();
+            this.birthdayd = new System.Windows.Forms.Label();
+            this.named = new System.Windows.Forms.Label();
+            this.chartnd = new System.Windows.Forms.Label();
             this.patientDetail = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -69,7 +67,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            this.panel4.SuspendLayout();
+            this.patientData.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel3
@@ -108,8 +106,8 @@
             // 
             this.chart.BackColor = System.Drawing.SystemColors.Control;
             this.chart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Name = "Legend1";
-            this.chart.Legends.Add(legend3);
+            legend9.Name = "Legend1";
+            this.chart.Legends.Add(legend9);
             this.chart.Location = new System.Drawing.Point(0, 0);
             this.chart.Margin = new System.Windows.Forms.Padding(0);
             this.chart.Name = "chart";
@@ -260,7 +258,7 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.panel2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.patientData, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -308,74 +306,62 @@
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
-            // panel4
+            // patientData
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Control;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.textBox3);
-            this.panel4.Controls.Add(this.textBox7);
-            this.panel4.Controls.Add(this.textBox8);
-            this.panel4.Controls.Add(this.textBox9);
-            this.panel4.Controls.Add(this.textBox10);
-            this.panel4.Controls.Add(this.patientDetail);
-            this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.label8);
-            this.panel4.Controls.Add(this.label9);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(331, 146);
-            this.panel4.TabIndex = 14;
+            this.patientData.BackColor = System.Drawing.SystemColors.Control;
+            this.patientData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.patientData.Controls.Add(this.birthdayd);
+            this.patientData.Controls.Add(this.named);
+            this.patientData.Controls.Add(this.chartnd);
+            this.patientData.Controls.Add(this.patientDetail);
+            this.patientData.Controls.Add(this.label5);
+            this.patientData.Controls.Add(this.label6);
+            this.patientData.Controls.Add(this.label7);
+            this.patientData.Controls.Add(this.label8);
+            this.patientData.Controls.Add(this.label9);
+            this.patientData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.patientData.Location = new System.Drawing.Point(2, 2);
+            this.patientData.Margin = new System.Windows.Forms.Padding(2);
+            this.patientData.Name = "patientData";
+            this.patientData.Size = new System.Drawing.Size(333, 148);
+            this.patientData.TabIndex = 14;
             // 
-            // textBox3
+            // birthdayd
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.Location = new System.Drawing.Point(60, 64);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(109, 22);
-            this.textBox3.TabIndex = 11;
+            this.birthdayd.AutoSize = true;
+            this.birthdayd.Location = new System.Drawing.Point(65, 96);
+            this.birthdayd.Name = "birthdayd";
+            this.birthdayd.Size = new System.Drawing.Size(46, 17);
+            this.birthdayd.TabIndex = 8;
+            this.birthdayd.Text = "label3";
             // 
-            // textBox7
+            // named
             // 
-            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox7.Location = new System.Drawing.Point(60, 109);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(175, 22);
-            this.textBox7.TabIndex = 10;
+            this.named.AutoSize = true;
+            this.named.Location = new System.Drawing.Point(65, 58);
+            this.named.Name = "named";
+            this.named.Size = new System.Drawing.Size(46, 17);
+            this.named.TabIndex = 7;
+            this.named.Text = "label2";
             // 
-            // textBox8
+            // chartnd
             // 
-            this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox8.Location = new System.Drawing.Point(232, 17);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(84, 22);
-            this.textBox8.TabIndex = 9;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox9.Location = new System.Drawing.Point(232, 64);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(84, 22);
-            this.textBox9.TabIndex = 7;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox10.Location = new System.Drawing.Point(60, 17);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(109, 22);
-            this.textBox10.TabIndex = 6;
+            this.chartnd.AutoSize = true;
+            this.chartnd.Location = new System.Drawing.Point(65, 20);
+            this.chartnd.Name = "chartnd";
+            this.chartnd.Size = new System.Drawing.Size(46, 17);
+            this.chartnd.TabIndex = 6;
+            this.chartnd.Text = "label1";
             // 
             // patientDetail
             // 
-            this.patientDetail.Location = new System.Drawing.Point(309, 125);
+            this.patientDetail.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientDetail.Location = new System.Drawing.Point(279, 108);
+            this.patientDetail.Margin = new System.Windows.Forms.Padding(2);
             this.patientDetail.Name = "patientDetail";
-            this.patientDetail.Size = new System.Drawing.Size(15, 15);
+            this.patientDetail.Size = new System.Drawing.Size(38, 23);
             this.patientDetail.TabIndex = 5;
-            this.patientDetail.Text = "button10";
+            this.patientDetail.Text = "...";
             this.patientDetail.UseVisualStyleBackColor = true;
             this.patientDetail.Click += new System.EventHandler(this.patientDetail_Click);
             // 
@@ -384,55 +370,60 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(190, 66);
+            this.label5.Location = new System.Drawing.Point(191, 55);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 18);
+            this.label5.Size = new System.Drawing.Size(46, 18);
             this.label5.TabIndex = 4;
-            this.label5.Text = "床號";
+            this.label5.Text = "床號：";
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(190, 20);
+            this.label6.Location = new System.Drawing.Point(191, 17);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 18);
+            this.label6.Size = new System.Drawing.Size(46, 18);
             this.label6.TabIndex = 3;
-            this.label6.Text = "科別";
+            this.label6.Text = "科別：";
             // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(19, 112);
+            this.label7.Location = new System.Drawing.Point(21, 93);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 18);
+            this.label7.Size = new System.Drawing.Size(46, 18);
             this.label7.TabIndex = 2;
-            this.label7.Text = "生日";
+            this.label7.Text = "生日：";
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(19, 66);
+            this.label8.Location = new System.Drawing.Point(21, 56);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 18);
+            this.label8.Size = new System.Drawing.Size(46, 18);
             this.label8.TabIndex = 1;
-            this.label8.Text = "姓名";
+            this.label8.Text = "姓名：";
             // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(4, 20);
+            this.label9.Location = new System.Drawing.Point(6, 18);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 18);
+            this.label9.Size = new System.Drawing.Size(61, 18);
             this.label9.TabIndex = 0;
-            this.label9.Text = "病歷號";
+            this.label9.Text = "病歷號：";
             // 
             // t
             // 
@@ -465,8 +456,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.patientData.ResumeLayout(false);
+            this.patientData.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -482,12 +473,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button_Stop;
         private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Panel patientData;
         private System.Windows.Forms.Button patientDetail;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -502,6 +488,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.ListView medicineLst;
         private System.Windows.Forms.DataGridView medicineData;
+        private System.Windows.Forms.Label birthdayd;
+        private System.Windows.Forms.Label named;
+        private System.Windows.Forms.Label chartnd;
     }
 }
 

@@ -24,6 +24,7 @@ namespace WindowsFormsApp1
         private int sum = 1;
         private bool flag = false;
         private bool stop_flag = false;
+        private PatientBasic patient = PatientData.ChosenPatient;
 
         private void mainView_Load(object sender, EventArgs e)
         {
@@ -34,6 +35,7 @@ namespace WindowsFormsApp1
             //CreateMedicineChart();
             createSeries();
             createViewList();
+            BasicData();
             //medicineLst_init();
             t.Start();
         }
@@ -392,6 +394,17 @@ namespace WindowsFormsApp1
                 //t.Stop();
             }
         }
+
+        //病人资料
+        private void BasicData()
+        {
+
+            birthdayd.Text = patient.BirthDate.ToString();
+            named.Text = patient.Name;
+            chartnd.Text = patient.CharNo;
+
+        }
+
 
     }
 
