@@ -90,7 +90,8 @@
             // 
             this.chartNol.AutoSize = true;
             this.chartNol.Font = new System.Drawing.Font("Microsoft JhengHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chartNol.Location = new System.Drawing.Point(3, 0);
+            this.chartNol.Location = new System.Drawing.Point(3, 5);
+            this.chartNol.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.chartNol.Name = "chartNol";
             this.chartNol.Size = new System.Drawing.Size(123, 35);
             this.chartNol.TabIndex = 1;
@@ -100,7 +101,8 @@
             // 
             this.patientIdl.AutoSize = true;
             this.patientIdl.Font = new System.Drawing.Font("Microsoft JhengHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientIdl.Location = new System.Drawing.Point(3, 0);
+            this.patientIdl.Location = new System.Drawing.Point(3, 5);
+            this.patientIdl.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.patientIdl.Name = "patientIdl";
             this.patientIdl.Size = new System.Drawing.Size(231, 35);
             this.patientIdl.TabIndex = 2;
@@ -255,16 +257,16 @@
             // 
             // button
             // 
-            this.button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button.AutoSize = true;
             this.button.Controls.Add(this.back);
             this.button.Controls.Add(this.revert);
             this.button.Controls.Add(this.save);
             this.button.Controls.Add(this.next);
-            this.button.Location = new System.Drawing.Point(0, 498);
+            this.button.Location = new System.Drawing.Point(9, 518);
             this.button.Margin = new System.Windows.Forms.Padding(0);
             this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(658, 120);
+            this.button.Size = new System.Drawing.Size(640, 110);
             this.button.TabIndex = 31;
             // 
             // data
@@ -279,7 +281,7 @@
             this.data.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.data.Location = new System.Drawing.Point(3, 3);
             this.data.Name = "data";
-            this.data.Size = new System.Drawing.Size(652, 492);
+            this.data.Size = new System.Drawing.Size(652, 512);
             this.data.TabIndex = 33;
             // 
             // flowLayoutPanel2
@@ -290,7 +292,7 @@
             this.flowLayoutPanel2.Controls.Add(this.chartNo);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(227, 35);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(227, 45);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // flowLayoutPanel4
@@ -299,9 +301,9 @@
             this.flowLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel4.Controls.Add(this.patientIdl);
             this.flowLayoutPanel4.Controls.Add(this.patientId);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 44);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 54);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(335, 35);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(335, 45);
             this.flowLayoutPanel4.TabIndex = 1;
             // 
             // flowLayoutPanel5
@@ -313,7 +315,7 @@
             this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel8);
             this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel9);
             this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 85);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 105);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(235, 184);
             this.flowLayoutPanel5.TabIndex = 2;
@@ -389,7 +391,7 @@
             this.flowLayoutPanel10.Controls.Add(this.birthdayl);
             this.flowLayoutPanel10.Controls.Add(this.date2);
             this.flowLayoutPanel10.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 275);
+            this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 295);
             this.flowLayoutPanel10.Name = "flowLayoutPanel10";
             this.flowLayoutPanel10.Size = new System.Drawing.Size(165, 76);
             this.flowLayoutPanel10.TabIndex = 3;
@@ -412,7 +414,7 @@
             this.flowLayoutPanel11.Controls.Add(this.historyl);
             this.flowLayoutPanel11.Controls.Add(this.history);
             this.flowLayoutPanel11.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel11.Location = new System.Drawing.Point(3, 357);
+            this.flowLayoutPanel11.Location = new System.Drawing.Point(3, 377);
             this.flowLayoutPanel11.Name = "flowLayoutPanel11";
             this.flowLayoutPanel11.Size = new System.Drawing.Size(646, 132);
             this.flowLayoutPanel11.TabIndex = 4;
@@ -427,20 +429,20 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(50, 50);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(50);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(658, 618);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(658, 628);
             this.flowLayoutPanel1.TabIndex = 34;
             // 
-            // patientDetail
+            // PatientDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(766, 683);
+            this.ClientSize = new System.Drawing.Size(766, 716);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "patientDetail";
+            this.Name = "PatientDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "patientDetail";
             this.button.ResumeLayout(false);

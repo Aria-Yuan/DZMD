@@ -15,13 +15,12 @@ namespace WindowsFormsApp1
     public partial class PatientDetail : Form
     {
 
-        private PatientBasic patient, newData;
+        private PatientBasic newData;
         private Boolean isChanged = false;
 
         public PatientDetail()
         {
             InitializeComponent();
-            patient = PatientData.ChosenPatient;
             LoadData();
         }
 
@@ -45,7 +44,9 @@ namespace WindowsFormsApp1
         private void next_Click(object sender, EventArgs e)
         {
             new MainView().Show();
-            this.Close();
+            //this.Owner.Close();
+            //this.Close();
+            this.Hide();
         }
 
         //恢复为原始数据，设定按钮
@@ -61,17 +62,17 @@ namespace WindowsFormsApp1
         //revert和load：设为原始数据
         private void setOriginData()
         {
-            chartNo.Text = patient.CharNo;
+            chartNo.Text = StaticPatient.patient.CharNo;
             //name.Text = patient.Name;
-            patientId.Text = patient.PId;
-            weight.Text = patient.Weight.ToString();
-            height.Text = patient.Height.ToString();
+            patientId.Text = StaticPatient.patient.PId;
+            weight.Text = StaticPatient.patient.Weight.ToString();
+            height.Text = StaticPatient.patient.Height.ToString();
             //blood.Text = patient.BloodType;
-            history.Text = patient.Comment;
+            history.Text = StaticPatient.patient.Comment;
             //date.Value = patient.BirthDate;
-            date2.Text = patient.BirthDate.ToString();
-            blood2.Text = patient.BloodType.ToString();
-            name2.Text = patient.Name.ToString();
+            date2.Text = StaticPatient.patient.BirthDate.ToString();
+            blood2.Text = StaticPatient.patient.BloodType.ToString();
+            name2.Text = StaticPatient.patient.Name.ToString();
         }
 
         //保存,设定按钮
@@ -82,26 +83,28 @@ namespace WindowsFormsApp1
             //读取目前的信息
             newData = new PatientBasic
             {
-                CharNo = patient.CharNo,
-                PId = patient.PId,
+                CharNo = StaticPatient.patient.CharNo,
+                PId = StaticPatient.patient.PId,
                 Weight = float.Parse(weight.Text),
                 Height = float.Parse(height.Text),
-                BirthDate = patient.BirthDate,
-                BloodType = bloodl.Text,
-                Name = namel.Text,
-                Comment = history.ToString()
+                BirthDate = StaticPatient.patient.BirthDate,
+                BloodType = StaticPatient.patient.BloodType,
+                Name = StaticPatient.patient.Name,
+                Comment = history.Text.ToString()
             };
             //保存
             pbr.saveOnePatient(newData);
 
             //替换目前的内容为更新后的 重新加载
             isChanged = false;
-            patient.Weight = newData.Weight;
-            patient.Height = newData.Height;
-            patient.BirthDate = newData.BirthDate;
-            patient.BloodType = newData.BloodType;
-            patient.Name = newData.Name;
+            StaticPatient.patient.Weight = newData.Weight;
+            StaticPatient.patient.Height = newData.Height;
+            //StaticPatient.patient.BirthDate = newData.BirthDate;
+            //StaticPatient.patient.BloodType = newData.BloodType;
+            //StaticPatient.patient.Name = newData.Name;
+            StaticPatient.patient.Comment = newData.Comment;
             LoadData();
+            pbr.close();
 
         }
 
@@ -131,7 +134,7 @@ namespace WindowsFormsApp1
         private void name_TextChanged(object sender, EventArgs e)
         {
 
-            if (name.Text != patient.Name) isChanged = true;
+            if (name.Text != StaticPatient.patient.Name) isChanged = true;
 
             setButtom();
 
@@ -142,7 +145,7 @@ namespace WindowsFormsApp1
         private void blood_TextChanged(object sender, EventArgs e)
         {
 
-            if (blood.Text != patient.BloodType) isChanged = true;
+            if (blood.Text != StaticPatient.patient.BloodType) isChanged = true;
 
             setButtom();
 
@@ -152,7 +155,7 @@ namespace WindowsFormsApp1
         private void height_TextChanged(object sender, EventArgs e)
         {
 
-            if (height.Text != patient.Height.ToString()) isChanged = true;
+            if (height.Text != StaticPatient.patient.Height.ToString()) isChanged = true;
 
             setButtom();
 
@@ -161,7 +164,7 @@ namespace WindowsFormsApp1
         private void weight_TextChanged(object sender, EventArgs e)
         {
 
-            if (weight.Text != patient.Weight.ToString()) isChanged = true;
+            if (weight.Text != StaticPatient.patient.Weight.ToString()) isChanged = true;
 
             setButtom();
 
@@ -170,7 +173,7 @@ namespace WindowsFormsApp1
         private void history_TextChanged(object sender, EventArgs e)
         {
 
-            if (history.Text != patient.Comment) isChanged = true;
+            if (history.Text != StaticPatient.patient.Comment) isChanged = true;
 
             setButtom();
 
@@ -180,7 +183,7 @@ namespace WindowsFormsApp1
         private void date_ValueChanged(object sender, EventArgs e)
         {
 
-            if (date.Value != patient.BirthDate) isChanged = true;
+            if (date.Value != StaticPatient.patient.BirthDate) isChanged = true;
 
             setButtom();
 
@@ -195,7 +198,6 @@ namespace WindowsFormsApp1
                 e.Handled = true;
             }
         }
-
         private void weight_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != '.')
@@ -203,5 +205,13 @@ namespace WindowsFormsApp1
                 e.Handled = true;
             }
         }
+
+        //改变按钮
+        public void ChangeButton()
+        {
+            next.Hide();
+            back.Hide();
+        }
+
     }
 }
