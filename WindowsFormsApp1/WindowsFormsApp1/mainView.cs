@@ -104,43 +104,40 @@ namespace WindowsFormsApp1
         }
 
         //已加入的药物list
-        static List<Medicinedata> medicineList;
+        private static List<Medicinedata> medicineList = new List<Medicinedata>();
+
+        //添加药物
+        public void addMedicine(Medicinedata m)
+        {
+            medicineList.Insert(0,m);
+            this.medicineLst.Rows.Insert(0, medicineList[medicineList.Count - 1].MName);
+
+            DataGridViewRow row = (DataGridViewRow)medicineData.Rows[medicineList.Count-1].Clone();
+            row.Cells[(sum - 1) / 5].Value = "剂量" + sum;
+            this.medicineData.Rows.Insert(0, row);
+        }
 
         private void createViewList()
         {
-            //medicineList.BackColor = Color.Snow;
-            // 设置行高
-            ImageList imgList = new ImageList();
-            // 分别是宽和高
-            imgList.ImageSize = new Size(1, 24);
-            // 这里设置listView的SmallImageList ,用imgList将其撑大
-            //medicineData.SmallImageList = imgList;
-            medicineLst.SmallImageList = imgList;
-
-            this.medicineLst.Columns.Add("", 0, HorizontalAlignment.Center);
-            this.medicineLst.Columns.Add("",this.medicineLst.Width,HorizontalAlignment.Center);
-            this.medicineLst.HeaderStyle = ColumnHeaderStyle.None;
+            this.medicineLst.Columns.Add("", "");
+            this.medicineLst.Columns[0].Width = this.medicineLst.Width;
 
             String date_time = DateTime.Now.ToShortTimeString() + ""; 
             String[] date_time2 = date_time.Split(' ');
             this.medicineData.Columns.Add(date_time2[1], sum + "");
-            this.medicineData.ColumnHeadersVisible = false;
-            this.medicineData.RowHeadersVisible = false;
-            this.medicineData.RowTemplate.Resizable = DataGridViewTriState.False;
+            DataGridViewRow row = new DataGridViewRow();
+            this.medicineData.Rows.Add("");
+            this.medicineData.AutoGenerateColumns = false;
 
             //随机产生，测试资料
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < medicineList.Count; i++)
             {
-                ListViewItem it = new ListViewItem();
-                it.Text = "藥物" + i;
-                it.SubItems.Add("藥物" + i);
-                medicineLst.Items.Add(it);
-                DataGridViewRow row = new DataGridViewRow();
-                medicineData.Rows.Add("剂量" + sum);
+                medicineLst.Rows.Add(medicineList[i].MName);
             }
-            this.medicineLst.View = View.Details;
 
         }
+
+        /*
         public void createViewList_ButtonOnClick(String name)
         {
             //medicineList add one item
@@ -167,7 +164,7 @@ namespace WindowsFormsApp1
             list_view_select_index = medicineLst.FocusedItem.Index;
             
         }
-        /*
+        
         public void update_Medicine_mark(String medicine_num)
         {
 
@@ -267,15 +264,26 @@ namespace WindowsFormsApp1
         //添加剂量
         private void drawMedicineData()
         {
-            for (int i = 0; i < 1; i++)
+            //空白行
+            DataGridViewRow row = (DataGridViewRow)medicineData.Rows[medicineList.Count];
+            row.Cells[(sum - 1) / 5].Value = "";
+            medicineData.Rows.RemoveAt(medicineList.Count);
+            medicineData.Rows.Insert(medicineList.Count, row);
+
+            for(int i = 0; i < medicineList.Count; i++)
             {
-                DataGridViewRow row = (DataGridViewRow)medicineData.Rows[0];
-                row.Cells[(sum - 1) / 5].Value = "剂量" + (sum - 1) / 5;
-                medicineData.Rows.RemoveAt(0);
-                medicineData.Rows.Insert(0, row);
+                if(medicineList[i].Method == 1)
+                {
+                    //剂量
+                    DataGridViewRow row1 = (DataGridViewRow)medicineData.Rows[i];
+                    row1.Cells[(sum - 1) / 5].Value = "剂量" + sum;
+                    medicineData.Rows.RemoveAt(i);
+                    medicineData.Rows.Insert(i, row1);
+                }
             }
-            
-            medicineData.CurrentCell = medicineData.Rows[0].Cells[medicineData.Columns.Count - 1];
+
+            if (!stop_flag)
+                medicineData.CurrentCell = medicineData.Rows[0].Cells[medicineData.Columns.Count - 1];
 
             foreach (DataGridViewColumn gCol in medicineData.Columns)
                 gCol.Width = this.medicineData.Width / ((int)chart.ChartAreas[0].AxisX.ScaleView.Size / 5);
