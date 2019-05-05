@@ -17,9 +17,6 @@ namespace WindowsFormsApp1
 
         private PatientBasicRepository patientBasicRepository = new PatientBasicRepository();
         private List<PatientBasic> pbList;
-        private static PatientBasic chosenPatient;
-
-        public static PatientBasic ChosenPatient { get => chosenPatient;}
 
         public PatientData()
         {
@@ -42,12 +39,12 @@ namespace WindowsFormsApp1
             PatientDetail detail = new PatientDetail();
             detail.Owner = this;
             detail.Show();
-            patientBasicRepository.close(); 
+            patientBasicRepository.close();
         }
 
         private void patientName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            chosenPatient = pbList[patientName.SelectedIndex];
+            StaticPatient.patient = pbList[patientName.SelectedIndex];
         }
     }
 }
