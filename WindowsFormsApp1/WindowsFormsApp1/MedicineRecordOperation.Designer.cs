@@ -30,21 +30,22 @@
         {
             this.stopInjection = new System.Windows.Forms.Button();
             this.addDose = new System.Windows.Forms.Button();
+            this.modify = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // stopInjection
             // 
-            this.stopInjection.Location = new System.Drawing.Point(67, 94);
+            this.stopInjection.Location = new System.Drawing.Point(64, 43);
             this.stopInjection.Name = "stopInjection";
             this.stopInjection.Size = new System.Drawing.Size(175, 54);
             this.stopInjection.TabIndex = 0;
-            this.stopInjection.Text = "注射完畢";
+            this.stopInjection.Text = "暂停注射";
             this.stopInjection.UseVisualStyleBackColor = true;
             this.stopInjection.Click += new System.EventHandler(this.stopInjection_Click);
             // 
             // addDose
             // 
-            this.addDose.Location = new System.Drawing.Point(67, 213);
+            this.addDose.Location = new System.Drawing.Point(64, 156);
             this.addDose.Name = "addDose";
             this.addDose.Size = new System.Drawing.Size(175, 54);
             this.addDose.TabIndex = 1;
@@ -52,11 +53,21 @@
             this.addDose.UseVisualStyleBackColor = true;
             this.addDose.Click += new System.EventHandler(this.addDose_Click);
             // 
+            // modify
+            // 
+            this.modify.Location = new System.Drawing.Point(64, 262);
+            this.modify.Name = "modify";
+            this.modify.Size = new System.Drawing.Size(175, 54);
+            this.modify.TabIndex = 2;
+            this.modify.Text = "修改药物";
+            this.modify.UseVisualStyleBackColor = true;
+            // 
             // MedicineRecordOperation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(311, 387);
+            this.Controls.Add(this.modify);
             this.Controls.Add(this.addDose);
             this.Controls.Add(this.stopInjection);
             this.Name = "MedicineRecordOperation";
@@ -70,5 +81,6 @@
 
         private System.Windows.Forms.Button stopInjection;
         private System.Windows.Forms.Button addDose;
+        private System.Windows.Forms.Button modify;
     }
 }

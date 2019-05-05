@@ -16,10 +16,13 @@ namespace WindowsFormsApp1.Model
         private string unit;
         //注射方式
         private int method;
+        //流速
+        private string flowRate;
 
         public string MId { get => mId; set => mId = value; }
         public string MName { get => mName; set => mName = value; }
         public string Unit { get => unit; set => unit = value; }
         public int Method { get => method; set => method = value; }
+        public string FlowRate { get => flowRate; set => flowRate = value; }
     }
 }

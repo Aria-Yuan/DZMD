@@ -173,6 +173,7 @@ namespace WindowsFormsApp1
             this.medicineLst.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.medicineLst.Size = new System.Drawing.Size(151, 474);
             this.medicineLst.TabIndex = 2;
+            this.medicineLst.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.medicineLst_MouseDoubleClick);
             // 
             // tableLayoutPanel1
             // 

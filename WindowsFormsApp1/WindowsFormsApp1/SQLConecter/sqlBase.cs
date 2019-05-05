@@ -28,7 +28,7 @@ namespace WindowsFormsApp1.Model
             mycom.CommandText = sql;
             mycom.CommandType = CommandType.Text;
             MySqlDataReader sdr = mycom.ExecuteReader();
-
+            
             return sdr;
         }
 
@@ -39,8 +39,7 @@ namespace WindowsFormsApp1.Model
             mycom.CommandText = sql;
             mycom.CommandType = CommandType.Text;
             int n = mycom.ExecuteNonQuery();
-
-            myconn.Close();
+            
         }
 
         public void closeConnect()

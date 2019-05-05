@@ -16,12 +16,13 @@ namespace WindowsFormsApp1.Repository
 
         public MedicineDataRepository()
         {
-            mycom = new sqlBase();
+            
         }
 
 
         public List<Medicinedata> selectAll()
         {
+            mycom = new sqlBase();
             List<Medicinedata> list = new List<Medicinedata>();
             
             string sql = string.Format("select * from medicinedata ");
@@ -33,6 +34,7 @@ namespace WindowsFormsApp1.Repository
                 a.MName = sdr[1].ToString();
                 a.Unit = sdr[2].ToString();
                 a.Method = (int)sdr[3];
+                a.FlowRate = sdr[4].ToString();
 
                 list.Add(a);
             }
@@ -41,8 +43,9 @@ namespace WindowsFormsApp1.Repository
             return list;
         }
 
-        public List<Medicinedata> select(String username)
+        public List<Medicinedata> selectByName(String username)
         {
+            mycom = new sqlBase();
             List<Medicinedata> list = new List<Medicinedata>();
             
             string sql = string.Format("select * from medicinedata where MedicineName like '%" + username + "%'");
@@ -54,12 +57,33 @@ namespace WindowsFormsApp1.Repository
                 a.MName = sdr[1].ToString();
                 a.Unit = sdr[2].ToString();
                 a.Method = (int)sdr[3];
+                a.FlowRate = sdr[4].ToString();
 
                 list.Add(a);
             }
-
+            
             mycom.closeConnect();
             return list;
+        }
+
+        public Medicinedata selectById(String MId)
+        {
+            mycom = new sqlBase();
+            Medicinedata a = new Medicinedata();
+
+            string sql = string.Format("select * from medicinedata where MedicineId = '" + MId + "'");
+            MySqlDataReader sdr = mycom.executeSQLR(sql);
+            while (sdr.Read())
+            {
+                a.MId = sdr[0].ToString();
+                a.MName = sdr[1].ToString();
+                a.Unit = sdr[2].ToString();
+                a.Method = (int)sdr[3];
+                a.FlowRate = sdr[4].ToString();
+            }
+
+            mycom.closeConnect();
+            return a;
         }
 
         public void addData(Medicinedata u)

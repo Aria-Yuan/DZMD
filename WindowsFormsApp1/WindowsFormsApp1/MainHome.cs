@@ -53,7 +53,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                bindListCiew(sb.select(textBox1.Text));
+                bindListCiew(sb.selectByName(textBox1.Text));
             }
         }
 

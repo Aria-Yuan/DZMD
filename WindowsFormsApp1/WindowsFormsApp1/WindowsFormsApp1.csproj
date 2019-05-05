@@ -114,6 +114,7 @@
     <Compile Include="MedicineDataUpdate.Designer.cs">
       <DependentUpon>MedicineDataUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repository\MedicineRecordRepository.cs" />
     <Compile Include="Repository\PatientBasicRepository.cs" />
     <Compile Include="Repository\MedicineDataRepository.cs" />
     <Compile Include="SQLConecter\sqlBase.cs" />
