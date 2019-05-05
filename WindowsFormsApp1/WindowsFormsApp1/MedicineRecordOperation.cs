@@ -12,27 +12,31 @@ namespace WindowsFormsApp1
 {
     public partial class MedicineRecordOperation : Form
     {
-        MainView mainView;
+        private int selectedIndex;
+        private string MName;
+        private MainView mainView;
         public MedicineRecordOperation()
         {
             InitializeComponent();
         }
 
-        public MedicineRecordOperation(MainView m)
+        public MedicineRecordOperation(int index, string MName, MainView mainView)
         {
-            this.mainView = m;
+            this.mainView = mainView;
+            this.MName = MName;
+            selectedIndex = index;
             InitializeComponent();
         }
 
         private void stopInjection_Click(object sender, EventArgs e)
         {
-
+            mainView.continuousMStop(selectedIndex);
             this.Close();
         }
 
         private void addDose_Click(object sender, EventArgs e)
         {
-            MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(mainView);
+            MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(MName,mainView);
             this.Close();
             medicineDataAddForm_InListView.Show();
         }

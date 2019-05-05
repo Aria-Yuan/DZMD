@@ -12,8 +12,8 @@ namespace WindowsFormsApp1.Model
         private string anesthesiaID;
         //藥品編號
         private string medicineID;
-        //麻醉方式(途徑)
-        private string anesthesiaType;
+        //麻醉方式(途徑) 0-非連續 1-連續
+        private int anesthesiaType;
         //時間
         private DateTime time;
         //劑量數值
@@ -23,7 +23,7 @@ namespace WindowsFormsApp1.Model
 
         public string AnesthesiaID { get => anesthesiaID; set => anesthesiaID = value; }
         public string MedicineID { get => medicineID; set => medicineID = value; }
-        public string AnesthesiaType { get => anesthesiaType; set => anesthesiaType = value; }
+        public int AnesthesiaType { get => anesthesiaType; set => anesthesiaType = value; }
         public DateTime Time { get => time; set => time = value; }
         public string ActualAmount { get => actualAmount; set => actualAmount = value; }
         public string FlowRate { get => flowRate; set => flowRate = value; }

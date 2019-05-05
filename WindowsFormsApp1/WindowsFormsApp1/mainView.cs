@@ -8,13 +8,16 @@ using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using WindowsFormsApp1.Model;
+using WindowsFormsApp1.Repository;
 
 namespace WindowsFormsApp1
 {
     public partial class MainView : Form
     {
-
+        private MedicineRecordRepository medicineRecordRepository = new MedicineRecordRepository();
+        private MedicineDataRepository medicineDataRepository = new MedicineDataRepository();
         private double x, l;
+
         public MainView()
         {
             InitializeComponent();
@@ -24,6 +27,7 @@ namespace WindowsFormsApp1
         private int sum = 1;
         private bool flag = false;
         private bool stop_flag = false;
+        private int operatingSum;
         private PatientBasic patient = PatientData.ChosenPatient;
 
         private void mainView_Load(object sender, EventArgs e)
@@ -104,17 +108,72 @@ namespace WindowsFormsApp1
         }
 
         //已加入的药物list
-        private static List<Medicinedata> medicineList = new List<Medicinedata>();
+        private static List<string> medicineList = new List<string>();
+        //還未停止注射的連續輸注藥物list
+        private static List<Medicinedata> medicineOnList = new List<Medicinedata>();
 
         //添加药物
-        public void addMedicine(Medicinedata m)
+        public void addMedicine(AnesthesiaMedicineRecord m)
         {
-            medicineList.Insert(0,m);
-            this.medicineLst.Rows.Insert(0, medicineList[medicineList.Count - 1].MName);
+            //判断添加的药物是否已经存在
+            if (medicineList.Exists(x => x.Equals(m.MedicineID)))
+            {
+                DataGridViewRow row = (DataGridViewRow)medicineData.Rows[medicineList.IndexOf(m.MedicineID)];
+                //若为连续输注药物
+                if (medicineOnList.Exists(x => x.MId.Equals(m.MedicineID)))
+                {
+                    medicineOnList.Find(x => x.MId.Equals(m.MedicineID)).Unit = m.ActualAmount;
+                    medicineOnList.Find(x => x.MId.Equals(m.MedicineID)).FlowRate = m.FlowRate;
+                    row.Cells[(sum - 1) / 5 - 1].Value = "————————————————▌";
+                    row.Cells[(sum - 1) / 5].Value = m.ActualAmount + " ——————————";
+                }
+                else if(m.AnesthesiaType == 1)
+                {
+                    row.Cells[(sum - 1) / 5].Value = m.ActualAmount + " ——————————";
 
-            DataGridViewRow row = (DataGridViewRow)medicineData.Rows[medicineList.Count-1].Clone();
-            row.Cells[(sum - 1) / 5].Value = "剂量" + sum;
-            this.medicineData.Rows.Insert(0, row);
+                    Medicinedata x = new Medicinedata();
+                    x.MId = m.MedicineID;
+                    x.MName = medicineDataRepository.selectById(m.MedicineID).MName;
+                    x.Method = m.AnesthesiaType;
+                    x.Unit = m.ActualAmount;
+                    x.FlowRate = m.FlowRate;
+                    medicineOnList.Add(x);
+                }
+                else
+                    row.Cells[(sum - 1) / 5].Value = m.ActualAmount;
+
+                this.medicineData.Rows.RemoveAt(medicineList.IndexOf(m.MedicineID));
+                this.medicineData.Rows.Insert(0, row);
+            }
+            else
+            {
+                medicineRecordRepository.insertMRecord(m);
+                medicineList.Insert(0, m.MedicineID);
+                this.medicineLst.Rows.Insert(0, medicineDataRepository.selectById(medicineList[0]).MName);
+
+                DataGridViewRow row = (DataGridViewRow)medicineData.Rows[medicineList.Count - 1].Clone();
+
+                if (m.AnesthesiaType == 1)
+                {
+                    row.Cells[(sum - 1) / 5].Value = m.ActualAmount + " ——————————";
+
+                    Medicinedata x = new Medicinedata();
+                    x.MId = m.MedicineID;
+                    x.MName = medicineDataRepository.selectById(m.MedicineID).MName;
+                    x.Method = m.AnesthesiaType;
+                    x.Unit = m.ActualAmount;
+                    x.FlowRate = m.FlowRate;
+                    medicineOnList.Add(x);
+                }
+                else
+                    row.Cells[(sum - 1) / 5].Value = m.ActualAmount;
+
+                this.medicineData.Rows.Insert(0, row);
+            }
+
+            medicineList.RemoveAt(medicineList.IndexOf(m.MedicineID));
+            medicineList.Insert(0, m.MedicineID);
+
         }
 
         private void createViewList()
@@ -129,64 +188,27 @@ namespace WindowsFormsApp1
             this.medicineData.Rows.Add("");
             this.medicineData.AutoGenerateColumns = false;
 
-            //随机产生，测试资料
-            for (int i = 0; i < medicineList.Count; i++)
-            {
-                medicineLst.Rows.Add(medicineList[i].MName);
-            }
-
         }
 
-        /*
-        public void createViewList_ButtonOnClick(String name)
+        private void medicineLst_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            //medicineList add one item
-            ListViewItem it = new ListViewItem();
-            it.Text = name;
-            it.SubItems.Add(name);
-            medicineLst.Items.Add(it);
-            //medicineData add ml
-            it = new ListViewItem();
-            int count = sum - 1;
-            for (int i = 0; i <= count; i++)
-            {
-                if (i == count)
-                    it.SubItems.Add("ml");
-                else
-                    it.SubItems.Add("-----");
-            }
-            medicineData.Rows.Add(it);
-        }
-
-        static int list_view_select_index = 0;
-        private void medicineLst_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            list_view_select_index = medicineLst.FocusedItem.Index;
-            
-        }
-        
-        public void update_Medicine_mark(String medicine_num)
-        {
-
-            int count = (sum - 1) - medicineData.Items[list_view_select_index].SubItems.Count;
-            for (int i = 0; i <= count; i++)
-            {
-                if (i == count)
-                    medicineData.Items[list_view_select_index].SubItems.Add(medicine_num + "ml");
-                else
-                    medicineData.Items[list_view_select_index].SubItems.Add("-----");
-            }
-
-
-;
-        }*/
-
-
-        private void medicineLst_ItemActivate(object sender, EventArgs e)
-        {
-            //gai
-            MedicineRecordOperation medicineRecordOperation = new MedicineRecordOperation(this);
+            MedicineRecordOperation medicineRecordOperation = new MedicineRecordOperation(this.medicineLst.CurrentCell.RowIndex, 
+                                                                this.medicineLst.CurrentCell.Value.ToString(), this);
             medicineRecordOperation.Show();
+        }
+
+        public void continuousMStop(int index)
+        {
+            DataGridViewRow row = (DataGridViewRow)medicineData.Rows[index];
+            row.Cells[(sum - 1) / 5].Value = "————————————————▌";
+            this.medicineData.Rows.RemoveAt(index);
+            this.medicineData.Rows.Insert(index, row);
+
+            for(int i = 0; i < medicineOnList.Count; i++)
+            {
+                if (medicineOnList[i].MId == medicineList[index])
+                    medicineOnList.RemoveAt(i);
+            }
         }
 
         private void createSeries()
@@ -270,16 +292,18 @@ namespace WindowsFormsApp1
             medicineData.Rows.RemoveAt(medicineList.Count);
             medicineData.Rows.Insert(medicineList.Count, row);
 
-            for(int i = 0; i < medicineList.Count; i++)
+            for(int i = 0; i < medicineOnList.Count; i++)
             {
-                if(medicineList[i].Method == 1)
-                {
-                    //剂量
-                    DataGridViewRow row1 = (DataGridViewRow)medicineData.Rows[i];
-                    row1.Cells[(sum - 1) / 5].Value = "剂量" + sum;
-                    medicineData.Rows.RemoveAt(i);
-                    medicineData.Rows.Insert(i, row1);
-                }
+                //剂量
+                DataGridViewRow row1 = (DataGridViewRow)medicineData.Rows[medicineList.IndexOf(medicineOnList[i].MId)];
+                if(medicineOnList[i].Unit.Equals(row1.Cells[((sum - 1) / 5) - 1].Value))
+                    row1.Cells[(sum - 1) / 5].Value = "—————————————————";
+                else
+                    //row1.Cells[(sum - 1) / 5].Value = medicineOnList[i].Unit;
+                    row1.Cells[(sum - 1) / 5].Value = "—————————————————";
+
+                medicineData.Rows.RemoveAt(i);
+                medicineData.Rows.Insert(i, row1);
             }
 
             if (!stop_flag)
@@ -322,7 +346,6 @@ namespace WindowsFormsApp1
             //记得优化多一格的问题
             else if (!stop_flag)
             {
-                Console.WriteLine(sum);
                 chart.ChartAreas[0].AxisX.ScaleView.Size = (int)(((x / l * 20) + 30 * (
                                                                 1 + trackBar1.Value / 20.0)) / 5) * 5;
                 if((sum)%5 != 0)
@@ -339,7 +362,7 @@ namespace WindowsFormsApp1
             detail.Owner = this;
             detail.Show();
         }
-
+        
         private void medicineRecord_Click(object sender, EventArgs e)
         {
             MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(this);
