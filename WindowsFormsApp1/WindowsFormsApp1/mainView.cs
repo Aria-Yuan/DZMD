@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
         private bool flag = false;
         private bool stop_flag = false;
         private int operatingSum;
-        private PatientBasic patient = PatientData.ChosenPatient;
+        private PatientBasic patient = StaticPatient.patient;
 
         private void mainView_Load(object sender, EventArgs e)
         {
@@ -39,7 +39,7 @@ namespace WindowsFormsApp1
             //CreateMedicineChart();
             createSeries();
             createViewList();
-            BasicData();
+            BasicDataShow();
             //medicineLst_init();
             t.Start();
         }
@@ -360,6 +360,7 @@ namespace WindowsFormsApp1
         {
             PatientDetail detail = new PatientDetail();
             detail.Owner = this;
+            detail.ChangeButton();
             detail.Show();
         }
         
@@ -426,14 +427,21 @@ namespace WindowsFormsApp1
             }
         }
 
-        //病人资料
-        private void BasicData()
+        //病人资料显示
+        private void BasicDataShow()
         {
 
             birthdayd.Text = patient.BirthDate.ToString();
             named.Text = patient.Name;
             chartnd.Text = patient.CharNo;
 
+        }
+
+        //重新获得焦点 更新病人资料
+        private void MainView_Activated(object sender, EventArgs e)
+        {
+            patient = StaticPatient.patient;
+            BasicDataShow();
         }
 
 
