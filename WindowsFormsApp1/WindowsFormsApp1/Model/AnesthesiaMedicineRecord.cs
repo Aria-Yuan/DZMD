@@ -17,12 +17,15 @@ namespace WindowsFormsApp1.Model
         //時間
         private DateTime time;
         //劑量數值
-        private double ActualAmount;
+        private string actualAmount;
+        //連續輸注流速
+        private string flowRate;
 
         public string AnesthesiaID { get => anesthesiaID; set => anesthesiaID = value; }
         public string MedicineID { get => medicineID; set => medicineID = value; }
         public string AnesthesiaType { get => anesthesiaType; set => anesthesiaType = value; }
         public DateTime Time { get => time; set => time = value; }
-        public double ActualAmount1 { get => ActualAmount; set => ActualAmount = value; }
+        public string ActualAmount { get => actualAmount; set => actualAmount = value; }
+        public string FlowRate { get => flowRate; set => flowRate = value; }
     }
 }

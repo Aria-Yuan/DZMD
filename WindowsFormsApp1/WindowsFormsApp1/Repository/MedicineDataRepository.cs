@@ -32,6 +32,7 @@ namespace WindowsFormsApp1.Repository
                 a.MId = sdr[0].ToString();
                 a.MName = sdr[1].ToString();
                 a.Unit = sdr[2].ToString();
+                a.Method = (int)sdr[3];
 
                 list.Add(a);
             }
@@ -52,6 +53,7 @@ namespace WindowsFormsApp1.Repository
                 a.MId = sdr[0].ToString();
                 a.MName = sdr[1].ToString();
                 a.Unit = sdr[2].ToString();
+                a.Method = (int)sdr[3];
 
                 list.Add(a);
             }

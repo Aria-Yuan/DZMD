@@ -28,89 +28,220 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.medicineName = new System.Windows.Forms.Label();
+            this.Mname = new System.Windows.Forms.ComboBox();
+            this.dose = new System.Windows.Forms.Label();
+            this.NMvalue = new System.Windows.Forms.TextBox();
+            this.comfirm = new System.Windows.Forms.Button();
+            this.continuous = new System.Windows.Forms.CheckBox();
+            this.doseUnit = new System.Windows.Forms.Label();
+            this.NMunit = new System.Windows.Forms.ComboBox();
+            this.MCunit = new System.Windows.Forms.ComboBox();
+            this.concentrationUnit = new System.Windows.Forms.Label();
+            this.MCvalue = new System.Windows.Forms.TextBox();
+            this.concentration = new System.Windows.Forms.Label();
+            this.MRunit = new System.Windows.Forms.ComboBox();
+            this.flowRateUnit = new System.Windows.Forms.Label();
+            this.MRvalue = new System.Windows.Forms.TextBox();
+            this.flowRate = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // medicineName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(93, 89);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "藥物種類:";
+            this.medicineName.AutoSize = true;
+            this.medicineName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.medicineName.Location = new System.Drawing.Point(42, 90);
+            this.medicineName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.medicineName.Name = "medicineName";
+            this.medicineName.Size = new System.Drawing.Size(91, 24);
+            this.medicineName.TabIndex = 0;
+            this.medicineName.Text = "藥物種類:";
             // 
-            // comboBox1
+            // Mname
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(193, 85);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(185, 30);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.Mname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Mname.FormattingEnabled = true;
+            this.Mname.Location = new System.Drawing.Point(142, 86);
+            this.Mname.Margin = new System.Windows.Forms.Padding(4);
+            this.Mname.Name = "Mname";
+            this.Mname.Size = new System.Drawing.Size(185, 30);
+            this.Mname.TabIndex = 1;
+            this.Mname.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // label2
+            // dose
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(411, 89);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 24);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "劑量:";
+            this.dose.AutoSize = true;
+            this.dose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dose.Location = new System.Drawing.Point(397, 90);
+            this.dose.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dose.Name = "dose";
+            this.dose.Size = new System.Drawing.Size(53, 24);
+            this.dose.TabIndex = 2;
+            this.dose.Text = "劑量:";
             // 
-            // textBox1
+            // NMvalue
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(463, 85);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 28);
-            this.textBox1.TabIndex = 3;
+            this.NMvalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NMvalue.Location = new System.Drawing.Point(458, 87);
+            this.NMvalue.Margin = new System.Windows.Forms.Padding(4);
+            this.NMvalue.Name = "NMvalue";
+            this.NMvalue.Size = new System.Drawing.Size(132, 28);
+            this.NMvalue.TabIndex = 3;
             // 
-            // button1
+            // comfirm
             // 
-            this.button1.Location = new System.Drawing.Point(484, 196);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 31);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "確認";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.comfirm.Location = new System.Drawing.Point(171, 334);
+            this.comfirm.Margin = new System.Windows.Forms.Padding(4);
+            this.comfirm.Name = "comfirm";
+            this.comfirm.Size = new System.Drawing.Size(100, 31);
+            this.comfirm.TabIndex = 4;
+            this.comfirm.Text = "確認";
+            this.comfirm.UseVisualStyleBackColor = true;
+            this.comfirm.Click += new System.EventHandler(this.button1_Click);
             // 
-            // checkBox1
+            // continuous
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBox1.Location = new System.Drawing.Point(378, 206);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(86, 21);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "連續注入";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.continuous.AutoSize = true;
+            this.continuous.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.continuous.Location = new System.Drawing.Point(65, 344);
+            this.continuous.Name = "continuous";
+            this.continuous.Size = new System.Drawing.Size(86, 21);
+            this.continuous.TabIndex = 5;
+            this.continuous.Text = "連續注入";
+            this.continuous.UseVisualStyleBackColor = true;
+            // 
+            // doseUnit
+            // 
+            this.doseUnit.AutoSize = true;
+            this.doseUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doseUnit.Location = new System.Drawing.Point(608, 90);
+            this.doseUnit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.doseUnit.Name = "doseUnit";
+            this.doseUnit.Size = new System.Drawing.Size(53, 24);
+            this.doseUnit.TabIndex = 6;
+            this.doseUnit.Text = "单位:";
+            // 
+            // NMunit
+            // 
+            this.NMunit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NMunit.FormattingEnabled = true;
+            this.NMunit.Location = new System.Drawing.Point(669, 87);
+            this.NMunit.Margin = new System.Windows.Forms.Padding(4);
+            this.NMunit.Name = "NMunit";
+            this.NMunit.Size = new System.Drawing.Size(122, 30);
+            this.NMunit.TabIndex = 7;
+            // 
+            // MCunit
+            // 
+            this.MCunit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MCunit.FormattingEnabled = true;
+            this.MCunit.Location = new System.Drawing.Point(679, 87);
+            this.MCunit.Margin = new System.Windows.Forms.Padding(4);
+            this.MCunit.Name = "MCunit";
+            this.MCunit.Size = new System.Drawing.Size(122, 30);
+            this.MCunit.TabIndex = 11;
+            this.MCunit.Visible = false;
+            // 
+            // concentrationUnit
+            // 
+            this.concentrationUnit.AutoSize = true;
+            this.concentrationUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.concentrationUnit.Location = new System.Drawing.Point(618, 90);
+            this.concentrationUnit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.concentrationUnit.Name = "concentrationUnit";
+            this.concentrationUnit.Size = new System.Drawing.Size(53, 24);
+            this.concentrationUnit.TabIndex = 10;
+            this.concentrationUnit.Text = "单位:";
+            this.concentrationUnit.Visible = false;
+            // 
+            // MCvalue
+            // 
+            this.MCvalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MCvalue.Location = new System.Drawing.Point(459, 87);
+            this.MCvalue.Margin = new System.Windows.Forms.Padding(4);
+            this.MCvalue.Name = "MCvalue";
+            this.MCvalue.Size = new System.Drawing.Size(132, 28);
+            this.MCvalue.TabIndex = 9;
+            this.MCvalue.Visible = false;
+            // 
+            // concentration
+            // 
+            this.concentration.AutoSize = true;
+            this.concentration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.concentration.Location = new System.Drawing.Point(360, 90);
+            this.concentration.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.concentration.Name = "concentration";
+            this.concentration.Size = new System.Drawing.Size(91, 24);
+            this.concentration.TabIndex = 8;
+            this.concentration.Text = "注射浓度:";
+            this.concentration.Visible = false;
+            // 
+            // MRunit
+            // 
+            this.MRunit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MRunit.FormattingEnabled = true;
+            this.MRunit.Location = new System.Drawing.Point(679, 171);
+            this.MRunit.Margin = new System.Windows.Forms.Padding(4);
+            this.MRunit.Name = "MRunit";
+            this.MRunit.Size = new System.Drawing.Size(122, 30);
+            this.MRunit.TabIndex = 15;
+            this.MRunit.Visible = false;
+            // 
+            // flowRateUnit
+            // 
+            this.flowRateUnit.AutoSize = true;
+            this.flowRateUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flowRateUnit.Location = new System.Drawing.Point(618, 174);
+            this.flowRateUnit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.flowRateUnit.Name = "flowRateUnit";
+            this.flowRateUnit.Size = new System.Drawing.Size(53, 24);
+            this.flowRateUnit.TabIndex = 14;
+            this.flowRateUnit.Text = "单位:";
+            this.flowRateUnit.Visible = false;
+            // 
+            // MRvalue
+            // 
+            this.MRvalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MRvalue.Location = new System.Drawing.Point(459, 171);
+            this.MRvalue.Margin = new System.Windows.Forms.Padding(4);
+            this.MRvalue.Name = "MRvalue";
+            this.MRvalue.Size = new System.Drawing.Size(132, 28);
+            this.MRvalue.TabIndex = 13;
+            this.MRvalue.Visible = false;
+            // 
+            // flowRate
+            // 
+            this.flowRate.AutoSize = true;
+            this.flowRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flowRate.Location = new System.Drawing.Point(360, 174);
+            this.flowRate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.flowRate.Name = "flowRate";
+            this.flowRate.Size = new System.Drawing.Size(91, 24);
+            this.flowRate.TabIndex = 12;
+            this.flowRate.Text = "注射流速:";
+            this.flowRate.Visible = false;
             // 
             // MedicineDataAddForm_InListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(717, 269);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(913, 398);
+            this.Controls.Add(this.MRunit);
+            this.Controls.Add(this.flowRateUnit);
+            this.Controls.Add(this.MRvalue);
+            this.Controls.Add(this.flowRate);
+            this.Controls.Add(this.MCunit);
+            this.Controls.Add(this.concentrationUnit);
+            this.Controls.Add(this.MCvalue);
+            this.Controls.Add(this.concentration);
+            this.Controls.Add(this.NMunit);
+            this.Controls.Add(this.doseUnit);
+            this.Controls.Add(this.continuous);
+            this.Controls.Add(this.comfirm);
+            this.Controls.Add(this.NMvalue);
+            this.Controls.Add(this.dose);
+            this.Controls.Add(this.Mname);
+            this.Controls.Add(this.medicineName);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MedicineDataAddForm_InListView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -123,11 +254,21 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label medicineName;
+        private System.Windows.Forms.ComboBox Mname;
+        private System.Windows.Forms.Label dose;
+        private System.Windows.Forms.TextBox NMvalue;
+        private System.Windows.Forms.Button comfirm;
+        private System.Windows.Forms.CheckBox continuous;
+        private System.Windows.Forms.Label doseUnit;
+        private System.Windows.Forms.ComboBox NMunit;
+        private System.Windows.Forms.ComboBox MCunit;
+        private System.Windows.Forms.Label concentrationUnit;
+        private System.Windows.Forms.TextBox MCvalue;
+        private System.Windows.Forms.Label concentration;
+        private System.Windows.Forms.ComboBox MRunit;
+        private System.Windows.Forms.Label flowRateUnit;
+        private System.Windows.Forms.TextBox MRvalue;
+        private System.Windows.Forms.Label flowRate;
     }
 }

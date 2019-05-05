@@ -1,4 +1,5 @@
-﻿namespace WindowsFormsApp1
+﻿
+namespace WindowsFormsApp1
 {
     partial class MainView
     {
@@ -29,13 +30,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.medicineLst = new System.Windows.Forms.ListView();
             this.medicineData = new System.Windows.Forms.DataGridView();
+            this.medicineLst = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
@@ -62,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.medicineData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicineLst)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -106,8 +108,8 @@
             // 
             this.chart.BackColor = System.Drawing.SystemColors.Control;
             this.chart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend9.Name = "Legend1";
-            this.chart.Legends.Add(legend9);
+            legend1.Name = "Legend1";
+            this.chart.Legends.Add(legend1);
             this.chart.Location = new System.Drawing.Point(0, 0);
             this.chart.Margin = new System.Windows.Forms.Padding(0);
             this.chart.Name = "chart";
@@ -120,8 +122,8 @@
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel6.Controls.Add(this.medicineLst, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.medicineData, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.medicineLst, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 542);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -130,38 +132,47 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(1540, 480);
             this.tableLayoutPanel6.TabIndex = 20;
             // 
-            // medicineLst
-            // 
-            this.medicineLst.Activation = System.Windows.Forms.ItemActivation.TwoClick;
-            this.medicineLst.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.medicineLst.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.medicineLst.CausesValidation = false;
-            this.medicineLst.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.medicineLst.FullRowSelect = true;
-            this.medicineLst.GridLines = true;
-            this.medicineLst.Location = new System.Drawing.Point(0, 3);
-            this.medicineLst.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.medicineLst.Name = "medicineLst";
-            this.medicineLst.Size = new System.Drawing.Size(154, 474);
-            this.medicineLst.TabIndex = 0;
-            this.medicineLst.UseCompatibleStateImageBehavior = false;
-            this.medicineLst.ItemActivate += new System.EventHandler(this.medicineLst_ItemActivate);
-            this.medicineLst.SelectedIndexChanged += new System.EventHandler(this.medicineLst_SelectedIndexChanged);
-            // 
             // medicineData
             // 
-            this.medicineData.BackgroundColor = System.Drawing.Color.Snow;
+            this.medicineData.AllowUserToAddRows = false;
+            this.medicineData.AllowUserToDeleteRows = false;
+            this.medicineData.AllowUserToResizeColumns = false;
+            this.medicineData.AllowUserToResizeRows = false;
+            this.medicineData.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.medicineData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.medicineData.ColumnHeadersVisible = false;
             this.medicineData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.medicineData.Location = new System.Drawing.Point(154, 3);
             this.medicineData.Margin = new System.Windows.Forms.Padding(0, 3, 15, 3);
             this.medicineData.MultiSelect = false;
             this.medicineData.Name = "medicineData";
+            this.medicineData.RowHeadersVisible = false;
             this.medicineData.RowTemplate.Height = 25;
             this.medicineData.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.medicineData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.medicineData.Size = new System.Drawing.Size(1371, 474);
             this.medicineData.TabIndex = 1;
+            // 
+            // medicineLst
+            // 
+            this.medicineLst.AllowUserToAddRows = false;
+            this.medicineLst.AllowUserToDeleteRows = false;
+            this.medicineLst.AllowUserToResizeColumns = false;
+            this.medicineLst.AllowUserToResizeRows = false;
+            this.medicineLst.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.medicineLst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.medicineLst.ColumnHeadersVisible = false;
+            this.medicineLst.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.medicineLst.Location = new System.Drawing.Point(3, 3);
+            this.medicineLst.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.medicineLst.Name = "medicineLst";
+            this.medicineLst.RowHeadersVisible = false;
+            this.medicineLst.RowTemplate.Height = 25;
+            this.medicineLst.RowTemplate.ReadOnly = true;
+            this.medicineLst.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.medicineLst.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.medicineLst.Size = new System.Drawing.Size(151, 474);
+            this.medicineLst.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
@@ -427,7 +438,7 @@
             // 
             // t
             // 
-            this.t.Interval = 5000;
+            this.t.Interval = 500;
             this.t.Tick += new System.EventHandler(this.t_Tick);
             // 
             // MainView
@@ -450,6 +461,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.medicineData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicineLst)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -486,11 +498,11 @@
         private System.Windows.Forms.Button timeRecord;
         private System.Windows.Forms.Button medicineRecord;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.ListView medicineLst;
         private System.Windows.Forms.DataGridView medicineData;
         private System.Windows.Forms.Label birthdayd;
         private System.Windows.Forms.Label named;
         private System.Windows.Forms.Label chartnd;
+        private System.Windows.Forms.DataGridView medicineLst;
     }
 }
 
