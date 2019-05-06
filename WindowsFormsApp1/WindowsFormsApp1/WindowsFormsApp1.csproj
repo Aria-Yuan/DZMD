@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MedicineRecordEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicineRecordEdit.Designer.cs">
+      <DependentUpon>MedicineRecordEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="StaticPatient.cs" />
     <Compile Include="dzmdDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MedicineDataUpdate.resx">
       <DependentUpon>MedicineDataUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicineRecordEdit.resx">
+      <DependentUpon>MedicineRecordEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MedicineRecordOperation.resx">
       <DependentUpon>MedicineRecordOperation.cs</DependentUpon>

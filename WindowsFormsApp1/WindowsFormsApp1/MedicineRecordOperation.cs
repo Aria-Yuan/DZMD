@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
         private int selectedIndex;
         private string MName;
         private MainView mainView;
+
         public MedicineRecordOperation()
         {
             InitializeComponent();
