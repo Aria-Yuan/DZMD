@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using WindowsFormsApp1.Model;
 using WindowsFormsApp1.Repository;
+using System.Diagnostics;
 
 namespace WindowsFormsApp1
 {
@@ -18,11 +19,6 @@ namespace WindowsFormsApp1
         private MedicineDataRepository medicineDataRepository = new MedicineDataRepository();
         private double x, l;
 
-        public MainView()
-        {
-            InitializeComponent();
-        }
-
         private Series series1, series2, series3;
         private int sum = 1;
         private bool flag = false;
@@ -30,6 +26,21 @@ namespace WindowsFormsApp1
         private int operatingSum;
         private PatientBasic patient = StaticPatient.patient;
 
+        static int range = 0, range1 = 0, range2 = 0;
+        Random r = new Random(6);
+        Random r1 = new Random(9);
+        Random r2 = new Random(3);
+
+        DataPoint dp;
+        Boolean isOnPoint = false;
+        int pointIndex;
+        String seriesName;
+
+        public MainView()
+        {
+            InitializeComponent();
+        }
+        
         private void mainView_Load(object sender, EventArgs e)
         {
             this.MaximumSize = new Size(this.Width, this.Height);
@@ -315,12 +326,8 @@ namespace WindowsFormsApp1
             
         }
 
-        static int range = 0, range1 = 0, range2 = 0;
-        Random r = new Random(6);
-        Random r1 = new Random(9);
-        Random r2 = new Random(3);
-
-        private void t_Tick(object sender, EventArgs e)         //timer事件
+        //timer事件
+        private void t_Tick(object sender, EventArgs e)
         {
             if (flag)
             {
@@ -376,6 +383,46 @@ namespace WindowsFormsApp1
             timeRecordForm_InListChart.Show();
         }
 
+        private void chart_GetToolTipText(object sender, ToolTipEventArgs e)
+        {
+            if (e.HitTestResult.ChartElementType == ChartElementType.DataPoint)
+            {
+                this.Cursor = Cursors.Hand;
+                pointIndex = e.HitTestResult.PointIndex;
+                dp = e.HitTestResult.Series.Points[pointIndex];
+                isOnPoint = true;
+                seriesName = e.HitTestResult.Series.Name;
+            }
+            else
+            {
+                this.Cursor = Cursors.Default;
+                isOnPoint = false;
+            }
+        }
+
+        private void chart_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (isOnPoint)
+            {
+                ChangePoint changePoint = new ChangePoint();
+                changePoint.Owner = this;
+                changePoint.SetValue(dp.XValue, dp.YValues[0], seriesName, pointIndex);
+                changePoint.Show();
+            }
+        }
+
+        //修改数据点
+        public void ChangePoint(double x, double y, String type, int time)
+        {
+            Series[] series = { series1, series2, series3 };
+            foreach(Series s in series)
+            {
+                if(s.Name.Equals(type))
+                {
+                    s.Points[time].SetValueY(y);
+                }
+            }
+        }
 
         //随窗口大小变动事件
         private void mainView_SizeChanged(object sender, EventArgs e)
@@ -411,7 +458,8 @@ namespace WindowsFormsApp1
             drawMedicineData();
         }
 
-        private void button_Stop_Click(object sender, EventArgs e)  //切换停止开始按钮
+        //切换停止开始按钮
+        private void button_Stop_Click(object sender, EventArgs e)  
         {
             if(stop_flag)
             {
