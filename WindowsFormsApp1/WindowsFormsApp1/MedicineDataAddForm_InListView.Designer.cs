@@ -33,7 +33,6 @@
             this.dose = new System.Windows.Forms.Label();
             this.NMvalue = new System.Windows.Forms.TextBox();
             this.comfirm = new System.Windows.Forms.Button();
-            this.continuous = new System.Windows.Forms.CheckBox();
             this.doseUnit = new System.Windows.Forms.Label();
             this.NMunit = new System.Windows.Forms.ComboBox();
             this.MCunit = new System.Windows.Forms.ComboBox();
@@ -90,25 +89,14 @@
             // 
             // comfirm
             // 
-            this.comfirm.Location = new System.Drawing.Point(171, 334);
+            this.comfirm.Location = new System.Drawing.Point(723, 272);
             this.comfirm.Margin = new System.Windows.Forms.Padding(4);
             this.comfirm.Name = "comfirm";
-            this.comfirm.Size = new System.Drawing.Size(100, 31);
+            this.comfirm.Size = new System.Drawing.Size(110, 52);
             this.comfirm.TabIndex = 4;
             this.comfirm.Text = "確認";
             this.comfirm.UseVisualStyleBackColor = true;
             this.comfirm.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // continuous
-            // 
-            this.continuous.AutoSize = true;
-            this.continuous.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.continuous.Location = new System.Drawing.Point(65, 344);
-            this.continuous.Name = "continuous";
-            this.continuous.Size = new System.Drawing.Size(86, 21);
-            this.continuous.TabIndex = 5;
-            this.continuous.Text = "連續注入";
-            this.continuous.UseVisualStyleBackColor = true;
             // 
             // doseUnit
             // 
@@ -225,7 +213,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 398);
+            this.ClientSize = new System.Drawing.Size(896, 365);
             this.Controls.Add(this.MRunit);
             this.Controls.Add(this.flowRateUnit);
             this.Controls.Add(this.MRvalue);
@@ -236,7 +224,6 @@
             this.Controls.Add(this.concentration);
             this.Controls.Add(this.NMunit);
             this.Controls.Add(this.doseUnit);
-            this.Controls.Add(this.continuous);
             this.Controls.Add(this.comfirm);
             this.Controls.Add(this.NMvalue);
             this.Controls.Add(this.dose);
@@ -258,7 +245,6 @@
         private System.Windows.Forms.Label dose;
         private System.Windows.Forms.TextBox NMvalue;
         private System.Windows.Forms.Button comfirm;
-        private System.Windows.Forms.CheckBox continuous;
         private System.Windows.Forms.Label doseUnit;
         private System.Windows.Forms.ComboBox NMunit;
         private System.Windows.Forms.ComboBox MCunit;

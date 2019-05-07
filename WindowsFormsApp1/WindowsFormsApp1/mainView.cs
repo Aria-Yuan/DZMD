@@ -23,7 +23,9 @@ namespace WindowsFormsApp1
         private int sum = 1;
         private bool flag = false;
         private bool stop_flag = false;
-        private int operatingSum;
+        private int operatingSum, operatingIndex;
+        private string stopSign = "————————————————▌";
+        private string continuousSign = "—————————————————";
         private PatientBasic patient = StaticPatient.patient;
 
         static int range = 0, range1 = 0, range2 = 0;
@@ -135,12 +137,16 @@ namespace WindowsFormsApp1
                 {
                     medicineOnList.Find(x => x.MId.Equals(m.MedicineID)).Unit = m.ActualAmount;
                     medicineOnList.Find(x => x.MId.Equals(m.MedicineID)).FlowRate = m.FlowRate;
-                    row.Cells[(sum - 1) / 5 - 1].Value = "————————————————▌";
-                    row.Cells[(sum - 1) / 5].Value = m.ActualAmount + " ——————————";
+                    row.Cells[operatingSum - 1].Value = stopSign;
+                    row.Cells[operatingSum].Value = m.ActualAmount + " ——————————";
+                    for(int i = operatingSum + 1; i < (int)((sum-1)/5); i++)
+                        row.Cells[i].Value = continuousSign;
                 }
                 else if(m.AnesthesiaType == 1)
                 {
-                    row.Cells[(sum - 1) / 5].Value = m.ActualAmount + " ——————————";
+                    row.Cells[operatingSum].Value = m.ActualAmount + " ——————————";
+                    for (int i = operatingSum + 1; i <= (int)((sum - 1) / 5); i++)
+                        row.Cells[i].Value = continuousSign;
 
                     Medicinedata x = new Medicinedata();
                     x.MId = m.MedicineID;
@@ -151,7 +157,7 @@ namespace WindowsFormsApp1
                     medicineOnList.Add(x);
                 }
                 else
-                    row.Cells[(sum - 1) / 5].Value = m.ActualAmount;
+                    row.Cells[operatingSum].Value = m.ActualAmount;
 
                 this.medicineData.Rows.RemoveAt(medicineList.IndexOf(m.MedicineID));
                 this.medicineData.Rows.Insert(0, row);
@@ -166,7 +172,9 @@ namespace WindowsFormsApp1
 
                 if (m.AnesthesiaType == 1)
                 {
-                    row.Cells[(sum - 1) / 5].Value = m.ActualAmount + " ——————————";
+                    row.Cells[operatingSum].Value = m.ActualAmount + " ——————————";
+                    for (int i = operatingSum + 1; i <= (int)((sum - 1) / 5); i++)
+                        row.Cells[i].Value = continuousSign;
 
                     Medicinedata x = new Medicinedata();
                     x.MId = m.MedicineID;
@@ -177,11 +185,15 @@ namespace WindowsFormsApp1
                     medicineOnList.Add(x);
                 }
                 else
-                    row.Cells[(sum - 1) / 5].Value = m.ActualAmount;
+                    row.Cells[operatingSum].Value = m.ActualAmount;
 
                 this.medicineData.Rows.Insert(0, row);
             }
 
+            //药物名称重新排序
+            DataGridViewRow r = (DataGridViewRow)medicineLst.Rows[medicineList.IndexOf(m.MedicineID)];
+            medicineLst.Rows.RemoveAt(medicineList.IndexOf(m.MedicineID));
+            medicineLst.Rows.Insert(0, r);
             medicineList.RemoveAt(medicineList.IndexOf(m.MedicineID));
             medicineList.Insert(0, m.MedicineID);
 
@@ -201,25 +213,28 @@ namespace WindowsFormsApp1
 
         }
 
-        private void medicineLst_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            MedicineRecordOperation medicineRecordOperation = new MedicineRecordOperation(this.medicineLst.CurrentCell.RowIndex, 
-                                                                this.medicineLst.CurrentCell.Value.ToString(), this);
-            medicineRecordOperation.Show();
-        }
-
         public void continuousMStop(int index)
         {
             DataGridViewRow row = (DataGridViewRow)medicineData.Rows[index];
-            row.Cells[(sum - 1) / 5].Value = "————————————————▌";
-            this.medicineData.Rows.RemoveAt(index);
-            this.medicineData.Rows.Insert(index, row);
+            row.Cells[operatingSum].Value = stopSign;
+            for (int i = operatingSum + 1; i <= (int)((sum - 1) / 5); i++)
+                row.Cells[i].Value = "";
 
-            for(int i = 0; i < medicineOnList.Count; i++)
+            this.medicineData.Rows.RemoveAt(index);
+            this.medicineData.Rows.Insert(0, row);
+
+            for (int i = 0; i < medicineOnList.Count; i++)
             {
                 if (medicineOnList[i].MId == medicineList[index])
                     medicineOnList.RemoveAt(i);
             }
+
+            //药物名称重新排序
+            DataGridViewRow r = (DataGridViewRow)medicineLst.Rows[index];
+            medicineLst.Rows.RemoveAt(index);
+            medicineLst.Rows.Insert(0, r);
+            medicineList.Insert(0, medicineList[index]);
+            medicineList.RemoveAt(index+1);
         }
 
         private void createSeries()
@@ -294,7 +309,7 @@ namespace WindowsFormsApp1
             this.chart.Legends.Clear();
         }
 
-        //添加剂量
+        //随timer添加剂量（for连续输注）
         private void drawMedicineData()
         {
             //空白行
@@ -307,14 +322,15 @@ namespace WindowsFormsApp1
             {
                 //剂量
                 DataGridViewRow row1 = (DataGridViewRow)medicineData.Rows[medicineList.IndexOf(medicineOnList[i].MId)];
-                if(medicineOnList[i].Unit.Equals(row1.Cells[((sum - 1) / 5) - 1].Value))
-                    row1.Cells[(sum - 1) / 5].Value = "—————————————————";
+                
+                if (medicineOnList[i].Unit.Equals(row1.Cells[((sum - 1) / 5) - 1].Value))
+                    row1.Cells[(sum - 1) / 5].Value = continuousSign;
                 else
                     //row1.Cells[(sum - 1) / 5].Value = medicineOnList[i].Unit;
-                    row1.Cells[(sum - 1) / 5].Value = "—————————————————";
+                    row1.Cells[(sum - 1) / 5].Value = continuousSign;
 
-                medicineData.Rows.RemoveAt(i);
-                medicineData.Rows.Insert(i, row1);
+                medicineData.Rows.RemoveAt(medicineList.IndexOf(medicineOnList[i].MId));
+                medicineData.Rows.Insert(medicineList.IndexOf(medicineOnList[i].MId), row1);
             }
 
             if (!stop_flag)
@@ -373,6 +389,7 @@ namespace WindowsFormsApp1
         
         private void medicineRecord_Click(object sender, EventArgs e)
         {
+            operatingSum = (int)((sum - 1) / 5);
             MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(this);
             medicineDataAddForm_InListView.Show();
         }
@@ -422,6 +439,116 @@ namespace WindowsFormsApp1
                     s.Points[time].SetValueY(y);
                 }
             }
+        }
+        
+        private void medicineData_DoubleClick(object sender, EventArgs e)
+        {
+            Medicinedata m = medicineDataRepository.selectById(medicineList[medicineData.CurrentCell.RowIndex]);
+            operatingSum = medicineData.CurrentCell.ColumnIndex;
+            operatingIndex = medicineData.CurrentCell.RowIndex;
+            //判斷注射方式
+            if (m.Method == 0)
+            {
+                //所操作的單元格為空則默認新增
+                if(medicineData.CurrentCell.Value==null)
+                {
+                    MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(m.MName, this);
+                    medicineDataAddForm_InListView.Show();
+                }
+                //若不為空則跳出視窗供使用者選擇 刪除/修改
+                else
+                {
+                    MedicineRecordEdit medicineRecordEdit = new MedicineRecordEdit(m.MName, this, 0);
+                    medicineRecordEdit.Show();
+                }
+            }
+            else
+            {
+                //所操作的單元格為空則默認新增
+                if (medicineData.CurrentCell.Value == null)
+                {
+                    MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(m.MName, this);
+                    medicineDataAddForm_InListView.Show();
+                }
+                //若不為空則跳出視窗供使用者選擇 刪除/修改
+                else
+                {
+                    MedicineRecordEdit medicineRecordEdit = new MedicineRecordEdit(m.MName, this);
+                    medicineRecordEdit.Show();
+                }
+            }
+        }
+
+        public void deleteRecord()
+        {
+            Medicinedata m = medicineDataRepository.selectById(medicineList[operatingIndex]);
+
+            if (m.Method == 1)
+            {
+                //修改 outofIndex的问题
+                if (medicineData.Rows[operatingIndex].Cells[operatingSum].Value != null)
+                {
+                    int backward = operatingSum;
+                    int forward = operatingSum + 1;
+                    while (medicineData.Rows[operatingIndex].Cells[backward].Value != null 
+                        && !medicineData.Rows[operatingIndex].Cells[backward].Value.Equals(stopSign))
+                    {
+                        medicineData.Rows[operatingIndex].Cells[backward].Value = "";
+                        backward--;
+                        if (backward < 0)
+                            break;
+                    }
+                    while (medicineData.Rows[operatingIndex].Cells[forward].Value != null
+                        &&(medicineData.Rows[operatingIndex].Cells[forward].Value.Equals(continuousSign)
+                        || medicineData.Rows[operatingIndex].Cells[forward].Value.Equals(stopSign)))
+                    {
+                        medicineData.Rows[operatingIndex].Cells[forward].Value = "";
+                        forward++;
+                        if (forward >= medicineData.ColumnCount)
+                        {
+                            for (int i = 0; i < medicineOnList.Count; i++)
+                            {
+                                if (medicineOnList[i].MId.Equals(medicineList[operatingIndex]))
+                                    medicineOnList.RemoveAt(i);
+                            }
+                            break;
+                        }
+                    }
+                }
+
+            }
+            else
+                medicineData.Rows[operatingIndex].Cells[operatingSum].Value = "";
+        }
+
+        public void setStop()
+        {
+            medicineData.Rows[operatingIndex].Cells[operatingSum].Value = stopSign;
+
+            while (medicineData.Rows[operatingIndex].Cells[operatingSum].Value != null
+                   && (medicineData.Rows[operatingIndex].Cells[operatingSum].Value.Equals(continuousSign)
+                   || medicineData.Rows[operatingIndex].Cells[operatingSum].Value.Equals(stopSign)))
+            {
+                operatingSum++;
+                if (operatingSum >= medicineData.ColumnCount)
+                {
+                    for(int i = 0; i < medicineOnList.Count; i++)
+                    {
+                        if (medicineOnList[i].MId.Equals(medicineList[operatingIndex]))
+                            medicineOnList.RemoveAt(i);
+                    }
+                    break;
+                }
+                medicineData.Rows[operatingIndex].Cells[operatingSum].Value = "";
+            }
+        }
+
+        private void medicineLst_DoubleClick(object sender, EventArgs e)
+        {
+            operatingSum = (int)((sum - 1)/5);
+            MedicineRecordOperation medicineRecordOperation = new MedicineRecordOperation(this.medicineLst.CurrentCell.RowIndex,
+                                                                this.medicineLst.CurrentCell.Value.ToString(), this);
+            medicineRecordOperation.Show();
         }
 
         //随窗口大小变动事件

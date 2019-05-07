@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -108,8 +108,8 @@ namespace WindowsFormsApp1
             // 
             this.chart.BackColor = System.Drawing.SystemColors.Control;
             this.chart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart.Legends.Add(legend1);
+            legend9.Name = "Legend1";
+            this.chart.Legends.Add(legend9);
             this.chart.Location = new System.Drawing.Point(0, 0);
             this.chart.Margin = new System.Windows.Forms.Padding(0);
             this.chart.Name = "chart";
@@ -148,10 +148,12 @@ namespace WindowsFormsApp1
             this.medicineData.Name = "medicineData";
             this.medicineData.RowHeadersVisible = false;
             this.medicineData.RowTemplate.Height = 25;
+            this.medicineData.RowTemplate.ReadOnly = true;
             this.medicineData.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.medicineData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.medicineData.Size = new System.Drawing.Size(1371, 474);
             this.medicineData.TabIndex = 1;
+            this.medicineData.DoubleClick += new System.EventHandler(this.medicineData_DoubleClick);
             // 
             // medicineLst
             // 
@@ -173,7 +175,7 @@ namespace WindowsFormsApp1
             this.medicineLst.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.medicineLst.Size = new System.Drawing.Size(151, 474);
             this.medicineLst.TabIndex = 2;
-            this.medicineLst.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.medicineLst_MouseDoubleClick);
+            this.medicineLst.DoubleClick += new System.EventHandler(this.medicineLst_DoubleClick);
             // 
             // tableLayoutPanel1
             // 
@@ -221,7 +223,7 @@ namespace WindowsFormsApp1
             this.button5.Padding = new System.Windows.Forms.Padding(5);
             this.button5.Size = new System.Drawing.Size(247, 53);
             this.button5.TabIndex = 5;
-            this.button5.Text = "不知道是啥";
+            this.button5.Text = "保留";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -448,8 +450,9 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1901, 1031);
             this.Controls.Add(this.tableLayoutPanel3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1917, 1035);
             this.Name = "MainView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
