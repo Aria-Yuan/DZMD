@@ -443,7 +443,7 @@ namespace WindowsFormsApp1
             // 
             // t
             // 
-            this.t.Interval = 5000;
+            this.t.Interval = 1000;
             this.t.Tick += new System.EventHandler(this.t_Tick);
             // 
             // MainView

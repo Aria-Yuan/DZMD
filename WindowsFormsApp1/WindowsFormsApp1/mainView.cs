@@ -133,41 +133,53 @@ namespace WindowsFormsApp1
             {
                 DataGridViewRow row = (DataGridViewRow)medicineData.Rows[medicineList.IndexOf(m.MedicineID)];
                 //若为连续输注药物
-                if (medicineOnList.Exists(x => x.MId.Equals(m.MedicineID)) && row.Cells[operatingSum].Value != null)
+                if(m.AnesthesiaType == 1)
                 {
-                    medicineOnList.Find(x => x.MId.Equals(m.MedicineID)).Unit = m.ActualAmount;
-                    medicineOnList.Find(x => x.MId.Equals(m.MedicineID)).FlowRate = m.FlowRate;
-                    row.Cells[operatingSum - 1].Value = stopSign;
-                    row.Cells[operatingSum].Value = m.ActualAmount + " ——————————";
-                    for(int i = operatingSum + 1; i < (int)((sum-1)/5); i++)
-                        row.Cells[i].Value = continuousSign;
-                }
-                else if (medicineOnList.Exists(x => x.MId.Equals(m.MedicineID)))
-                {
-                    medicineOnList.Find(x => x.MId.Equals(m.MedicineID)).Unit = m.ActualAmount;
-                    medicineOnList.Find(x => x.MId.Equals(m.MedicineID)).FlowRate = m.FlowRate;
-                    row.Cells[operatingSum].Value = m.ActualAmount + " ——————————";
-                    for (int i = operatingSum + 1; i < (int)((sum - 1) / 5) && row.Cells[i].Value == null; i++)
+                    //判断当前是否为空
+                    if (row.Cells[operatingSum].Value != null)
                     {
-                        if (row.Cells[i + 1].Value == null)
-                            row.Cells[i].Value = continuousSign;
-                        else
-                            row.Cells[i].Value = stopSign;
-                    }
-                }
-                else if(m.AnesthesiaType == 1)
-                {
-                    row.Cells[operatingSum].Value = m.ActualAmount + " ——————————";
-                    for (int i = operatingSum + 1; i <= (int)((sum - 1) / 5); i++)
-                        row.Cells[i].Value = continuousSign;
+                        int forward = operatingSum;
+                        int backward = operatingSum;
+                        //往后找有没有停止符号
+                        while (forward < row.Cells.Count && !row.Cells[forward].Value.Equals(stopSign))
+                        {
+                            forward++;
+                        }
 
-                    Medicinedata x = new Medicinedata();
-                    x.MId = m.MedicineID;
-                    x.MName = medicineDataRepository.selectById(m.MedicineID).MName;
-                    x.Method = m.AnesthesiaType;
-                    x.Unit = m.ActualAmount;
-                    x.FlowRate = m.FlowRate;
-                    medicineOnList.Add(x);
+                        //如果没有找到停止符号
+                        if(forward == row.Cells.Count)
+                        {
+                            medicineOnList.Find(x => x.MId.Equals(m.MedicineID)).Unit = m.ActualAmount;
+                            medicineOnList.Find(x => x.MId.Equals(m.MedicineID)).FlowRate = m.FlowRate;
+                        }
+                        while (row.Cells[backward].Value.Equals(continuousSign) || row.Cells[backward].Value.Equals(stopSign))
+                            backward--;
+                        row.Cells[backward].Value = m.ActualAmount + " ——————————";
+                    }
+                    else
+                    {
+                        int i;
+                        row.Cells[operatingSum].Value = m.ActualAmount + " ——————————";
+                        for (i = operatingSum + 1; i <= (int)((sum - 1) / 5) && row.Cells[i].Value == null; i++)
+                        {
+                            if (i == (int)((sum - 1) / 5) || row.Cells[i + 1].Value == null)
+                                row.Cells[i].Value = continuousSign;
+                            else
+                                row.Cells[i].Value = stopSign;
+                        }
+
+                        if (i >= (int)((sum - 1) / 5))
+                        {
+                            Medicinedata x = new Medicinedata();
+                            x.MId = m.MedicineID;
+                            x.MName = medicineDataRepository.selectById(m.MedicineID).MName;
+                            x.Method = m.AnesthesiaType;
+                            x.Unit = m.ActualAmount;
+                            x.FlowRate = m.FlowRate;
+                            medicineOnList.Add(x);
+                        }
+
+                    }
                 }
                 else
                     row.Cells[operatingSum].Value = m.ActualAmount;
@@ -561,7 +573,7 @@ namespace WindowsFormsApp1
                    && (medicineData.Rows[operatingIndex].Cells[operatingSum].Value.Equals(continuousSign)
                    || medicineData.Rows[operatingIndex].Cells[operatingSum].Value.Equals(stopSign))))
             {
-                medicineData.Rows[operatingIndex].Cells[operatingSum].Value = "";
+                medicineData.Rows[operatingIndex].Cells[operatingSum].Value = null;
                 operatingSum++;
                 if (operatingSum >= medicineData.ColumnCount)
                     break;
