@@ -11,6 +11,7 @@ namespace WindowsFormsApp1
     {
 
         public static PatientBasic patient;
+        public static String newComment;
 
     }
 }
