@@ -39,7 +39,7 @@ namespace WindowsFormsApp1
         {
             MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(MName,mainView);
             this.Close();
-            medicineDataAddForm_InListView.Show();
+            medicineDataAddForm_InListView.ShowDialog();
         }
     }
 }

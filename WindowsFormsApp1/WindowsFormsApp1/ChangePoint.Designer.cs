@@ -42,9 +42,10 @@
             // 
             this.x.AutoSize = true;
             this.x.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.x.Location = new System.Drawing.Point(94, 103);
+            this.x.Location = new System.Drawing.Point(125, 127);
+            this.x.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.x.Name = "x";
-            this.x.Size = new System.Drawing.Size(21, 24);
+            this.x.Size = new System.Drawing.Size(25, 29);
             this.x.TabIndex = 0;
             this.x.Text = "x";
             // 
@@ -52,18 +53,20 @@
             // 
             this.y.AutoSize = true;
             this.y.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.y.Location = new System.Drawing.Point(94, 169);
+            this.y.Location = new System.Drawing.Point(125, 208);
+            this.y.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.y.Name = "y";
-            this.y.Size = new System.Drawing.Size(20, 24);
+            this.y.Size = new System.Drawing.Size(25, 29);
             this.y.TabIndex = 1;
             this.y.Text = "y";
             // 
             // yn
             // 
             this.yn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.yn.Location = new System.Drawing.Point(182, 169);
+            this.yn.Location = new System.Drawing.Point(243, 208);
+            this.yn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.yn.Name = "yn";
-            this.yn.Size = new System.Drawing.Size(100, 29);
+            this.yn.Size = new System.Drawing.Size(132, 34);
             this.yn.TabIndex = 3;
             this.yn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.yn_KeyPress);
             // 
@@ -71,9 +74,10 @@
             // 
             this.type.AutoSize = true;
             this.type.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.type.Location = new System.Drawing.Point(73, 48);
+            this.type.Location = new System.Drawing.Point(97, 59);
+            this.type.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.type.Name = "type";
-            this.type.Size = new System.Drawing.Size(85, 29);
+            this.type.Size = new System.Drawing.Size(101, 36);
             this.type.TabIndex = 4;
             this.type.Text = "label1";
             // 
@@ -81,19 +85,21 @@
             // 
             this.time.AutoSize = true;
             this.time.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.time.Location = new System.Drawing.Point(185, 48);
+            this.time.Location = new System.Drawing.Point(247, 59);
+            this.time.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.time.Name = "time";
-            this.time.Size = new System.Drawing.Size(85, 29);
+            this.time.Size = new System.Drawing.Size(101, 36);
             this.time.TabIndex = 5;
             this.time.Text = "label2";
             // 
             // cancel
             // 
             this.cancel.AutoSize = true;
-            this.cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.cancel.Location = new System.Drawing.Point(54, 244);
+            this.cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel.Location = new System.Drawing.Point(72, 300);
+            this.cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(109, 39);
+            this.cancel.Size = new System.Drawing.Size(145, 48);
             this.cancel.TabIndex = 6;
             this.cancel.Text = "取消";
             this.cancel.UseVisualStyleBackColor = true;
@@ -102,10 +108,11 @@
             // confirm
             // 
             this.confirm.AutoSize = true;
-            this.confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.confirm.Location = new System.Drawing.Point(217, 244);
+            this.confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirm.Location = new System.Drawing.Point(289, 300);
+            this.confirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.confirm.Name = "confirm";
-            this.confirm.Size = new System.Drawing.Size(109, 39);
+            this.confirm.Size = new System.Drawing.Size(145, 48);
             this.confirm.TabIndex = 7;
             this.confirm.Text = "確認";
             this.confirm.UseVisualStyleBackColor = true;
@@ -115,17 +122,18 @@
             // 
             this.xn.AutoSize = true;
             this.xn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.xn.Location = new System.Drawing.Point(178, 103);
+            this.xn.Location = new System.Drawing.Point(237, 127);
+            this.xn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.xn.Name = "xn";
-            this.xn.Size = new System.Drawing.Size(66, 24);
+            this.xn.Size = new System.Drawing.Size(85, 29);
             this.xn.TabIndex = 8;
             this.xn.Text = "label1";
             // 
             // ChangePoint
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 344);
+            this.ClientSize = new System.Drawing.Size(515, 423);
             this.Controls.Add(this.xn);
             this.Controls.Add(this.confirm);
             this.Controls.Add(this.cancel);
@@ -134,7 +142,9 @@
             this.Controls.Add(this.yn);
             this.Controls.Add(this.y);
             this.Controls.Add(this.x);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ChangePoint";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChangePoint";
             this.ResumeLayout(false);
             this.PerformLayout();

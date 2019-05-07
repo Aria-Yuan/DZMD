@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -108,14 +108,16 @@ namespace WindowsFormsApp1
             // 
             this.chart.BackColor = System.Drawing.SystemColors.Control;
             this.chart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend9.Name = "Legend1";
-            this.chart.Legends.Add(legend9);
+            legend1.Name = "Legend1";
+            this.chart.Legends.Add(legend1);
             this.chart.Location = new System.Drawing.Point(0, 0);
             this.chart.Margin = new System.Windows.Forms.Padding(0);
             this.chart.Name = "chart";
             this.chart.Size = new System.Drawing.Size(1546, 539);
             this.chart.TabIndex = 19;
             this.chart.Text = "chart1";
+            this.chart.GetToolTipText += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ToolTipEventArgs>(this.chart_GetToolTipText);
+            this.chart.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chart_MouseClick);
             // 
             // tableLayoutPanel6
             // 
@@ -441,7 +443,7 @@ namespace WindowsFormsApp1
             // 
             // t
             // 
-            this.t.Interval = 500;
+            this.t.Interval = 5000;
             this.t.Tick += new System.EventHandler(this.t_Tick);
             // 
             // MainView

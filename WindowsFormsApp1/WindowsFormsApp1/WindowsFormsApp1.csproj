@@ -63,7 +63,6 @@
     <Compile Include="MedicineRecordEdit.Designer.cs">
       <DependentUpon>MedicineRecordEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="StaticPatient.cs" />
     <Compile Include="dzmdDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
