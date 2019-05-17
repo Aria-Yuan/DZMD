@@ -126,6 +126,12 @@
     <Compile Include="MedicineDataUpdate.Designer.cs">
       <DependentUpon>MedicineDataUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="PatientHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientHistory.Designer.cs">
+      <DependentUpon>PatientHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository\MedicineRecordRepository.cs" />
     <Compile Include="Repository\PatientBasicRepository.cs" />
     <Compile Include="Repository\MedicineDataRepository.cs" />
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PatientDetail.resx">
       <DependentUpon>PatientDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientHistory.resx">
+      <DependentUpon>PatientHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
