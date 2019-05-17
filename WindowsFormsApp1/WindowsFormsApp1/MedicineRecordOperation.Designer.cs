@@ -31,10 +31,12 @@
             this.stopInjection = new System.Windows.Forms.Button();
             this.addDose = new System.Windows.Forms.Button();
             this.modify = new System.Windows.Forms.Button();
+            this.continueInjection = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // stopInjection
             // 
+            this.stopInjection.AccessibleName = "stopInjection";
             this.stopInjection.Location = new System.Drawing.Point(64, 43);
             this.stopInjection.Name = "stopInjection";
             this.stopInjection.Size = new System.Drawing.Size(175, 54);
@@ -45,7 +47,7 @@
             // 
             // addDose
             // 
-            this.addDose.Location = new System.Drawing.Point(64, 156);
+            this.addDose.Location = new System.Drawing.Point(64, 150);
             this.addDose.Name = "addDose";
             this.addDose.Size = new System.Drawing.Size(175, 54);
             this.addDose.TabIndex = 1;
@@ -62,11 +64,22 @@
             this.modify.Text = "修改药物";
             this.modify.UseVisualStyleBackColor = true;
             // 
+            // continueInjection
+            // 
+            this.continueInjection.AccessibleName = "continueInjection";
+            this.continueInjection.Location = new System.Drawing.Point(64, 43);
+            this.continueInjection.Name = "continueInjection";
+            this.continueInjection.Size = new System.Drawing.Size(175, 54);
+            this.continueInjection.TabIndex = 3;
+            this.continueInjection.Text = "继续注射";
+            this.continueInjection.UseVisualStyleBackColor = true;
+            // 
             // MedicineRecordOperation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(311, 387);
+            this.Controls.Add(this.continueInjection);
             this.Controls.Add(this.modify);
             this.Controls.Add(this.addDose);
             this.Controls.Add(this.stopInjection);
@@ -82,5 +95,6 @@
         private System.Windows.Forms.Button stopInjection;
         private System.Windows.Forms.Button addDose;
         private System.Windows.Forms.Button modify;
+        private System.Windows.Forms.Button continueInjection;
     }
 }

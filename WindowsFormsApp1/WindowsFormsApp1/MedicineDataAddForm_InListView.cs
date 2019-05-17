@@ -16,8 +16,8 @@ namespace WindowsFormsApp1
         private MedicineDataRepository medicineDataRepository = new MedicineDataRepository();
         private AnesthesiaMedicineRecord medicineRecord = new AnesthesiaMedicineRecord();
         private List<Medicinedata> medicineDataList;
-        private static Medicinedata choseMedicineData;
         private MainView mainView;
+        private int flag = 0;
 
         public MedicineDataAddForm_InListView()
         {
@@ -29,16 +29,24 @@ namespace WindowsFormsApp1
             this.mainView = mainView;
             InitializeComponent();
             LoadData();
-
         }
 
-        public MedicineDataAddForm_InListView(string MName, MainView mainView)
+        public MedicineDataAddForm_InListView(Medicinedata m, MainView mainView, int flag)
         {
             this.mainView = mainView;
+            this.flag = flag;
             InitializeComponent();
             LoadData();
-            Mname.SelectedIndex = Mname.FindStringExact(MName);
+            Mname.SelectedIndex = Mname.FindStringExact(m.MName);
             Mname.Enabled = false;
+
+            NMvalue.Text = m.Unit.Split(' ')[0];
+            MCvalue.Text = m.Unit.Split(' ')[0];
+            MRvalue.Text = m.FlowRate.Split(' ')[0];
+
+            NMunit.SelectedIndex = NMunit.FindStringExact(m.Unit.Split(' ')[1]);
+            MCunit.SelectedIndex = NMunit.FindStringExact(m.Unit.Split(' ')[1]);
+            MRunit.SelectedIndex = NMunit.FindStringExact(m.Unit.Split(' ')[1]);
 
         }
 
@@ -49,6 +57,15 @@ namespace WindowsFormsApp1
             foreach (Medicinedata md in medicineDataList)
                 nameList.Add(md.MName);
             Mname.DataSource = nameList;
+
+            List<string> NMunitLst = new List<string>();
+            NMunitLst.Add("ml");
+            NMunitLst.Add("mg");
+            NMunitLst.Add("uml");
+            NMunitLst.Add("g");
+            NMunit.DataSource = NMunitLst;
+            MCunit.DataSource = NMunitLst;
+            MRunit.DataSource = NMunitLst;
         }
 
 
@@ -67,24 +84,25 @@ namespace WindowsFormsApp1
                 medicineRecord.FlowRate = MRvalue.Text + " " + MRunit.Text;
             }
 
-            this.mainView.addMedicine(medicineRecord);
+            if(flag == 0)
+                this.mainView.addMedicine(medicineRecord);
+            else
+                this.mainView.modifyFlowRate(medicineRecord);
             this.Close();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            NMvalue.Text = medicineDataList[Mname.SelectedIndex].Unit.Split(' ')[0];
-            MCvalue.Text = medicineDataList[Mname.SelectedIndex].Unit.Split(' ')[0];
-            List<string> NMunitLst = new List<string>();
-            NMunitLst.Add("ml");
-            NMunitLst.Add("mg");
-            NMunitLst.Add("uml");
-            NMunitLst.Add("g");
-            NMunit.DataSource = NMunitLst;
-            NMunit.SelectedIndex = NMunit.FindStringExact(medicineDataList[Mname.SelectedIndex].Unit.Split(' ')[1]);
-            MCunit.DataSource = NMunitLst;
-            MCunit.SelectedIndex = NMunit.FindStringExact(medicineDataList[Mname.SelectedIndex].Unit.Split(' ')[1]);
+            if (Mname.Enabled)
+            {
+                NMvalue.Text = medicineDataList[Mname.SelectedIndex].Unit.Split(' ')[0];
+                MCvalue.Text = medicineDataList[Mname.SelectedIndex].Unit.Split(' ')[0];
+                MRvalue.Text = medicineDataList[Mname.SelectedIndex].FlowRate.Split(' ')[0];
 
+                NMunit.SelectedIndex = NMunit.FindStringExact(medicineDataList[Mname.SelectedIndex].Unit.Split(' ')[1]);
+                MCunit.SelectedIndex = NMunit.FindStringExact(medicineDataList[Mname.SelectedIndex].Unit.Split(' ')[1]);
+                MRunit.SelectedIndex = NMunit.FindStringExact(medicineDataList[Mname.SelectedIndex].Unit.Split(' ')[1]);
+            }
 
             if (medicineDataList[Mname.SelectedIndex].Method == 1)
                 changeLables(false);

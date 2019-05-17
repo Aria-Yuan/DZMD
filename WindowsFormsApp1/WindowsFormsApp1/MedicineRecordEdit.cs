@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Model;
 
 namespace WindowsFormsApp1
 {
     public partial class MedicineRecordEdit : Form
     {
-        private string MName;
+        private Medicinedata m;
         private MainView mainView;
 
         public MedicineRecordEdit()
@@ -20,24 +21,24 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        public MedicineRecordEdit(string MName, MainView mainView, int flag)
+        public MedicineRecordEdit(Medicinedata m, MainView mainView, int flag)
         {
             InitializeComponent();
             this.mainView = mainView;
-            this.MName = MName;
+            this.m = m;
             this.setStop.Visible = false;
         }
 
-        public MedicineRecordEdit(string MName, MainView mainView)
+        public MedicineRecordEdit(Medicinedata m, MainView mainView)
         {
             InitializeComponent();
             this.mainView = mainView;
-            this.MName = MName;
+            this.m = m;
         }
 
         private void editDose_Click(object sender, EventArgs e)
         {
-            MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(MName, mainView);
+            MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(m, mainView, 1);
             this.Close();
             medicineDataAddForm_InListView.ShowDialog();
         }
