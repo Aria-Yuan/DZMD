@@ -34,6 +34,7 @@ namespace WindowsFormsApp1.Repository
                 pb.Weight = float.Parse(sdr[4].ToString());
                 pb.BloodType = sdr[5].ToString();
                 pb.BirthDate = (DateTime)sdr[6];
+                pb.Comment = sdr[7].ToString();
                 list.Add(pb);
             }
 
