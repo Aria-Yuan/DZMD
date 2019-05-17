@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -68,7 +69,7 @@ namespace WindowsFormsApp1
             weight.Text = StaticPatient.patient.Weight.ToString();
             height.Text = StaticPatient.patient.Height.ToString();
             //blood.Text = patient.BloodType;
-            history.Text = StaticPatient.patient.Comment;
+            newComment.Text = StaticPatient.newComment;
             //date.Value = patient.BirthDate;
             date2.Text = StaticPatient.patient.BirthDate.ToString();
             blood2.Text = StaticPatient.patient.BloodType.ToString();
@@ -90,10 +91,11 @@ namespace WindowsFormsApp1
                 BirthDate = StaticPatient.patient.BirthDate,
                 BloodType = StaticPatient.patient.BloodType,
                 Name = StaticPatient.patient.Name,
-                Comment = history.Text.ToString()
+                Comment = StaticPatient.patient.Comment
             };
             //保存
             pbr.saveOnePatient(newData);
+            StaticPatient.newComment = newComment.Text.ToString();
 
             //替换目前的内容为更新后的 重新加载
             isChanged = false;
@@ -102,7 +104,7 @@ namespace WindowsFormsApp1
             //StaticPatient.patient.BirthDate = newData.BirthDate;
             //StaticPatient.patient.BloodType = newData.BloodType;
             //StaticPatient.patient.Name = newData.Name;
-            StaticPatient.patient.Comment = newData.Comment;
+            //StaticPatient.patient.Comment = newData.Comment;
             LoadData();
             pbr.close();
 
@@ -173,7 +175,7 @@ namespace WindowsFormsApp1
         private void history_TextChanged(object sender, EventArgs e)
         {
 
-            if (history.Text != StaticPatient.patient.Comment) isChanged = true;
+            if (newComment.Text != StaticPatient.patient.Comment) isChanged = true;
 
             setButtom();
 
@@ -213,5 +215,13 @@ namespace WindowsFormsApp1
             back.Hide();
         }
 
+        private void HistoryComment_Click(object sender, EventArgs e)
+        {
+            Debug.Write("11111111111111111111111111111111111111111");
+            Debug.Write(StaticPatient.patient.Comment);
+            PatientHistory ph = new PatientHistory();
+            ph.Show();
+            ph.LoadData(StaticPatient.patient.Name, StaticPatient.patient.Comment);
+        }
     }
 }

@@ -42,7 +42,6 @@
             this.save = new System.Windows.Forms.Button();
             this.weight = new System.Windows.Forms.TextBox();
             this.height = new System.Windows.Forms.TextBox();
-            this.history = new System.Windows.Forms.TextBox();
             this.chartNo = new System.Windows.Forms.Label();
             this.patientId = new System.Windows.Forms.Label();
             this.button = new System.Windows.Forms.FlowLayoutPanel();
@@ -58,7 +57,13 @@
             this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
             this.date2 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
+            this.historyComment = new System.Windows.Forms.Button();
             this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.newComment = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button.SuspendLayout();
             this.data.SuspendLayout();
@@ -70,6 +75,9 @@
             this.flowLayoutPanel8.SuspendLayout();
             this.flowLayoutPanel9.SuspendLayout();
             this.flowLayoutPanel10.SuspendLayout();
+            this.flowLayoutPanel12.SuspendLayout();
+            this.flowLayoutPanel13.SuspendLayout();
+            this.flowLayoutPanel14.SuspendLayout();
             this.flowLayoutPanel11.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -224,17 +232,6 @@
             this.height.TextChanged += new System.EventHandler(this.height_TextChanged);
             this.height.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.height_KeyPress);
             // 
-            // history
-            // 
-            this.history.Font = new System.Drawing.Font("Microsoft JhengHei UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.history.Location = new System.Drawing.Point(3, 29);
-            this.history.Multiline = true;
-            this.history.Name = "history";
-            this.history.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.history.Size = new System.Drawing.Size(640, 100);
-            this.history.TabIndex = 27;
-            this.history.TextChanged += new System.EventHandler(this.history_TextChanged);
-            // 
             // chartNo
             // 
             this.chartNo.AutoSize = true;
@@ -263,7 +260,7 @@
             this.button.Controls.Add(this.revert);
             this.button.Controls.Add(this.save);
             this.button.Controls.Add(this.next);
-            this.button.Location = new System.Drawing.Point(9, 518);
+            this.button.Location = new System.Drawing.Point(9, 542);
             this.button.Margin = new System.Windows.Forms.Padding(0);
             this.button.Name = "button";
             this.button.Size = new System.Drawing.Size(640, 110);
@@ -277,11 +274,12 @@
             this.data.Controls.Add(this.flowLayoutPanel4);
             this.data.Controls.Add(this.flowLayoutPanel5);
             this.data.Controls.Add(this.flowLayoutPanel10);
+            this.data.Controls.Add(this.flowLayoutPanel12);
             this.data.Controls.Add(this.flowLayoutPanel11);
             this.data.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.data.Location = new System.Drawing.Point(3, 3);
             this.data.Name = "data";
-            this.data.Size = new System.Drawing.Size(652, 512);
+            this.data.Size = new System.Drawing.Size(652, 536);
             this.data.TabIndex = 33;
             // 
             // flowLayoutPanel2
@@ -407,17 +405,87 @@
             this.date2.TabIndex = 29;
             this.date2.Text = "label3";
             // 
+            // flowLayoutPanel12
+            // 
+            this.flowLayoutPanel12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel12.AutoSize = true;
+            this.flowLayoutPanel12.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel12.Controls.Add(this.flowLayoutPanel13);
+            this.flowLayoutPanel12.Controls.Add(this.flowLayoutPanel14);
+            this.flowLayoutPanel12.Location = new System.Drawing.Point(3, 377);
+            this.flowLayoutPanel12.Name = "flowLayoutPanel12";
+            this.flowLayoutPanel12.Size = new System.Drawing.Size(646, 38);
+            this.flowLayoutPanel12.TabIndex = 5;
+            // 
+            // flowLayoutPanel13
+            // 
+            this.flowLayoutPanel13.AutoScroll = true;
+            this.flowLayoutPanel13.AutoSize = true;
+            this.flowLayoutPanel13.Controls.Add(this.historyl);
+            this.flowLayoutPanel13.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel13.Name = "flowLayoutPanel13";
+            this.flowLayoutPanel13.Size = new System.Drawing.Size(165, 26);
+            this.flowLayoutPanel13.TabIndex = 0;
+            // 
+            // flowLayoutPanel14
+            // 
+            this.flowLayoutPanel14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel14.Controls.Add(this.historyComment);
+            this.flowLayoutPanel14.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel14.Location = new System.Drawing.Point(174, 3);
+            this.flowLayoutPanel14.Name = "flowLayoutPanel14";
+            this.flowLayoutPanel14.Size = new System.Drawing.Size(469, 32);
+            this.flowLayoutPanel14.TabIndex = 1;
+            // 
+            // historyComment
+            // 
+            this.historyComment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.historyComment.AutoSize = true;
+            this.historyComment.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.historyComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.historyComment.Location = new System.Drawing.Point(328, 3);
+            this.historyComment.Name = "historyComment";
+            this.historyComment.Size = new System.Drawing.Size(138, 26);
+            this.historyComment.TabIndex = 28;
+            this.historyComment.Text = "查看歷史醫療記錄";
+            this.historyComment.UseVisualStyleBackColor = true;
+            this.historyComment.Click += new System.EventHandler(this.HistoryComment_Click);
+            // 
             // flowLayoutPanel11
             // 
             this.flowLayoutPanel11.AutoSize = true;
             this.flowLayoutPanel11.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel11.Controls.Add(this.historyl);
-            this.flowLayoutPanel11.Controls.Add(this.history);
+            this.flowLayoutPanel11.Controls.Add(this.flowLayoutPanel3);
+            this.flowLayoutPanel11.Controls.Add(this.newComment);
             this.flowLayoutPanel11.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel11.Location = new System.Drawing.Point(3, 377);
+            this.flowLayoutPanel11.Location = new System.Drawing.Point(3, 421);
             this.flowLayoutPanel11.Name = "flowLayoutPanel11";
-            this.flowLayoutPanel11.Size = new System.Drawing.Size(646, 132);
+            this.flowLayoutPanel11.Size = new System.Drawing.Size(646, 112);
             this.flowLayoutPanel11.TabIndex = 4;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel3.AutoScroll = true;
+            this.flowLayoutPanel3.AutoSize = true;
+            this.flowLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(640, 0);
+            this.flowLayoutPanel3.TabIndex = 29;
+            // 
+            // newComment
+            // 
+            this.newComment.Font = new System.Drawing.Font("Microsoft JhengHei UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.newComment.Location = new System.Drawing.Point(3, 9);
+            this.newComment.Multiline = true;
+            this.newComment.Name = "newComment";
+            this.newComment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.newComment.Size = new System.Drawing.Size(640, 100);
+            this.newComment.TabIndex = 27;
+            this.newComment.TextChanged += new System.EventHandler(this.history_TextChanged);
             // 
             // flowLayoutPanel1
             // 
@@ -429,7 +497,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(50, 50);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(50);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(658, 628);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(658, 652);
             this.flowLayoutPanel1.TabIndex = 34;
             // 
             // PatientDetail
@@ -464,6 +532,12 @@
             this.flowLayoutPanel9.PerformLayout();
             this.flowLayoutPanel10.ResumeLayout(false);
             this.flowLayoutPanel10.PerformLayout();
+            this.flowLayoutPanel12.ResumeLayout(false);
+            this.flowLayoutPanel12.PerformLayout();
+            this.flowLayoutPanel13.ResumeLayout(false);
+            this.flowLayoutPanel13.PerformLayout();
+            this.flowLayoutPanel14.ResumeLayout(false);
+            this.flowLayoutPanel14.PerformLayout();
             this.flowLayoutPanel11.ResumeLayout(false);
             this.flowLayoutPanel11.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -493,7 +567,6 @@
         private System.Windows.Forms.Button next;
         private System.Windows.Forms.TextBox weight;
         private System.Windows.Forms.TextBox height;
-        private System.Windows.Forms.TextBox history;
         private System.Windows.Forms.FlowLayoutPanel button;
         private System.Windows.Forms.FlowLayoutPanel data;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
@@ -504,10 +577,16 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel10;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel11;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label name2;
         private System.Windows.Forms.Label blood2;
         private System.Windows.Forms.Label date2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel12;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel13;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel14;
+        private System.Windows.Forms.Button historyComment;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel11;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.TextBox newComment;
     }
 }

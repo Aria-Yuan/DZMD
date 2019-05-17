@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
     {
         private MedicineRecordRepository medicineRecordRepository = new MedicineRecordRepository();
         private MedicineDataRepository medicineDataRepository = new MedicineDataRepository();
+        private PatientBasicRepository patientBasicRepository = new PatientBasicRepository();
         private double x, l;
 
         private Series series1, series2, series3;
@@ -781,6 +782,28 @@ namespace WindowsFormsApp1
                         medicineOnList.RemoveAt(i);
                 }
             }
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            SavePatientData();
+            SaveOperationData();
+        }
+
+        //結束後保存手術資料
+        private void SaveOperationData()
+        {
+
+        }
+
+        //結束後保存病人資料
+        private void SavePatientData()
+        {
+            StaticPatient.patient.Comment = StaticPatient.patient.Comment + "\n" 
+                + DateTime.Now.ToString("yyyy-MM-dd") + ":\n"
+                + StaticPatient.newComment;
+            StaticPatient.newComment = "";
+            patientBasicRepository.saveOnePatient(StaticPatient.patient);
         }
 
         private void medicineLst_DoubleClick(object sender, EventArgs e)
