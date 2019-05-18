@@ -37,8 +37,26 @@ namespace WindowsFormsApp1.Repository
                 pb.Comment = sdr[7].ToString();
                 list.Add(pb);
             }
-
             close();
+
+            return list;
+        }
+
+        public List<PatientBasic> selectAllIdAndName()
+        {
+            List<PatientBasic> list = new List<PatientBasic>();
+
+            string cmd = "select * from patientbasicdata";
+            MySqlDataReader sdr = mycom.executeSQLR(cmd);
+            while (sdr.Read())
+            {
+                PatientBasic pb = new PatientBasic();
+                pb.CharNo = sdr[0].ToString();
+                pb.Name = sdr[2].ToString();
+                list.Add(pb);
+            }
+            close();
+
             return list;
         }
 
@@ -54,8 +72,29 @@ namespace WindowsFormsApp1.Repository
                 pb.Name = sdr[0].ToString();
                 list.Add(pb);
             }
+            close();
 
             return list;
+        }
+
+        public PatientBasic selectOnePatient(string id)
+        {
+            PatientBasic pb = new PatientBasic();
+            string cmd = "select * from dzmd.patientbasicdata WHERE ChartNo='" + id + "'";
+            MySqlDataReader sdr = mycom.executeSQLR(cmd);
+            while (sdr.Read())
+            {
+                pb.CharNo = sdr[0].ToString();
+                pb.PId = sdr[1].ToString();
+                pb.Name = sdr[2].ToString();
+                pb.Height = float.Parse(sdr[3].ToString());
+                pb.Weight = float.Parse(sdr[4].ToString());
+                pb.BloodType = sdr[5].ToString();
+                pb.BirthDate = (DateTime)sdr[6];
+                pb.Comment = sdr[7].ToString();
+            }
+            close();
+            return pb;
         }
 
         public Boolean saveOnePatient(PatientBasic patient)
@@ -72,10 +111,9 @@ namespace WindowsFormsApp1.Repository
             cmd += " WHERE ChartNo='" + patient.CharNo + "'";
             cmd += " and PersonalIDNumber='" + patient.PId + "'";
 
-            //Console.Write(cmd);
             MySqlDataReader sdr = mycom.executeSQLR(cmd);
-
             close();
+
             return true;
 
         }

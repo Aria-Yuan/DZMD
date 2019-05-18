@@ -85,8 +85,8 @@
             // next
             // 
             this.next.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
-            this.next.Location = new System.Drawing.Point(520, 30);
-            this.next.Margin = new System.Windows.Forms.Padding(30, 30, 10, 30);
+            this.next.Location = new System.Drawing.Point(420, 30);
+            this.next.Margin = new System.Windows.Forms.Padding(10, 30, 0, 30);
             this.next.Name = "next";
             this.next.Size = new System.Drawing.Size(110, 50);
             this.next.TabIndex = 0;
@@ -98,8 +98,8 @@
             // 
             this.chartNol.AutoSize = true;
             this.chartNol.Font = new System.Drawing.Font("Microsoft JhengHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chartNol.Location = new System.Drawing.Point(3, 5);
-            this.chartNol.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.chartNol.Location = new System.Drawing.Point(6, 5);
+            this.chartNol.Margin = new System.Windows.Forms.Padding(6, 5, 3, 5);
             this.chartNol.Name = "chartNol";
             this.chartNol.Size = new System.Drawing.Size(123, 35);
             this.chartNol.TabIndex = 1;
@@ -109,8 +109,8 @@
             // 
             this.patientIdl.AutoSize = true;
             this.patientIdl.Font = new System.Drawing.Font("Microsoft JhengHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientIdl.Location = new System.Drawing.Point(3, 5);
-            this.patientIdl.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.patientIdl.Location = new System.Drawing.Point(6, 5);
+            this.patientIdl.Margin = new System.Windows.Forms.Padding(6, 5, 3, 5);
             this.patientIdl.Name = "patientIdl";
             this.patientIdl.Size = new System.Drawing.Size(231, 35);
             this.patientIdl.TabIndex = 2;
@@ -120,7 +120,8 @@
             // 
             this.heightl.AutoSize = true;
             this.heightl.Font = new System.Drawing.Font("Microsoft JhengHei UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.heightl.Location = new System.Drawing.Point(3, 0);
+            this.heightl.Location = new System.Drawing.Point(3, 3);
+            this.heightl.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.heightl.Name = "heightl";
             this.heightl.Size = new System.Drawing.Size(117, 26);
             this.heightl.TabIndex = 3;
@@ -130,7 +131,8 @@
             // 
             this.weightl.AutoSize = true;
             this.weightl.Font = new System.Drawing.Font("Microsoft JhengHei UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.weightl.Location = new System.Drawing.Point(3, 0);
+            this.weightl.Location = new System.Drawing.Point(3, 3);
+            this.weightl.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.weightl.Name = "weightl";
             this.weightl.Size = new System.Drawing.Size(117, 26);
             this.weightl.TabIndex = 4;
@@ -140,7 +142,8 @@
             // 
             this.namel.AutoSize = true;
             this.namel.Font = new System.Drawing.Font("Microsoft JhengHei UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.namel.Location = new System.Drawing.Point(3, 0);
+            this.namel.Location = new System.Drawing.Point(3, 3);
+            this.namel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.namel.Name = "namel";
             this.namel.Size = new System.Drawing.Size(117, 26);
             this.namel.TabIndex = 5;
@@ -150,7 +153,8 @@
             // 
             this.bloodl.AutoSize = true;
             this.bloodl.Font = new System.Drawing.Font("Microsoft JhengHei UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.bloodl.Location = new System.Drawing.Point(3, 0);
+            this.bloodl.Location = new System.Drawing.Point(3, 3);
+            this.bloodl.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.bloodl.Name = "bloodl";
             this.bloodl.Size = new System.Drawing.Size(117, 26);
             this.bloodl.TabIndex = 6;
@@ -169,8 +173,8 @@
             // back
             // 
             this.back.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.back.Location = new System.Drawing.Point(10, 30);
-            this.back.Margin = new System.Windows.Forms.Padding(10, 30, 30, 30);
+            this.back.Location = new System.Drawing.Point(0, 30);
+            this.back.Margin = new System.Windows.Forms.Padding(0, 30, 20, 30);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(110, 50);
             this.back.TabIndex = 8;
@@ -182,7 +186,8 @@
             // 
             this.birthdayl.AutoSize = true;
             this.birthdayl.Font = new System.Drawing.Font("Microsoft JhengHei UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.birthdayl.Location = new System.Drawing.Point(3, 0);
+            this.birthdayl.Location = new System.Drawing.Point(6, 3);
+            this.birthdayl.Margin = new System.Windows.Forms.Padding(6, 3, 3, 0);
             this.birthdayl.Name = "birthdayl";
             this.birthdayl.Size = new System.Drawing.Size(159, 26);
             this.birthdayl.TabIndex = 16;
@@ -191,8 +196,8 @@
             // revert
             // 
             this.revert.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
-            this.revert.Location = new System.Drawing.Point(180, 30);
-            this.revert.Margin = new System.Windows.Forms.Padding(30);
+            this.revert.Location = new System.Drawing.Point(140, 30);
+            this.revert.Margin = new System.Windows.Forms.Padding(10, 30, 20, 30);
             this.revert.Name = "revert";
             this.revert.Size = new System.Drawing.Size(110, 50);
             this.revert.TabIndex = 18;
@@ -203,8 +208,8 @@
             // save
             // 
             this.save.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
-            this.save.Location = new System.Drawing.Point(350, 30);
-            this.save.Margin = new System.Windows.Forms.Padding(30);
+            this.save.Location = new System.Drawing.Point(280, 30);
+            this.save.Margin = new System.Windows.Forms.Padding(10, 30, 20, 30);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(110, 50);
             this.save.TabIndex = 19;
@@ -236,7 +241,8 @@
             // 
             this.chartNo.AutoSize = true;
             this.chartNo.Font = new System.Drawing.Font("Microsoft JhengHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chartNo.Location = new System.Drawing.Point(132, 0);
+            this.chartNo.Location = new System.Drawing.Point(135, 5);
+            this.chartNo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.chartNo.Name = "chartNo";
             this.chartNo.Size = new System.Drawing.Size(92, 35);
             this.chartNo.TabIndex = 29;
@@ -246,7 +252,8 @@
             // 
             this.patientId.AutoSize = true;
             this.patientId.Font = new System.Drawing.Font("Microsoft JhengHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientId.Location = new System.Drawing.Point(240, 0);
+            this.patientId.Location = new System.Drawing.Point(243, 5);
+            this.patientId.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.patientId.Name = "patientId";
             this.patientId.Size = new System.Drawing.Size(92, 35);
             this.patientId.TabIndex = 30;
@@ -260,10 +267,10 @@
             this.button.Controls.Add(this.revert);
             this.button.Controls.Add(this.save);
             this.button.Controls.Add(this.next);
-            this.button.Location = new System.Drawing.Point(9, 542);
+            this.button.Location = new System.Drawing.Point(4, 508);
             this.button.Margin = new System.Windows.Forms.Padding(0);
             this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(640, 110);
+            this.button.Size = new System.Drawing.Size(530, 110);
             this.button.TabIndex = 31;
             // 
             // data
@@ -279,7 +286,7 @@
             this.data.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.data.Location = new System.Drawing.Point(3, 3);
             this.data.Name = "data";
-            this.data.Size = new System.Drawing.Size(652, 536);
+            this.data.Size = new System.Drawing.Size(533, 502);
             this.data.TabIndex = 33;
             // 
             // flowLayoutPanel2
@@ -290,7 +297,7 @@
             this.flowLayoutPanel2.Controls.Add(this.chartNo);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(227, 45);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(230, 45);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // flowLayoutPanel4
@@ -301,7 +308,7 @@
             this.flowLayoutPanel4.Controls.Add(this.patientId);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 54);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(335, 45);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(338, 45);
             this.flowLayoutPanel4.TabIndex = 1;
             // 
             // flowLayoutPanel5
@@ -313,7 +320,8 @@
             this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel8);
             this.flowLayoutPanel5.Controls.Add(this.flowLayoutPanel9);
             this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 105);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 107);
+            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(235, 184);
             this.flowLayoutPanel5.TabIndex = 2;
@@ -388,18 +396,18 @@
             this.flowLayoutPanel10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel10.Controls.Add(this.birthdayl);
             this.flowLayoutPanel10.Controls.Add(this.date2);
-            this.flowLayoutPanel10.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 295);
+            this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 294);
+            this.flowLayoutPanel10.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(165, 76);
+            this.flowLayoutPanel10.Size = new System.Drawing.Size(258, 43);
             this.flowLayoutPanel10.TabIndex = 3;
             // 
             // date2
             // 
             this.date2.AutoSize = true;
             this.date2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date2.Location = new System.Drawing.Point(3, 36);
-            this.date2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.date2.Location = new System.Drawing.Point(171, 3);
+            this.date2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.date2.Name = "date2";
             this.date2.Size = new System.Drawing.Size(84, 30);
             this.date2.TabIndex = 29;
@@ -413,9 +421,9 @@
             this.flowLayoutPanel12.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel12.Controls.Add(this.flowLayoutPanel13);
             this.flowLayoutPanel12.Controls.Add(this.flowLayoutPanel14);
-            this.flowLayoutPanel12.Location = new System.Drawing.Point(3, 377);
+            this.flowLayoutPanel12.Location = new System.Drawing.Point(3, 343);
             this.flowLayoutPanel12.Name = "flowLayoutPanel12";
-            this.flowLayoutPanel12.Size = new System.Drawing.Size(646, 38);
+            this.flowLayoutPanel12.Size = new System.Drawing.Size(527, 38);
             this.flowLayoutPanel12.TabIndex = 5;
             // 
             // flowLayoutPanel13
@@ -435,7 +443,7 @@
             this.flowLayoutPanel14.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel14.Location = new System.Drawing.Point(174, 3);
             this.flowLayoutPanel14.Name = "flowLayoutPanel14";
-            this.flowLayoutPanel14.Size = new System.Drawing.Size(469, 32);
+            this.flowLayoutPanel14.Size = new System.Drawing.Size(350, 32);
             this.flowLayoutPanel14.TabIndex = 1;
             // 
             // historyComment
@@ -444,7 +452,7 @@
             this.historyComment.AutoSize = true;
             this.historyComment.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.historyComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.historyComment.Location = new System.Drawing.Point(328, 3);
+            this.historyComment.Location = new System.Drawing.Point(209, 3);
             this.historyComment.Name = "historyComment";
             this.historyComment.Size = new System.Drawing.Size(138, 26);
             this.historyComment.TabIndex = 28;
@@ -459,9 +467,9 @@
             this.flowLayoutPanel11.Controls.Add(this.flowLayoutPanel3);
             this.flowLayoutPanel11.Controls.Add(this.newComment);
             this.flowLayoutPanel11.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel11.Location = new System.Drawing.Point(3, 421);
+            this.flowLayoutPanel11.Location = new System.Drawing.Point(3, 387);
             this.flowLayoutPanel11.Name = "flowLayoutPanel11";
-            this.flowLayoutPanel11.Size = new System.Drawing.Size(646, 112);
+            this.flowLayoutPanel11.Size = new System.Drawing.Size(527, 112);
             this.flowLayoutPanel11.TabIndex = 4;
             // 
             // flowLayoutPanel3
@@ -473,7 +481,7 @@
             this.flowLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(640, 0);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(521, 0);
             this.flowLayoutPanel3.TabIndex = 29;
             // 
             // newComment
@@ -483,7 +491,7 @@
             this.newComment.Multiline = true;
             this.newComment.Name = "newComment";
             this.newComment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.newComment.Size = new System.Drawing.Size(640, 100);
+            this.newComment.Size = new System.Drawing.Size(521, 100);
             this.newComment.TabIndex = 27;
             this.newComment.TextChanged += new System.EventHandler(this.history_TextChanged);
             // 
@@ -497,7 +505,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(50, 50);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(50);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(658, 652);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(539, 618);
             this.flowLayoutPanel1.TabIndex = 34;
             // 
             // PatientDetail
@@ -507,7 +515,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(766, 716);
+            this.ClientSize = new System.Drawing.Size(654, 716);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PatientDetail";

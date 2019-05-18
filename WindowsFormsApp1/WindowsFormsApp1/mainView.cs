@@ -42,6 +42,7 @@ namespace WindowsFormsApp1
         public MainView()
         {
             InitializeComponent();
+            //StartMain();
         }
         
         private void mainView_Load(object sender, EventArgs e)
@@ -599,7 +600,7 @@ namespace WindowsFormsApp1
         //結束後保存手術資料
         private void SaveOperationData()
         {
-
+            new AnesthesiaDataRepository().SetOperationEndTime(StaticPatient.AnesthesiaID);
         }
 
         //結束後保存病人資料
@@ -654,6 +655,11 @@ namespace WindowsFormsApp1
             drawMedicineData();
         }
 
+        private void MainView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            StaticPatient.AnesthesiaID = null;
+        }
+
         //切换停止开始按钮
         private void button_Stop_Click(object sender, EventArgs e)  
         {
@@ -688,6 +694,34 @@ namespace WindowsFormsApp1
             BasicDataShow();
         }
 
+        public void StartMain()
+        {
+            if (!StaticPatient.AnesthesiaID.Equals(""))
+                Pick();
+            else
+                mainView_Load();
+            
+        }
+
+        private void Pick()
+        {
+            new PatientData(false).Show();
+            this.Hide();
+        }
+
+        private void mainView_Load()
+        {
+            this.MaximumSize = new Size(this.Width, this.Height);
+            x = this.Size.Width - this.MinimumSize.Width;
+            l = this.MaximumSize.Width - this.MinimumSize.Width;
+            CreateChart();
+            //CreateMedicineChart();
+            createSeries();
+            createViewList();
+            BasicDataShow();
+            //medicineLst_init();
+            t.Start();
+        }
 
     }
 
