@@ -28,10 +28,8 @@ namespace WindowsFormsApp1
         //初始化数据
         private void LoadData()
         {
-
             setOriginData();
             setButtom();
-
         }
 
         //返回
@@ -44,10 +42,10 @@ namespace WindowsFormsApp1
         //下一步
         private void next_Click(object sender, EventArgs e)
         {
-            new MainView().Show();
-            //this.Owner.Close();
-            //this.Close();
             this.Hide();
+            ChooseOperator choose = new ChooseOperator();
+            choose.Owner = this;
+            choose.Show();
         }
 
         //恢复为原始数据，设定按钮
@@ -217,8 +215,6 @@ namespace WindowsFormsApp1
 
         private void HistoryComment_Click(object sender, EventArgs e)
         {
-            Debug.Write("11111111111111111111111111111111111111111");
-            Debug.Write(StaticPatient.patient.Comment);
             PatientHistory ph = new PatientHistory();
             ph.Show();
             ph.LoadData(StaticPatient.patient.Name, StaticPatient.patient.Comment);

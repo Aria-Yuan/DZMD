@@ -57,6 +57,12 @@
     <Compile Include="ChangePoint.Designer.cs">
       <DependentUpon>ChangePoint.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChooseOperator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseOperator.Designer.cs">
+      <DependentUpon>ChooseOperator.cs</DependentUpon>
+    </Compile>
     <Compile Include="MedicineRecordEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,7 @@
     <Compile Include="MedicineRecordOperation.Designer.cs">
       <DependentUpon>MedicineRecordOperation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\AnesthesiaData.cs" />
     <Compile Include="Model\AnesthesiaMedicineRecord.cs" />
     <Compile Include="Model\Medicinedata.cs" />
     <Compile Include="Model\PatientBasic.cs" />
@@ -132,6 +139,7 @@
     <Compile Include="PatientHistory.Designer.cs">
       <DependentUpon>PatientHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repository\AnesthesiaDataRepository.cs" />
     <Compile Include="Repository\MedicineRecordRepository.cs" />
     <Compile Include="Repository\PatientBasicRepository.cs" />
     <Compile Include="Repository\MedicineDataRepository.cs" />
@@ -160,6 +168,9 @@
     </Compile>
     <EmbeddedResource Include="ChangePoint.resx">
       <DependentUpon>ChangePoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseOperator.resx">
+      <DependentUpon>ChooseOperator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

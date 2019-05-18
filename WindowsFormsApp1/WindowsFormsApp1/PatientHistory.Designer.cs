@@ -73,7 +73,7 @@
             // 
             // close
             // 
-            this.close.Location = new System.Drawing.Point(111, 188);
+            this.close.Location = new System.Drawing.Point(100, 405);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(75, 23);
             this.close.TabIndex = 4;
