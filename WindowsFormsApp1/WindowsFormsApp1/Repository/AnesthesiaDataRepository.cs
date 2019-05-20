@@ -34,6 +34,21 @@ namespace WindowsFormsApp1.Repository
             return list;
         }
 
+        public List<AnesthesiaData> SelectByAnesthesiaID(string id)
+        {
+            List<AnesthesiaData> list = new List<AnesthesiaData>();
+            string cmd = "SELECT * FROM dzmd.anesthesiadata WHERE AnesthesiaID = '"
+                + id + "'";
+
+            MySqlDataReader sdr = mycom.executeSQLR(cmd);
+            while (sdr.Read())
+                list.Add(Read(sdr));
+
+            close();
+
+            return list;
+        }
+
         public void SetOperationStartTime(string id)
         {
             string cmd = "UPDATE anesthesiadata SET Thebeginningofsurgery = '"
