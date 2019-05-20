@@ -30,16 +30,27 @@ namespace WindowsFormsApp1.Repository
                 list.Add(Read(sdr));
 
             close();
+
             return list;
         }
 
-        public void SetStartTime(string id)
+        public void SetOperationStartTime(string id)
         {
             string cmd = "UPDATE anesthesiadata SET Thebeginningofsurgery = '"
-                + DateTime.Now.ToString()
+                + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
                 + "' WHERE AnesthesiaID = '"
                 + id + "'";
-
+            MySqlDataReader sdr = mycom.executeSQLR(cmd);
+            close();
+        }
+        public void SetOperationEndTime(string id)
+        {
+            string cmd = "UPDATE anesthesiadata SET Theendofsurgery = '"
+                + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+                + "' WHERE AnesthesiaID = '"
+                + id + "'";
+            MySqlDataReader sdr = mycom.executeSQLR(cmd);
+            close();
         }
 
         private AnesthesiaData Read(MySqlDataReader sdr)

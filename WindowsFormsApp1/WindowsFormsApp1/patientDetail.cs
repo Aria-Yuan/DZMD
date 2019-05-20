@@ -28,48 +28,59 @@ namespace WindowsFormsApp1
         //初始化数据
         private void LoadData()
         {
+            GetPatientData();
             setOriginData();
             setButtom();
+        }
+
+        private void GetPatientData()
+        {
+            PatientBasicRepository pbr = new PatientBasicRepository();
+            StaticPatient.patient = pbr.selectOnePatient(StaticPatient.patient.CharNo);
         }
 
         //返回
         private void back_Click(object sender, EventArgs e)
         {
-            this.Owner.Show();
+            new PatientData(true).Show();
             this.Close();
         }
 
         //下一步
         private void next_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ChooseOperator choose = new ChooseOperator();
-            choose.Owner = this;
-            choose.Show();
+            AnesthesiaDataRepository apr = new AnesthesiaDataRepository();
+            StaticPatient.operateList = apr.SelectByChartNo(StaticPatient.patient.CharNo);
+            if (StaticPatient.operateList.Count == 0)
+            {
+                DialogResult dr = MessageBox.Show("這個病人沒有即將進行的手術！",
+                    "注意", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                new ChooseOperator().Show();
+                this.Close();
+            }
         }
+
 
         //恢复为原始数据，设定按钮
         private void revert_Click(object sender, EventArgs e)
         {
-
             setOriginData();
             isChanged = false;
             setButtom();
-
         }
 
         //revert和load：设为原始数据
         private void setOriginData()
         {
             chartNo.Text = StaticPatient.patient.CharNo;
-            //name.Text = patient.Name;
             patientId.Text = StaticPatient.patient.PId;
             weight.Text = StaticPatient.patient.Weight.ToString();
             height.Text = StaticPatient.patient.Height.ToString();
-            //blood.Text = patient.BloodType;
             newComment.Text = StaticPatient.newComment;
-            //date.Value = patient.BirthDate;
-            date2.Text = StaticPatient.patient.BirthDate.ToString();
+            date2.Text = StaticPatient.patient.BirthDate.ToString("yyyy-MM-dd");
             blood2.Text = StaticPatient.patient.BloodType.ToString();
             name2.Text = StaticPatient.patient.Name.ToString();
         }
@@ -77,7 +88,6 @@ namespace WindowsFormsApp1
         //保存,设定按钮
         private void save_Click(object sender, EventArgs e)
         {
-
             PatientBasicRepository pbr = new PatientBasicRepository();
             //读取目前的信息
             newData = new PatientBasic
@@ -104,12 +114,13 @@ namespace WindowsFormsApp1
             //StaticPatient.patient.Name = newData.Name;
             //StaticPatient.patient.Comment = newData.Comment;
             LoadData();
-            pbr.close();
 
         }
 
-        //重新设定按钮（数据没有改变），load、恢复或保存后，下一步启用，恢复和保存禁用
-        //重新设定按钮（数据有改变），在修改数据之后，恢复和保存可以按，下一步被禁用
+        /***
+         * 重新设定按钮（数据没有改变），load、恢复或保存后，下一步启用，恢复和保存禁用
+         *重新设定按钮（数据有改变），在修改数据之后，恢复和保存可以按，下一步被禁用
+        ***/
         private void setButtom()
         {
 
@@ -154,29 +165,23 @@ namespace WindowsFormsApp1
 
         private void height_TextChanged(object sender, EventArgs e)
         {
-
             if (height.Text != StaticPatient.patient.Height.ToString()) isChanged = true;
 
             setButtom();
-
         }
 
         private void weight_TextChanged(object sender, EventArgs e)
         {
-
             if (weight.Text != StaticPatient.patient.Weight.ToString()) isChanged = true;
 
             setButtom();
-
         }
 
         private void history_TextChanged(object sender, EventArgs e)
         {
-
-            if (newComment.Text != StaticPatient.patient.Comment) isChanged = true;
+            if (newComment.Text != StaticPatient.newComment) isChanged = true;
 
             setButtom();
-
         }
 
         /*

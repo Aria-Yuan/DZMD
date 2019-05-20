@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,36 +16,45 @@ namespace WindowsFormsApp1
     public partial class PatientData : Form
     {
 
-        private PatientBasicRepository patientBasicRepository = new PatientBasicRepository();
         private List<PatientBasic> pbList;
+        private List<string> names;
 
-        public PatientData()
+        public PatientData(Boolean back)
         {
+            if (!back)
+                GetData();
+
             InitializeComponent();
             LoadData();
         }
 
+
         private void LoadData()
         {
-            pbList = patientBasicRepository.selectAll();
-            List<string> nameList = new List<string>();
+            names = StaticPatient.nameList;
+            patientName.DataSource = names;
+        }
+
+        private void GetData()
+        {
+            PatientBasicRepository pbr = new PatientBasicRepository();
+            pbList = pbr.selectAllIdAndName();
             foreach (PatientBasic pb in pbList)
-                nameList.Add(pb.Name);
-            patientName.DataSource = nameList;
+            {
+                StaticPatient.patientList.Add(pb.CharNo);
+                StaticPatient.nameList.Add(pb.Name);
+            }
         }
 
         private void goPatientDetail_Click(object sender, EventArgs e)
         {
             this.Hide();
-            PatientDetail detail = new PatientDetail();
-            detail.Owner = this;
-            detail.Show();
-            patientBasicRepository.close();
+            new PatientDetail().Show();
         }
 
         private void patientName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            StaticPatient.patient = pbList[patientName.SelectedIndex];
+            StaticPatient.patient.CharNo = StaticPatient.patientList[patientName.SelectedIndex];
         }
     }
 }
