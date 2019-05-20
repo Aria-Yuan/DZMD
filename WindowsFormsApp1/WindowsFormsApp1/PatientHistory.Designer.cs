@@ -136,6 +136,7 @@
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.close);
             this.Name = "PatientHistory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PatientHistory";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();

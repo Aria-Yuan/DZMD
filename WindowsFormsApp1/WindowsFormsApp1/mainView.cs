@@ -885,6 +885,11 @@ namespace WindowsFormsApp1
             StaticPatient.AnesthesiaID = null;
         }
 
+        private void MainView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
         //切换停止开始按钮
         private void button_Stop_Click(object sender, EventArgs e)  
         {
