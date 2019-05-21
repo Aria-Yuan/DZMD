@@ -20,7 +20,8 @@ namespace WindowsFormsApp1
         //初始的xy值
         public void SetValue(double x, double y, String type, int time)
         {
-            xn.Text = x.ToString();
+            current.Text = StaticPatient.anesthesiaData.
+                Thebeginningofsurgery.AddSeconds(5*time).ToString("HH:mm:ss");
             yn.Text = y.ToString();
             this.type.Text = type;
             this.time.Text = time.ToString();
@@ -29,7 +30,7 @@ namespace WindowsFormsApp1
         //获取当前xy值
         public double[] GetValue()
         {
-            return new double[]{Double.Parse(xn.Text), Double.Parse(yn.Text)};
+            return new double[]{Double.Parse(current.Text), Double.Parse(yn.Text)};
         }
 
         //xy修改只能输入小数（数字和小数点）以及删除，其他按键无效
@@ -58,7 +59,7 @@ namespace WindowsFormsApp1
         private void button2_Click(object sender, EventArgs e)
         {
             MainView mv = (MainView)this.Owner;
-            mv.ChangePoint(Double.Parse(xn.Text), Double.Parse(yn.Text),
+            mv.ChangePoint(Double.Parse(yn.Text),
                 this.type.Text, Int32.Parse(this.time.Text));
             this.Close();
         }

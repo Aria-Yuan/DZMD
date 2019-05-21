@@ -18,6 +18,7 @@ namespace WindowsFormsApp1
         public static List<AnesthesiaData> operateList;
         public static List<string> patientList = new List<string>();
         public static List<string> nameList = new List<string>();
+        public static AnesthesiaData anesthesiaData = new AnesthesiaData();
         //public static MainView main;
 
     }

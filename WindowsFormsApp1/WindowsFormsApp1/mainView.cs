@@ -18,6 +18,7 @@ namespace WindowsFormsApp1
         private MedicineRecordRepository medicineRecordRepository = new MedicineRecordRepository();
         private MedicineDataRepository medicineDataRepository = new MedicineDataRepository();
         private PatientBasicRepository patientBasicRepository = new PatientBasicRepository();
+        private AnesthesiaDataRepository anesthesiaDataRepository = new AnesthesiaDataRepository();
         private double x, l;
 
         private Series series1, series2, series3;
@@ -30,6 +31,7 @@ namespace WindowsFormsApp1
         private string continuousSign = "—————————————————";
         private string startContinuousSign = " ——————————";
         private PatientBasic patient = StaticPatient.patient;
+        private DateTime time;
 
         static int range = 0, range1 = 0, range2 = 0;
         Random r = new Random(6);
@@ -52,6 +54,7 @@ namespace WindowsFormsApp1
             this.MaximumSize = new Size(this.Width, this.Height);
             x = this.Size.Width - this.MinimumSize.Width;
             l = this.MaximumSize.Width - this.MinimumSize.Width;
+            LoadAnesthessiaData();
             CreateChart();
             //CreateMedicineChart();
             createSeries();
@@ -59,6 +62,13 @@ namespace WindowsFormsApp1
             BasicDataShow();
             //medicineLst_init();
             t.Start();
+        }
+
+        private void LoadAnesthessiaData()
+        {
+            StaticPatient.anesthesiaData = 
+                anesthesiaDataRepository.SelectByAnesthesiaID(StaticPatient.AnesthesiaID);
+            time = StaticPatient.anesthesiaData.Thebeginningofsurgery;
         }
 
         //生命体征讯号
@@ -106,7 +116,7 @@ namespace WindowsFormsApp1
             chartArea.AxisX.Enabled = AxisEnabled.True;
             chartArea.AxisX.ScaleView.MinSizeType = DateTimeIntervalType.Months;
             chartArea.AxisX.Crossing = 0;
-            chartArea.AxisX.LabelStyle.Enabled = false;
+            //chartArea.AxisX.LabelStyle.Enabled = false;
             
             chartArea.Position = new ElementPosition((float)5.95, 2, (float)93.06, 97);
 
@@ -560,12 +570,13 @@ namespace WindowsFormsApp1
                 flag = false;
                 chart.Series[0].Points.Clear();
             }
+            string timeString = time.ToString("HH:mm:ss");
             range = r.Next(140, 200);    //随机取数 
             range1 = r1.Next(90, 120);
             range2 = r2.Next(60, 100);
-            series1.Points.AddXY(sum, range);   //设置series点    
-            series2.Points.AddXY(sum, range1);
-            series3.Points.AddXY(sum, range2);
+            series1.Points.AddXY(timeString, range);   //设置series点    
+            series2.Points.AddXY(timeString, range1);
+            series3.Points.AddXY(timeString, range2);
             sum++;
             //判断timer动了几次
             if((sum-1) % 5 == 0)
@@ -587,10 +598,15 @@ namespace WindowsFormsApp1
                     chart.ChartAreas[0].AxisX.ScaleView.Position = sum - chart.ChartAreas[0].AxisX.ScaleView.Size;
             }
 
+            time = time.AddSeconds(5);
+
         }
 
         private void patientDetail_Click(object sender, EventArgs e)
         {
+            AnesthesiaDataRepository adr = new AnesthesiaDataRepository();
+            
+            Debug.WriteLine(adr.SelectByAnesthesiaID(StaticPatient.AnesthesiaID).AnesthesiaID);
             PatientDetail detail = new PatientDetail();
             detail.Owner = this;
             detail.ChangeButton();
@@ -631,6 +647,7 @@ namespace WindowsFormsApp1
         {
             if (isOnPoint)
             {
+                Debug.WriteLine(dp.XValue);
                 ChangePoint changePoint = new ChangePoint();
                 changePoint.Owner = this;
                 changePoint.SetValue(dp.XValue, dp.YValues[0], seriesName, pointIndex);
@@ -639,7 +656,7 @@ namespace WindowsFormsApp1
         }
 
         //修改数据点
-        public void ChangePoint(double x, double y, String type, int time)
+        public void ChangePoint(double y, String type, int time)
         {
             Series[] series = { series1, series2, series3 };
             foreach(Series s in series)
