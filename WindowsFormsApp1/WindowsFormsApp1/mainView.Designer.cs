@@ -82,7 +82,7 @@ namespace WindowsFormsApp1
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel1, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.28205F));
@@ -98,7 +98,7 @@ namespace WindowsFormsApp1
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel6, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(264, 2);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.63158F));
@@ -130,7 +130,7 @@ namespace WindowsFormsApp1
             this.tableLayoutPanel6.Controls.Add(this.medicineLst, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(2, 440);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -190,7 +190,7 @@ namespace WindowsFormsApp1
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.63F));
@@ -209,7 +209,7 @@ namespace WindowsFormsApp1
             this.tableLayoutPanel5.Controls.Add(this.medicineRecord, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(2, 440);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.Padding = new System.Windows.Forms.Padding(27, 0, 27, 0);
             this.tableLayoutPanel5.RowCount = 3;
@@ -225,9 +225,9 @@ namespace WindowsFormsApp1
             this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(34, 123);
-            this.button5.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.button5.Margin = new System.Windows.Forms.Padding(7);
             this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Padding = new System.Windows.Forms.Padding(4);
             this.button5.Size = new System.Drawing.Size(186, 44);
             this.button5.TabIndex = 5;
             this.button5.Text = "保留";
@@ -238,9 +238,9 @@ namespace WindowsFormsApp1
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(34, 181);
-            this.button3.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.button3.Margin = new System.Windows.Forms.Padding(7);
             this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Padding = new System.Windows.Forms.Padding(4);
             this.button3.Size = new System.Drawing.Size(186, 44);
             this.button3.TabIndex = 4;
             this.button3.Text = "手術結束";
@@ -252,9 +252,9 @@ namespace WindowsFormsApp1
             this.timeRecord.Dock = System.Windows.Forms.DockStyle.Fill;
             this.timeRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeRecord.Location = new System.Drawing.Point(34, 65);
-            this.timeRecord.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.timeRecord.Margin = new System.Windows.Forms.Padding(7);
             this.timeRecord.Name = "timeRecord";
-            this.timeRecord.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.timeRecord.Padding = new System.Windows.Forms.Padding(4);
             this.timeRecord.Size = new System.Drawing.Size(186, 44);
             this.timeRecord.TabIndex = 2;
             this.timeRecord.Text = "事件記錄";
@@ -266,9 +266,9 @@ namespace WindowsFormsApp1
             this.medicineRecord.Dock = System.Windows.Forms.DockStyle.Fill;
             this.medicineRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.medicineRecord.Location = new System.Drawing.Point(34, 7);
-            this.medicineRecord.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.medicineRecord.Margin = new System.Windows.Forms.Padding(7);
             this.medicineRecord.Name = "medicineRecord";
-            this.medicineRecord.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.medicineRecord.Padding = new System.Windows.Forms.Padding(4);
             this.medicineRecord.Size = new System.Drawing.Size(186, 44);
             this.medicineRecord.TabIndex = 0;
             this.medicineRecord.Text = "藥物記錄";
@@ -283,7 +283,7 @@ namespace WindowsFormsApp1
             this.tableLayoutPanel2.Controls.Add(this.patientData, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 124F));
@@ -298,7 +298,7 @@ namespace WindowsFormsApp1
             this.panel2.Controls.Add(this.trackBar1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(2, 126);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
             this.panel2.Size = new System.Drawing.Size(250, 111);
@@ -309,7 +309,7 @@ namespace WindowsFormsApp1
             this.button_Stop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_Stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Stop.Location = new System.Drawing.Point(165, 64);
-            this.button_Stop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_Stop.Margin = new System.Windows.Forms.Padding(2);
             this.button_Stop.Name = "button_Stop";
             this.button_Stop.Size = new System.Drawing.Size(73, 36);
             this.button_Stop.TabIndex = 25;
@@ -323,7 +323,7 @@ namespace WindowsFormsApp1
             this.trackBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.trackBar1.LargeChange = 1;
             this.trackBar1.Location = new System.Drawing.Point(0, 16);
-            this.trackBar1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.trackBar1.Margin = new System.Windows.Forms.Padding(2);
             this.trackBar1.Maximum = 60;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(246, 45);
@@ -472,6 +472,8 @@ namespace WindowsFormsApp1
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainView_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainView_FormClosed);
             this.Load += new System.EventHandler(this.mainView_Load);
             this.SizeChanged += new System.EventHandler(this.mainView_SizeChanged);
             this.tableLayoutPanel3.ResumeLayout(false);

@@ -34,7 +34,7 @@ namespace WindowsFormsApp1.Repository
             return list;
         }
 
-        public List<AnesthesiaData> SelectByAnesthesiaID(string id)
+        public AnesthesiaData SelectByAnesthesiaID(string id)
         {
             List<AnesthesiaData> list = new List<AnesthesiaData>();
             string cmd = "SELECT * FROM dzmd.anesthesiadata WHERE AnesthesiaID = '"
@@ -46,7 +46,7 @@ namespace WindowsFormsApp1.Repository
 
             close();
 
-            return list;
+            return list[0];
         }
 
         public void SetOperationStartTime(string id)
