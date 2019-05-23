@@ -86,8 +86,10 @@ namespace WindowsFormsApp1
 
             if(flag == 0)
                 this.mainView.addMedicine(medicineRecord);
-            else
+            else if(flag == 1)
                 this.mainView.modifyFlowRate(medicineRecord);
+            else
+                this.mainView.modifyMedicine(medicineRecord);
             this.Close();
         }
 

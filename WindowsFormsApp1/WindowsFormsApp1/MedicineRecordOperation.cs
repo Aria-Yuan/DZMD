@@ -68,5 +68,11 @@ namespace WindowsFormsApp1
             this.Close();
             medicineDataAddForm_InListView.ShowDialog();
         }
+
+        private void continueInjection_Click(object sender, EventArgs e)
+        {
+            mainView.setContinue();
+            this.Close();
+        }
     }
 }

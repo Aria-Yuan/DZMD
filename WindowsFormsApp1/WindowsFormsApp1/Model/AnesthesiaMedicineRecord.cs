@@ -8,6 +8,8 @@ namespace WindowsFormsApp1.Model
 {
     public class AnesthesiaMedicineRecord
     {
+        //記錄編號
+        private string id;
         //麻醉單編號
         private string anesthesiaID;
         //藥品編號
@@ -21,6 +23,7 @@ namespace WindowsFormsApp1.Model
         //連續輸注流速
         private string flowRate;
 
+        public string ID { get => id; set => id = value; }
         public string AnesthesiaID { get => anesthesiaID; set => anesthesiaID = value; }
         public string MedicineID { get => medicineID; set => medicineID = value; }
         public int AnesthesiaType { get => anesthesiaType; set => anesthesiaType = value; }

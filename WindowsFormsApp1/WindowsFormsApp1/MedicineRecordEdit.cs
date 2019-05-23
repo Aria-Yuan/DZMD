@@ -38,7 +38,7 @@ namespace WindowsFormsApp1
 
         private void editDose_Click(object sender, EventArgs e)
         {
-            MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(m, mainView, 1);
+            MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(m, mainView, 2);
             this.Close();
             medicineDataAddForm_InListView.ShowDialog();
         }
