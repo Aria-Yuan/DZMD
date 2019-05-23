@@ -51,6 +51,7 @@ namespace WindowsFormsApp1
         
         private void mainView_Load(object sender, EventArgs e)
         {
+            SetButtomsInvalid();
             this.MaximumSize = new Size(this.Width, this.Height);
             x = this.Size.Width - this.MinimumSize.Width;
             l = this.MaximumSize.Width - this.MinimumSize.Width;
@@ -62,6 +63,7 @@ namespace WindowsFormsApp1
             BasicDataShow();
             //medicineLst_init();
             t.Start();
+            SetButtomsValid();
         }
 
         private void LoadAnesthessiaData()
@@ -435,7 +437,6 @@ namespace WindowsFormsApp1
             DataGridViewRow row = new DataGridViewRow();
             this.medicineData.Rows.Add("");
             this.medicineData.AutoGenerateColumns = false;
-
         }
 
         public void continuousMStop(int index)
@@ -928,6 +929,15 @@ namespace WindowsFormsApp1
             Application.Exit();
         }
 
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            ModifyDataSeries m = new ModifyDataSeries();
+            Series[] data = { series1, series2, series3 };
+            m.Owner = this;
+            m.LoadView(data);
+            m.Show();
+        }
+
         //切换停止开始按钮
         private void button_Stop_Click(object sender, EventArgs e)  
         {
@@ -989,6 +999,32 @@ namespace WindowsFormsApp1
             BasicDataShow();
             //medicineLst_init();
             t.Start();
+        }
+
+        private void SetButtomsInvalid()
+        {
+            patientDetail.Enabled = false;
+            button_Stop.Enabled = false;
+            medicineRecord.Enabled = false;
+            timeRecord.Enabled = false;
+            changeData.Enabled = false;
+            endIt.Enabled = false;
+        }
+        private void SetButtomsValid()
+        {
+            patientDetail.Enabled = true;
+            button_Stop.Enabled = true;
+            medicineRecord.Enabled = true;
+            timeRecord.Enabled = true;
+            changeData.Enabled = true;
+            endIt.Enabled = true;
+        }
+
+        public void ChangeSeries(Series[] series)
+        {
+            series1 = series[0];
+            series2 = series[1];
+            series3 = series[2];
         }
 
     }

@@ -12,11 +12,31 @@ namespace WindowsFormsApp1
 {
     public partial class ChangePoint : Form
     {
+
+        //Form parent;
+        //bool isMain;
+
+        /***
+    public ChangePoint(bool isMain)
+    {
+        InitializeComponent();
+        this.isMain = isMain;
+        if (isMain)
+        {
+            parent = (MainView)this.Owner;
+        }
+        else
+        {
+            parent = (ModifyDataSeries)this.Owner;
+        }
+    }
+    ***/
+
         public ChangePoint()
         {
             InitializeComponent();
         }
-        
+
         //初始的xy值
         public void SetValue(double x, double y, String type, int time)
         {
@@ -58,10 +78,17 @@ namespace WindowsFormsApp1
         //确认：呼叫修改数据点
         private void button2_Click(object sender, EventArgs e)
         {
-            MainView mv = (MainView)this.Owner;
-            mv.ChangePoint(Double.Parse(yn.Text),
-                this.type.Text, Int32.Parse(this.time.Text));
-            this.Close();
+            //if (isMain)
+            //{
+                MainView mv = (MainView)this.Owner;
+                mv.ChangePoint(Double.Parse(yn.Text),
+                    this.type.Text, Int32.Parse(this.time.Text));
+                this.Close();
+            //}
+            //else
+            //{
+
+            //}
         }
     }
 }
