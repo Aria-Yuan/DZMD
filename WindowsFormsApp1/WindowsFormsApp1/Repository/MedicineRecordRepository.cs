@@ -55,6 +55,39 @@ namespace WindowsFormsApp1.Repository
             mycom.closeConnect();
             return target;
         }
-        
+
+        //删除药物记录
+        public void deleteByTime(AnesthesiaMedicineRecord a)
+        {
+            mycom = new sqlBase();
+            string sql;
+            if (a.AnesthesiaType == 0)
+                sql = "DELETE FROM anesthesiamedicinerecord WHERE Time = '" + a.Time.ToString("yyyy-MM-dd HH:mm:ss") + "' AND MedicineID = '" 
+                    + a.MedicineID + "' AND AnesthesiaID = '" + a.AnesthesiaID + "'";
+            else
+                sql = "DELETE FROM anesthesiamedicinerecord WHERE Time = '" + a.Time.ToString("yyyy-MM-dd HH:mm:ss") + "' AND MedicineID = '"
+                    + a.MedicineID + "' AND AnesthesiaID = '" + a.AnesthesiaID + "' AND ActualAmount = '" + a.ActualAmount + "'";
+
+            mycom.executeSQLCUD(sql);
+            mycom.closeConnect();
+        }
+
+        //修改药物记录
+        public void updateByTime(AnesthesiaMedicineRecord a)
+        {
+            mycom = new sqlBase();
+            string sql;
+            if (a.AnesthesiaType == 0)
+                sql = "UPDATE anesthesiamedicinerecord SET ActualAmount = '" + a.ActualAmount + "' WHERE Time = '" + a.Time.ToString("yyyy-MM-dd HH:mm:ss")
+                    + "' AND MedicineID = '"  + a.MedicineID + "' AND AnesthesiaID = '" + a.AnesthesiaID + "'";
+            else
+                sql = "UPDATE anesthesiamedicinerecord SET ActualAmount = '" + a.ActualAmount + "' , FlowRate = '" + a.FlowRate +
+                    "' WHERE Time = '" + a.Time.ToString("yyyy-MM-dd HH:mm:ss") + "' AND MedicineID = '"
+                    + a.MedicineID + "' AND AnesthesiaID = '" + a.AnesthesiaID + "'";
+
+            Console.WriteLine(sql);
+            mycom.executeSQLCUD(sql);
+            mycom.closeConnect();
+        }
     }
 }
