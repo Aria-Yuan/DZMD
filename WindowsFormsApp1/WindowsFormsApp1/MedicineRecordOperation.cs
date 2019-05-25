@@ -13,7 +13,6 @@ namespace WindowsFormsApp1
 {
     public partial class MedicineRecordOperation : Form
     {
-        private int selectedIndex;
         private int flag = 0;
         private Medicinedata m;
         private MainView mainView;
@@ -23,11 +22,10 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        public MedicineRecordOperation(int index, Medicinedata m, MainView mainView, int type)
+        public MedicineRecordOperation(Medicinedata m, MainView mainView, int type)
         {
             this.mainView = mainView;
             this.m = m;
-            selectedIndex = index;
             InitializeComponent();
 
             //不能停止注射的情况
@@ -58,7 +56,7 @@ namespace WindowsFormsApp1
 
         private void stopInjection_Click(object sender, EventArgs e)
         {
-            mainView.continuousMStop(selectedIndex);
+            mainView.continuousMStop(m);
             this.Close();
         }
 
