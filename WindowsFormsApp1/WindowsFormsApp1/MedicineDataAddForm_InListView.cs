@@ -31,6 +31,27 @@ namespace WindowsFormsApp1
             LoadData();
         }
 
+        public MedicineDataAddForm_InListView(AnesthesiaMedicineRecord m, MainView mainView, int flag)
+        {
+            this.mainView = mainView;
+            this.flag = flag;
+            this.medicineRecord = m;
+            InitializeComponent();
+            LoadData();
+            Console.WriteLine("HJK" + m.MedicineID);
+            Mname.SelectedIndex = Mname.FindStringExact(medicineDataRepository.selectById(m.MedicineID).MName);
+            Mname.Enabled = false;
+
+            NMvalue.Text = m.ActualAmount.Split(' ')[0];
+            MCvalue.Text = m.ActualAmount.Split(' ')[0];
+            MRvalue.Text = m.FlowRate.Split(' ')[0];
+
+            NMunit.SelectedIndex = NMunit.FindStringExact(medicineRecord.ActualAmount.Split(' ')[1]);
+            MCunit.SelectedIndex = NMunit.FindStringExact(medicineRecord.ActualAmount.Split(' ')[1]);
+            MRunit.SelectedIndex = NMunit.FindStringExact(medicineRecord.ActualAmount.Split(' ')[1]);
+
+        }
+
         public MedicineDataAddForm_InListView(Medicinedata m, MainView mainView, int flag)
         {
             this.mainView = mainView;

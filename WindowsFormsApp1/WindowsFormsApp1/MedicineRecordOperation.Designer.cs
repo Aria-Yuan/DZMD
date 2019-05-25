@@ -38,7 +38,7 @@
             // 
             this.stopInjection.AccessibleName = "stopInjection";
             this.stopInjection.Location = new System.Drawing.Point(48, 35);
-            this.stopInjection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.stopInjection.Margin = new System.Windows.Forms.Padding(2);
             this.stopInjection.Name = "stopInjection";
             this.stopInjection.Size = new System.Drawing.Size(131, 44);
             this.stopInjection.TabIndex = 0;
@@ -49,7 +49,7 @@
             // addDose
             // 
             this.addDose.Location = new System.Drawing.Point(48, 122);
-            this.addDose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addDose.Margin = new System.Windows.Forms.Padding(2);
             this.addDose.Name = "addDose";
             this.addDose.Size = new System.Drawing.Size(131, 44);
             this.addDose.TabIndex = 1;
@@ -60,7 +60,7 @@
             // modify
             // 
             this.modify.Location = new System.Drawing.Point(48, 213);
-            this.modify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.modify.Margin = new System.Windows.Forms.Padding(2);
             this.modify.Name = "modify";
             this.modify.Size = new System.Drawing.Size(131, 44);
             this.modify.TabIndex = 2;
@@ -71,7 +71,7 @@
             // 
             this.continueInjection.AccessibleName = "continueInjection";
             this.continueInjection.Location = new System.Drawing.Point(48, 35);
-            this.continueInjection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.continueInjection.Margin = new System.Windows.Forms.Padding(2);
             this.continueInjection.Name = "continueInjection";
             this.continueInjection.Size = new System.Drawing.Size(131, 44);
             this.continueInjection.TabIndex = 3;
@@ -88,7 +88,7 @@
             this.Controls.Add(this.modify);
             this.Controls.Add(this.addDose);
             this.Controls.Add(this.stopInjection);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MedicineRecordOperation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "medicineRecordOperation";

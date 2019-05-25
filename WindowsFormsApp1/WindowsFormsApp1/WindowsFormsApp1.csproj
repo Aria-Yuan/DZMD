@@ -115,6 +115,11 @@
     <Compile Include="Model\Medicinedata.cs" />
     <Compile Include="Model\PatientBasic.cs" />
     <Compile Include="Model\VitalRecord.cs" />
+    <Compile Include="ModifyMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyMedicine.Designer.cs">
+      <DependentUpon>ModifyMedicine.cs</DependentUpon>
     <Compile Include="ModifyDataSeries.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +210,8 @@
     <EmbeddedResource Include="MedicineRecordOperation.resx">
       <DependentUpon>MedicineRecordOperation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModifyMedicine.resx">
+      <DependentUpon>ModifyMedicine.cs</DependentUpon>
     <EmbeddedResource Include="ModifyDataSeries.resx">
       <DependentUpon>ModifyDataSeries.cs</DependentUpon>
     </EmbeddedResource>
