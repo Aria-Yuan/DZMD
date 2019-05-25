@@ -1,0 +1,10 @@
+patientID:UA00078658
+AnesthesiaID:201905172100
+newComment:
+StartTime:5/26/2019 2:35:19 AM
+TimePeriod:5000
+SaveTime:2:35:30 AM
+Series:
+SystolicBP:{191} {174} {197} {190} {194} {188} {175} {167} {183} {169} 
+DiastolicBP:{191} {174} {197} {190} {194} {188} {175} {167} {183} {169} 
+Heartbeat:{191} {174} {197} {190} {194} {188} {175} {167} {183} {169} 

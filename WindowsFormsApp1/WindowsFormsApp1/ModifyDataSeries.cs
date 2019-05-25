@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -47,10 +48,11 @@ namespace WindowsFormsApp1
                     main[lists].Controls.Add(SingleData(seriesList[lists].Points[i], i, name));
                 }
                 main[lists].FlowDirection = FlowDirection.TopDown;
-                main[lists].AutoSize = true;
+                //main[lists].AutoSize = true;
                 //main[lists].AutoScroll = true;
                 main[lists].AutoSize = false;
                 main[lists].Width = 180;
+                main[lists].Height = 50 * count;
             }
             /*
             timeList.Controls.Add(new Label()
@@ -65,10 +67,11 @@ namespace WindowsFormsApp1
                 timeList.Controls.Add(SingleTime(i));
             }
             timeList.FlowDirection = FlowDirection.TopDown;
-            timeList.AutoSize = true;
+            //timeList.AutoSize = true;
             //timeList.AutoScroll = true;
             timeList.AutoSize = false;
             timeList.Width = 180;
+            timeList.Height = 50 * count;
 
             mainview.AutoScroll = true;
 

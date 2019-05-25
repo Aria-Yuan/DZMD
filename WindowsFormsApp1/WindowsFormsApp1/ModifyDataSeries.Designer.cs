@@ -76,10 +76,9 @@
             // 
             // save
             // 
-            this.save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.save.AutoSize = true;
             this.save.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
-            this.save.Location = new System.Drawing.Point(804, 431);
+            this.save.Location = new System.Drawing.Point(812, 430);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(82, 31);
             this.save.TabIndex = 5;
@@ -89,10 +88,9 @@
             // 
             // close
             // 
-            this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.close.AutoSize = true;
             this.close.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
-            this.close.Location = new System.Drawing.Point(804, 483);
+            this.close.Location = new System.Drawing.Point(812, 488);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(82, 31);
             this.close.TabIndex = 6;
@@ -139,7 +137,7 @@
             this.mainview.Controls.Add(this.HeartbeatList);
             this.mainview.Location = new System.Drawing.Point(25, 61);
             this.mainview.Name = "mainview";
-            this.mainview.Size = new System.Drawing.Size(773, 456);
+            this.mainview.Size = new System.Drawing.Size(781, 458);
             this.mainview.TabIndex = 10;
             // 
             // label4
@@ -157,7 +155,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(929, 555);
+            this.ClientSize = new System.Drawing.Size(912, 550);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.mainview);
             this.Controls.Add(this.label3);
