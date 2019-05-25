@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class timeRecord
+    partial class TimeRecord
     {
         /// <summary>
         /// Required designer variable.

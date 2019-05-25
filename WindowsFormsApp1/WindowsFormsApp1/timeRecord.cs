@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class timeRecord : Form
+    public partial class TimeRecord : Form
     {
-        public timeRecord()
+        public TimeRecord()
         {
             InitializeComponent();
         }
