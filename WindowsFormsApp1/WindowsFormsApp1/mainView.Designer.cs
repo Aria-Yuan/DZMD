@@ -232,7 +232,7 @@ namespace WindowsFormsApp1
             this.changeData.TabIndex = 5;
             this.changeData.Text = "數據修正";
             this.changeData.UseVisualStyleBackColor = true;
-            this.changeData.Click += new System.EventHandler(this.Button5_Click);
+            this.changeData.Click += new System.EventHandler(this.ChangeData_Click);
             // 
             // endIt
             // 
@@ -246,7 +246,7 @@ namespace WindowsFormsApp1
             this.endIt.TabIndex = 4;
             this.endIt.Text = "手術結束";
             this.endIt.UseVisualStyleBackColor = true;
-            this.endIt.Click += new System.EventHandler(this.Button3_Click);
+            this.endIt.Click += new System.EventHandler(this.endIt_Click);
             // 
             // timeRecord
             // 

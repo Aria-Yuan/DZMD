@@ -137,6 +137,7 @@
     <Compile Include="Repository\MedicineRecordRepository.cs" />
     <Compile Include="Repository\PatientBasicRepository.cs" />
     <Compile Include="Repository\MedicineDataRepository.cs" />
+    <Compile Include="Repository\VitalRecordRepository.cs" />
     <Compile Include="SQLConecter\sqlBase.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />

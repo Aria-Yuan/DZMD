@@ -58,6 +58,7 @@ namespace WindowsFormsApp1.Repository
             MySqlDataReader sdr = mycom.executeSQLR(cmd);
             close();
         }
+
         public void SetOperationEndTime(string id)
         {
             string cmd = "UPDATE anesthesiadata SET Theendofsurgery = '"
