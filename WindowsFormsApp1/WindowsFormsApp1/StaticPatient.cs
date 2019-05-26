@@ -70,7 +70,7 @@ namespace WindowsFormsApp1
         private static void SaveOperationData()
         {
             new AnesthesiaDataRepository().SetOperationEndTime(StaticPatient.AnesthesiaID);
-            new VitalRecordRepository().InsertNewData(vitalSigns, AnesthesiaID, anesthesiaData.Thebeginningofsurgery);
+            new VitalRecordRepository().InsertVitalData(vitalSigns, AnesthesiaID, anesthesiaData.Thebeginningofsurgery);
         }
 
         //保存病人部分的资料
@@ -96,10 +96,11 @@ namespace WindowsFormsApp1
             timer.Elapsed += Timer_Elapsed; 
         }
 
-        //timer事件：自动保存
+        //timer事件：自动保存->暂存+资料库储存
         private static void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             SaveTempData();
+            SaveOperationData();
         }
     }
 }

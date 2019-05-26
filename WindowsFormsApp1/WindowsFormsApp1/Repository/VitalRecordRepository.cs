@@ -18,7 +18,25 @@ namespace WindowsFormsApp1.Repository
             mycom = new sqlBase();
         }
 
-        public void InsertNewData(List<Series> datas, string AID, DateTime time)
+        private void InsertNewSingleVitalData(string AID, string name, string data, DateTime time)
+        {
+            string cmd = "INSERT INTO `dzmd`.`vitalrecord` (`AnesthesiaID`, " +
+                "`VitalSigns`, `VitalTime`, `VitalDetail`) VALUES ('" +
+                AID + "', '" + name + "', '" + time.ToString("yyyy-MM-dd HH:mm:ss") +
+                "', '" + data + "');";
+            mycom.executeSQLCUD(cmd);
+        }
+
+        private void UpdataSingleVitalData(string AID, string name, string data, DateTime time)
+        {
+            string cmd = "UPDATE `dzmd`.`vitalrecord` SET `VitalTime` = '" + 
+                time.ToString("yyyy-MM-dd HH:mm:ss") + "', `VitalDetail` = '" + 
+                data + "' WHERE (`VitalSigns` = '" + name + "') and (`AnesthesiaID` = '" + 
+                AID + "');";
+            mycom.executeSQLCUD(cmd);
+        }
+
+        public void InsertVitalData(List<Series> datas, string AID, DateTime time)
         {
             foreach (Series series in datas)
             {
@@ -27,12 +45,14 @@ namespace WindowsFormsApp1.Repository
                 {
                     points += "[" + p.YValues[0].ToString() + "] ";
                 }
-                string cmd = "INSERT INTO `dzmd`.`vitalrecord` (`AnesthesiaID`, " +
-                    "`VitalSigns`, `VitalTime`, `VitalDetail`) VALUES ('" +
-                    AID + "', '" + series.Name + "', '" + time.ToString("yyyy-MM-dd HH:mm:ss") +
-                    "', '" + points + "');";
-                Debug.WriteLine(cmd);
-                mycom.executeSQLCUD(cmd);
+                try
+                {
+                    InsertNewSingleVitalData(AID, series.Name, points, time);
+                }
+                catch(Exception e)
+                {
+                    UpdataSingleVitalData(AID, series.Name, points, time);
+                }
             }
             close();
         }
