@@ -43,56 +43,58 @@
             this.flowRateUnit = new System.Windows.Forms.Label();
             this.MRvalue = new System.Windows.Forms.TextBox();
             this.flowRate = new System.Windows.Forms.Label();
+            this.endTimeLabel = new System.Windows.Forms.Label();
+            this.startTLabel = new System.Windows.Forms.Label();
+            this.StartDomainUpDown = new System.Windows.Forms.DomainUpDown();
+            this.endDomainUpDown = new System.Windows.Forms.DomainUpDown();
+            this.startTimeTextBox = new System.Windows.Forms.TextBox();
+            this.endTimeTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // medicineName
             // 
             this.medicineName.AutoSize = true;
-            this.medicineName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.medicineName.Location = new System.Drawing.Point(42, 90);
-            this.medicineName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.medicineName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.medicineName.Location = new System.Drawing.Point(86, 190);
             this.medicineName.Name = "medicineName";
-            this.medicineName.Size = new System.Drawing.Size(91, 24);
+            this.medicineName.Size = new System.Drawing.Size(77, 20);
             this.medicineName.TabIndex = 0;
             this.medicineName.Text = "藥物種類:";
             // 
             // Mname
             // 
-            this.Mname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Mname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Mname.FormattingEnabled = true;
-            this.Mname.Location = new System.Drawing.Point(142, 86);
-            this.Mname.Margin = new System.Windows.Forms.Padding(4);
+            this.Mname.Location = new System.Drawing.Point(160, 187);
             this.Mname.Name = "Mname";
-            this.Mname.Size = new System.Drawing.Size(185, 30);
+            this.Mname.Size = new System.Drawing.Size(140, 28);
             this.Mname.TabIndex = 1;
             this.Mname.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // dose
             // 
             this.dose.AutoSize = true;
-            this.dose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dose.Location = new System.Drawing.Point(397, 90);
-            this.dose.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dose.Location = new System.Drawing.Point(352, 190);
             this.dose.Name = "dose";
-            this.dose.Size = new System.Drawing.Size(53, 24);
+            this.dose.Size = new System.Drawing.Size(45, 20);
             this.dose.TabIndex = 2;
             this.dose.Text = "劑量:";
             // 
             // NMvalue
             // 
-            this.NMvalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NMvalue.Location = new System.Drawing.Point(458, 87);
-            this.NMvalue.Margin = new System.Windows.Forms.Padding(4);
+            this.NMvalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NMvalue.Location = new System.Drawing.Point(404, 187);
             this.NMvalue.Name = "NMvalue";
-            this.NMvalue.Size = new System.Drawing.Size(132, 28);
+            this.NMvalue.Size = new System.Drawing.Size(100, 26);
             this.NMvalue.TabIndex = 3;
             // 
             // comfirm
             // 
-            this.comfirm.Location = new System.Drawing.Point(723, 272);
-            this.comfirm.Margin = new System.Windows.Forms.Padding(4);
+            this.comfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comfirm.Location = new System.Drawing.Point(596, 331);
             this.comfirm.Name = "comfirm";
-            this.comfirm.Size = new System.Drawing.Size(110, 52);
+            this.comfirm.Size = new System.Drawing.Size(82, 42);
             this.comfirm.TabIndex = 4;
             this.comfirm.Text = "確認";
             this.comfirm.UseVisualStyleBackColor = true;
@@ -101,119 +103,172 @@
             // doseUnit
             // 
             this.doseUnit.AutoSize = true;
-            this.doseUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.doseUnit.Location = new System.Drawing.Point(608, 90);
-            this.doseUnit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.doseUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doseUnit.Location = new System.Drawing.Point(520, 190);
             this.doseUnit.Name = "doseUnit";
-            this.doseUnit.Size = new System.Drawing.Size(53, 24);
+            this.doseUnit.Size = new System.Drawing.Size(45, 20);
             this.doseUnit.TabIndex = 6;
             this.doseUnit.Text = "单位:";
             // 
             // NMunit
             // 
-            this.NMunit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NMunit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NMunit.FormattingEnabled = true;
-            this.NMunit.Location = new System.Drawing.Point(669, 87);
-            this.NMunit.Margin = new System.Windows.Forms.Padding(4);
+            this.NMunit.Location = new System.Drawing.Point(579, 187);
             this.NMunit.Name = "NMunit";
-            this.NMunit.Size = new System.Drawing.Size(122, 30);
+            this.NMunit.Size = new System.Drawing.Size(92, 28);
             this.NMunit.TabIndex = 7;
             // 
             // MCunit
             // 
-            this.MCunit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MCunit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MCunit.FormattingEnabled = true;
-            this.MCunit.Location = new System.Drawing.Point(679, 87);
-            this.MCunit.Margin = new System.Windows.Forms.Padding(4);
+            this.MCunit.Location = new System.Drawing.Point(579, 187);
             this.MCunit.Name = "MCunit";
-            this.MCunit.Size = new System.Drawing.Size(122, 30);
+            this.MCunit.Size = new System.Drawing.Size(99, 28);
             this.MCunit.TabIndex = 11;
             this.MCunit.Visible = false;
             // 
             // concentrationUnit
             // 
             this.concentrationUnit.AutoSize = true;
-            this.concentrationUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.concentrationUnit.Location = new System.Drawing.Point(618, 90);
-            this.concentrationUnit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.concentrationUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.concentrationUnit.Location = new System.Drawing.Point(528, 190);
             this.concentrationUnit.Name = "concentrationUnit";
-            this.concentrationUnit.Size = new System.Drawing.Size(53, 24);
+            this.concentrationUnit.Size = new System.Drawing.Size(45, 20);
             this.concentrationUnit.TabIndex = 10;
             this.concentrationUnit.Text = "单位:";
             this.concentrationUnit.Visible = false;
             // 
             // MCvalue
             // 
-            this.MCvalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MCvalue.Location = new System.Drawing.Point(459, 87);
-            this.MCvalue.Margin = new System.Windows.Forms.Padding(4);
+            this.MCvalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MCvalue.Location = new System.Drawing.Point(404, 187);
             this.MCvalue.Name = "MCvalue";
-            this.MCvalue.Size = new System.Drawing.Size(132, 28);
+            this.MCvalue.Size = new System.Drawing.Size(100, 26);
             this.MCvalue.TabIndex = 9;
             this.MCvalue.Visible = false;
             // 
             // concentration
             // 
             this.concentration.AutoSize = true;
-            this.concentration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.concentration.Location = new System.Drawing.Point(360, 90);
-            this.concentration.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.concentration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.concentration.Location = new System.Drawing.Point(324, 190);
             this.concentration.Name = "concentration";
-            this.concentration.Size = new System.Drawing.Size(91, 24);
+            this.concentration.Size = new System.Drawing.Size(77, 20);
             this.concentration.TabIndex = 8;
             this.concentration.Text = "注射浓度:";
             this.concentration.Visible = false;
             // 
             // MRunit
             // 
-            this.MRunit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MRunit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MRunit.FormattingEnabled = true;
-            this.MRunit.Location = new System.Drawing.Point(679, 171);
-            this.MRunit.Margin = new System.Windows.Forms.Padding(4);
+            this.MRunit.Location = new System.Drawing.Point(579, 255);
             this.MRunit.Name = "MRunit";
-            this.MRunit.Size = new System.Drawing.Size(122, 30);
+            this.MRunit.Size = new System.Drawing.Size(99, 28);
             this.MRunit.TabIndex = 15;
             this.MRunit.Visible = false;
             // 
             // flowRateUnit
             // 
             this.flowRateUnit.AutoSize = true;
-            this.flowRateUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flowRateUnit.Location = new System.Drawing.Point(618, 174);
-            this.flowRateUnit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.flowRateUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flowRateUnit.Location = new System.Drawing.Point(528, 258);
             this.flowRateUnit.Name = "flowRateUnit";
-            this.flowRateUnit.Size = new System.Drawing.Size(53, 24);
+            this.flowRateUnit.Size = new System.Drawing.Size(45, 20);
             this.flowRateUnit.TabIndex = 14;
             this.flowRateUnit.Text = "单位:";
             this.flowRateUnit.Visible = false;
             // 
             // MRvalue
             // 
-            this.MRvalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MRvalue.Location = new System.Drawing.Point(459, 171);
-            this.MRvalue.Margin = new System.Windows.Forms.Padding(4);
+            this.MRvalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MRvalue.Location = new System.Drawing.Point(404, 255);
             this.MRvalue.Name = "MRvalue";
-            this.MRvalue.Size = new System.Drawing.Size(132, 28);
+            this.MRvalue.Size = new System.Drawing.Size(100, 26);
             this.MRvalue.TabIndex = 13;
             this.MRvalue.Visible = false;
             // 
             // flowRate
             // 
             this.flowRate.AutoSize = true;
-            this.flowRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flowRate.Location = new System.Drawing.Point(360, 174);
-            this.flowRate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.flowRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flowRate.Location = new System.Drawing.Point(324, 258);
             this.flowRate.Name = "flowRate";
-            this.flowRate.Size = new System.Drawing.Size(91, 24);
+            this.flowRate.Size = new System.Drawing.Size(77, 20);
             this.flowRate.TabIndex = 12;
             this.flowRate.Text = "注射流速:";
             this.flowRate.Visible = false;
             // 
+            // endTimeLabel
+            // 
+            this.endTimeLabel.AutoSize = true;
+            this.endTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endTimeLabel.Location = new System.Drawing.Point(395, 88);
+            this.endTimeLabel.Name = "endTimeLabel";
+            this.endTimeLabel.Size = new System.Drawing.Size(81, 20);
+            this.endTimeLabel.TabIndex = 16;
+            this.endTimeLabel.Text = "結束時間：";
+            // 
+            // startTLabel
+            // 
+            this.startTLabel.AutoSize = true;
+            this.startTLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startTLabel.Location = new System.Drawing.Point(86, 88);
+            this.startTLabel.Name = "startTLabel";
+            this.startTLabel.Size = new System.Drawing.Size(77, 20);
+            this.startTLabel.TabIndex = 17;
+            this.startTLabel.Text = "開始時間:";
+            // 
+            // StartDomainUpDown
+            // 
+            this.StartDomainUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartDomainUpDown.Location = new System.Drawing.Point(169, 86);
+            this.StartDomainUpDown.Name = "StartDomainUpDown";
+            this.StartDomainUpDown.Size = new System.Drawing.Size(200, 26);
+            this.StartDomainUpDown.TabIndex = 21;
+            this.StartDomainUpDown.Text = "請選擇時間";
+            this.StartDomainUpDown.Visible = false;
+            this.StartDomainUpDown.TextChanged += new System.EventHandler(this.StartDomainUpDown_TextChanged);
+            // 
+            // endDomainUpDown
+            // 
+            this.endDomainUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endDomainUpDown.Location = new System.Drawing.Point(478, 86);
+            this.endDomainUpDown.Name = "endDomainUpDown";
+            this.endDomainUpDown.Size = new System.Drawing.Size(200, 26);
+            this.endDomainUpDown.TabIndex = 22;
+            this.endDomainUpDown.Text = "請選擇時間";
+            this.endDomainUpDown.Visible = false;
+            // 
+            // startTimeTextBox
+            // 
+            this.startTimeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startTimeTextBox.Location = new System.Drawing.Point(169, 86);
+            this.startTimeTextBox.Name = "startTimeTextBox";
+            this.startTimeTextBox.Size = new System.Drawing.Size(200, 26);
+            this.startTimeTextBox.TabIndex = 23;
+            // 
+            // endTimeTextBox
+            // 
+            this.endTimeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endTimeTextBox.Location = new System.Drawing.Point(478, 86);
+            this.endTimeTextBox.Name = "endTimeTextBox";
+            this.endTimeTextBox.Size = new System.Drawing.Size(200, 26);
+            this.endTimeTextBox.TabIndex = 24;
+            // 
             // MedicineDataAddForm_InListView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 365);
+            this.ClientSize = new System.Drawing.Size(774, 416);
+            this.Controls.Add(this.endTimeTextBox);
+            this.Controls.Add(this.startTimeTextBox);
+            this.Controls.Add(this.endDomainUpDown);
+            this.Controls.Add(this.StartDomainUpDown);
+            this.Controls.Add(this.startTLabel);
+            this.Controls.Add(this.endTimeLabel);
             this.Controls.Add(this.MRunit);
             this.Controls.Add(this.flowRateUnit);
             this.Controls.Add(this.MRvalue);
@@ -229,7 +284,6 @@
             this.Controls.Add(this.dose);
             this.Controls.Add(this.Mname);
             this.Controls.Add(this.medicineName);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MedicineDataAddForm_InListView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "添加藥物";
@@ -255,5 +309,11 @@
         private System.Windows.Forms.Label flowRateUnit;
         private System.Windows.Forms.TextBox MRvalue;
         private System.Windows.Forms.Label flowRate;
+        private System.Windows.Forms.Label endTimeLabel;
+        private System.Windows.Forms.Label startTLabel;
+        private System.Windows.Forms.DomainUpDown StartDomainUpDown;
+        private System.Windows.Forms.DomainUpDown endDomainUpDown;
+        private System.Windows.Forms.TextBox startTimeTextBox;
+        private System.Windows.Forms.TextBox endTimeTextBox;
     }
 }
