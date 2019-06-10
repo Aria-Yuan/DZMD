@@ -63,9 +63,11 @@ namespace WindowsFormsApp1
             BasicDataShow();
             //medicineLst_init();
             t.Start();
+            StaticPatient.TimerStart();
             SetButtomsValid();
         }
 
+        //加载手术资料
         private void LoadAnesthessiaData()
         {
             StaticPatient.anesthesiaData = 
@@ -620,6 +622,10 @@ namespace WindowsFormsApp1
 
             time = time.AddSeconds(5);
             sum++;
+            StaticPatient.SaveSeriesData(new List<Series>()
+            {
+                series1, series2, series3
+            });
 
             if (sum <= chart.ChartAreas[0].AxisX.ScaleView.Size)
                 chart.ChartAreas[0].AxisX.ScaleView.Position = 0;
@@ -637,6 +643,7 @@ namespace WindowsFormsApp1
 
         }
 
+        //点击病人详情
         private void patientDetail_Click(object sender, EventArgs e)
         {
             AnesthesiaDataRepository adr = new AnesthesiaDataRepository();
@@ -661,6 +668,7 @@ namespace WindowsFormsApp1
             timeRecordForm_InListChart.ShowDialog();
         }
 
+        //生命体征信号修改-判断鼠标位置
         private void chart_GetToolTipText(object sender, ToolTipEventArgs e)
         {
             if (e.HitTestResult.ChartElementType == ChartElementType.DataPoint)
@@ -678,6 +686,7 @@ namespace WindowsFormsApp1
             }
         }
 
+        //生命体征信号修改-鼠标点击
         private void chart_MouseClick(object sender, MouseEventArgs e)
         {
             if (isOnPoint)
@@ -690,7 +699,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        //修改数据点
+        //生命体征信号修改-修改单个数据点
         public void ChangePoint(double y, String type, int time)
         {
             Series[] series = { series1, series2, series3 };
@@ -861,34 +870,26 @@ namespace WindowsFormsApp1
             addMedicine(medicineRecordRepository.findNewestRecord(a));
         }
 
-        private void Button3_Click(object sender, EventArgs e)
+        //结束按钮
+        private void endIt_Click(object sender, EventArgs e)
         {
-            SavePatientData();
-            SaveOperationData();
-        }
-
-        //結束後保存手術資料
-        private void SaveOperationData()
-        {
-            new AnesthesiaDataRepository().SetOperationEndTime(StaticPatient.AnesthesiaID);
-        }
-
-        //結束後保存病人資料
-        private void SavePatientData()
-        {
-            StaticPatient.patient.Comment = StaticPatient.patient.Comment + "\n" 
-                + DateTime.Now.ToString("yyyy-MM-dd") + ":\n"
-                + StaticPatient.newComment;
-            StaticPatient.newComment = "";
-            patientBasicRepository.saveOnePatient(StaticPatient.patient);
+            //保存Series数据
+            StaticPatient.SaveSeriesData(new List<Series>()
+            {
+                series1, series2, series3
+            });
+            //暂存
+            StaticPatient.SaveTempData();
+            //保存进资料库
+            StaticPatient.SaveToDataBase();
         }
 
         private void medicineLst_DoubleClick(object sender, EventArgs e)
         {
+            operatingSum = (int)((sum - 1)/5);
             try
             {
-                operatingSum = (int)((sum - 1) / 5);
-                operatingIndex = medicineLst.CurrentCell.RowIndex;
+            operatingIndex = medicineLst.CurrentCell.RowIndex;
                 Medicinedata m = medicineDataRepository.selectById(medicineList[medicineLst.CurrentCell.RowIndex].Split(' ')[0]);
                 if (m.Method == 0)
                 {
@@ -957,15 +958,16 @@ namespace WindowsFormsApp1
 
         private void MainView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            StaticPatient.AnesthesiaID = null;
         }
 
         private void MainView_FormClosed(object sender, FormClosedEventArgs e)
         {
+            StaticPatient.AnesthesiaID = null;
             Application.Exit();
         }
 
-        private void Button5_Click(object sender, EventArgs e)
+        //生命体征信号修改-修改所有数据点
+        private void ChangeData_Click(object sender, EventArgs e)
         {
             ModifyDataSeries m = new ModifyDataSeries();
             Series[] data = { series1, series2, series3 };
@@ -994,11 +996,9 @@ namespace WindowsFormsApp1
         //病人资料显示
         private void BasicDataShow()
         {
-
             birthdayd.Text = patient.BirthDate.ToString();
             named.Text = patient.Name;
             chartnd.Text = patient.CharNo;
-
         }
 
         //重新获得焦点 更新病人资料
@@ -1037,6 +1037,7 @@ namespace WindowsFormsApp1
             t.Start();
         }
 
+        //在加载完之前禁用所有按钮，加载完之后才能点击（防止bug啊）
         private void SetButtomsInvalid()
         {
             patientDetail.Enabled = false;
@@ -1056,6 +1057,7 @@ namespace WindowsFormsApp1
             endIt.Enabled = true;
         }
 
+        //生命体征信号修改-将series替换为改变后的数据（整体）
         public void ChangeSeries(Series[] series)
         {
             series1 = series[0];
