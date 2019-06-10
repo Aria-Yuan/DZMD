@@ -63,10 +63,6 @@
     <Compile Include="ChooseOperator.Designer.cs">
       <DependentUpon>ChooseOperator.cs</DependentUpon>
     </Compile>
-    <Compile Include="DateTimeChoser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="DateTimeChoser.Designer.cs" />
     <Compile Include="MedicineRecordEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,9 +165,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChooseOperator.resx">
       <DependentUpon>ChooseOperator.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DateTimeChoser.resx">
-      <DependentUpon>DateTimeChoser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

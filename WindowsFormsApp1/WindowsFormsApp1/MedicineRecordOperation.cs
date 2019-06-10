@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
     public partial class MedicineRecordOperation : Form
     {
         private int flag = 0;
-        private AnesthesiaMedicineRecord m;
+        private Medicinedata m;
         private MainView mainView;
 
         public MedicineRecordOperation()
@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        public MedicineRecordOperation(AnesthesiaMedicineRecord m, MainView mainView, int type)
+        public MedicineRecordOperation(Medicinedata m, MainView mainView, int type)
         {
             this.mainView = mainView;
             this.m = m;

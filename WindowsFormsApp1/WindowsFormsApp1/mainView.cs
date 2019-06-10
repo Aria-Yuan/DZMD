@@ -211,76 +211,128 @@ namespace WindowsFormsApp1
             if (m.AnesthesiaType == 0)
             {
                 DataGridViewRow row = (DataGridViewRow)medicineData.Rows[medicineList.IndexOf(m.MedicineID)];
-                row.Cells[operatingSum].Value = "";
-                //row.Cells[(int)((m.StartTime- StaticPatient.anesthesiaData.Thebeginningofsurgery).TotalSeconds/5)].Value = m.ActualAmount;
-                ////m.StartTime = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * operatingSum);
-                //medicineRecordRepository.updateByTime(m);
-                //this.medicineData.Rows.RemoveAt(medicineList.IndexOf(m.MedicineID));
-                //this.medicineData.Rows.Insert(0, row);
+                row.Cells[operatingSum].Value = m.ActualAmount;
+                m.StartTime = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * operatingSum);
+                medicineRecordRepository.updateByTime(m);
+                this.medicineData.Rows.RemoveAt(medicineList.IndexOf(m.MedicineID));
+                this.medicineData.Rows.Insert(0, row);
             }
             else
             {
-                DataGridViewRow row1 = (DataGridViewRow)medicineData.Rows[operatingIndex];
-                DataGridViewRow row2;
-                //是否已经有添加过
-                if (medicineList.Exists(x => x.Equals(m.MedicineID + " " + m.ActualAmount)))
-                    row2 = (DataGridViewRow)medicineData.Rows[medicineList.IndexOf(m.MedicineID + " " + m.ActualAmount)];
-                else
+                //浓度是否修改
+                if(!m.ActualAmount.Equals(medicineList[operatingIndex].Split(' ')[1]+" "+ medicineList[operatingIndex].Split(' ')[2]))
                 {
-                    medicineList.Insert(0, m.MedicineID + " " + m.ActualAmount);
-                    this.medicineLst.Rows.Insert(0, medicineDataRepository.selectById(m.MedicineID).MName + " "
-                                                    + m.ActualAmount);
-                    row2 = (DataGridViewRow)medicineData.Rows[medicineList.Count - 1].Clone();
-                }
+                    DataGridViewRow row1 = (DataGridViewRow)medicineData.Rows[operatingIndex];
+                    DataGridViewRow row2;
+                    //是否已经有添加过
+                    if (medicineList.Exists(x => x.Equals(m.MedicineID + " " + m.ActualAmount)))
+                        row2 = (DataGridViewRow)medicineData.Rows[medicineList.IndexOf(m.MedicineID + " " + m.ActualAmount)];
+                    else
+                    {
+                        medicineList.Insert(0, m.MedicineID + " " + m.ActualAmount);
+                        this.medicineLst.Rows.Insert(0, medicineDataRepository.selectById(m.MedicineID).MName + " "
+                                                        + m.ActualAmount);
+                        row2 = (DataGridViewRow)medicineData.Rows[medicineList.Count - 1].Clone();
+                    }
 
-                int forward = operatingSum;
-                int backward = operatingSum;
+                    int forward = operatingSum;
+                    int backward = operatingSum;
 
-                if (!(row1.Cells[forward].Value.Equals(stopSign)
-                    || row1.Cells[forward].Value.Equals(continuousSign)))
-                    forward++;
+                    if (!(row1.Cells[forward].Value.Equals(stopSign)
+                        || row1.Cells[forward].Value.Equals(continuousSign)))
+                        forward++;
 
-                while (forward < row1.Cells.Count && row1.Cells[forward].Value != null
-                    && (row1.Cells[forward].Value.Equals(stopSign)
-                    || row1.Cells[forward].Value.Equals(continuousSign)))
-                {
-                    //row2.Cells[forward].Value = row1.Cells[forward].Value;
-                    row1.Cells[forward].Value = null;
-                    //m.StartTime = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * forward);
-                    //medicineRecordRepository.updateByTime(m);
-                    forward++;
-                }
+                    while (forward < row1.Cells.Count && row1.Cells[forward].Value != null  
+                        && (row1.Cells[forward].Value.Equals(stopSign)
+                        || row1.Cells[forward].Value.Equals(continuousSign)))
+                    {
+                        row2.Cells[forward].Value = row1.Cells[forward].Value;
+                        row1.Cells[forward].Value = null;
+                        //m.StartTime = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * forward);
+                        //medicineRecordRepository.updateByTime(m);
+                        forward++;
+                    }
 
-                //如果正在注射
-                if (forward == row1.Cells.Count)
-                    medicineOnList.Remove(medicineOnList.Find(x => x.MedicineID.Equals(m.MedicineID)));
+                    //如果正在注射
+                    if (forward == row1.Cells.Count)
+                    {
+                        medicineOnList.Find(x => x.MedicineID.Equals(m.MedicineID)).ActualAmount = m.ActualAmount;
+                        medicineOnList.Find(x => x.MedicineID.Equals(m.MedicineID)).FlowRate = m.FlowRate;
+                    }
 
-                while (row1.Cells[backward].Value == null || (row1.Cells[backward].Value.Equals(continuousSign) || row1.Cells[backward].Value.Equals(stopSign)))
-                {
+                    while (row1.Cells[backward].Value == null || (row1.Cells[backward].Value.Equals(continuousSign) || row1.Cells[backward].Value.Equals(stopSign)))
+                    {
+                        if(row1.Cells[backward].Value != null)
+                            row2.Cells[backward].Value = row1.Cells[backward].Value;
+                        row1.Cells[backward].Value = null;
+                        //m.Time = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * backward);
+                        //medicineRecordRepository.updateByTime(m);
+                        backward--;
+                    }
+                    row2.Cells[backward].Value = m.FlowRate + startContinuousSign;
                     row1.Cells[backward].Value = null;
                     //m.Time = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * backward);
-                    //medicineRecordRepository.updateByTime(m);
-                    backward--;
-                }
-                //row2.Cells[backward].Value = m.FlowRate + startContinuousSign;
-                row1.Cells[backward].Value = null;
-                //m.Time = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * backward);
-                //????
-                medicineRecordRepository.updateByTime(m);
+                    medicineRecordRepository.updateByTime(m);
 
-                if (medicineList.Exists(x => x.Equals(m.MedicineID + " " + m.ActualAmount)))
-                    this.medicineData.Rows.RemoveAt(medicineList.IndexOf(m.MedicineID + " " + m.ActualAmount));
-                this.medicineData.Rows.Insert(0, row2);
+                    if (medicineList.Exists(x => x.Equals(m.MedicineID + " " + m.ActualAmount)))
+                        this.medicineData.Rows.RemoveAt(medicineList.IndexOf(m.MedicineID + " " + m.ActualAmount));
+                    this.medicineData.Rows.Insert(0, row2);
+                }
+                else
+                {
+                    DataGridViewRow row = (DataGridViewRow)medicineData.Rows[operatingIndex];
+
+                    int forward = operatingSum;
+                    int backward = operatingSum;
+                    //往后找有没有停止符号
+                    while (forward < row.Cells.Count && !row.Cells[forward].Value.Equals(stopSign))
+                    {
+                        //m.Time = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * forward);
+                        //medicineRecordRepository.updateByTime(m);
+                        forward++;
+                    }
+
+                    //如果没有找到停止符号
+                    if (forward == row.Cells.Count)
+                    {
+                        medicineOnList.Find(x => x.MedicineID.Equals(m.MedicineID)).ActualAmount = m.ActualAmount;
+                        medicineOnList.Find(x => x.MedicineID.Equals(m.MedicineID)).FlowRate = m.FlowRate;
+                    }
+                    while (row.Cells[backward].Value.Equals(continuousSign) || row.Cells[backward].Value.Equals(stopSign))
+                    {
+                        //m.Time = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * backward);
+                        //medicineRecordRepository.updateByTime(m);
+                        backward--;
+                    }
+                    row.Cells[backward].Value = m.FlowRate + startContinuousSign;
+                    //m.StartTime = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * backward);
+                    medicineRecordRepository.updateByTime(m);
+
+                    this.medicineData.Rows.RemoveAt(operatingIndex);
+                    this.medicineData.Rows.Insert(0, row);
+                }
             }
 
-            addMedicine(m);
+            //药物名称重新排序
+            string currentName;
+            if (m.AnesthesiaType == 0)
+                currentName = m.MedicineID;
+            else
+                currentName = m.MedicineID + " " + m.ActualAmount;
+            DataGridViewRow r = (DataGridViewRow)medicineLst.Rows[medicineList.IndexOf(currentName)];
+            medicineLst.Rows.RemoveAt(medicineList.IndexOf(currentName));
+            medicineLst.Rows.Insert(0, r);
+            medicineList.RemoveAt(medicineList.IndexOf(currentName));
+            medicineList.Insert(0, currentName);
+            medicineLst.CurrentCell = null;
+            isLocked = false;
         }
 
         //添加药物
         public void addMedicine(AnesthesiaMedicineRecord m)
         {
             isLocked = true;
-            //m.StartTime = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(operatingSum*25);
+            m.StartTime = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(operatingSum*25);
             m.AnesthesiaID = StaticPatient.AnesthesiaID;
             medicineRecordRepository.insertMRecord(m);
             if (m.AnesthesiaType == 0)
@@ -289,7 +341,7 @@ namespace WindowsFormsApp1
                 if (medicineList.Exists(x => x.Split(' ')[0].Equals(m.MedicineID)))
                 {
                     DataGridViewRow row = (DataGridViewRow)medicineData.Rows[medicineList.IndexOf(m.MedicineID)];
-                    row.Cells[(int)((m.StartTime - StaticPatient.anesthesiaData.Thebeginningofsurgery).TotalSeconds / 5)].Value = m.ActualAmount;
+                    row.Cells[operatingSum].Value = m.ActualAmount;
                     this.medicineData.Rows.RemoveAt(medicineList.IndexOf(m.MedicineID));
                     this.medicineData.Rows.Insert(0, row);
                 }
@@ -298,7 +350,7 @@ namespace WindowsFormsApp1
                     medicineList.Insert(0, m.MedicineID);
                     DataGridViewRow row = (DataGridViewRow)medicineData.Rows[medicineList.Count - 1].Clone();
                     this.medicineLst.Rows.Insert(0, medicineDataRepository.selectById(m.MedicineID).MName);
-                    row.Cells[(int)((m.StartTime - StaticPatient.anesthesiaData.Thebeginningofsurgery).TotalSeconds / 5)].Value = m.ActualAmount;
+                    row.Cells[operatingSum].Value = m.ActualAmount;
                     this.medicineData.Rows.Insert(0, row);
                 }
             }
@@ -315,10 +367,7 @@ namespace WindowsFormsApp1
                             medicineOnList.Find(x => x.MedicineID.Equals(m.MedicineID)).ActualAmount))
                             templeIndex = i;
                     }
-
-                    AnesthesiaMedicineRecord currentA = medicineRecordRepository.findNewestRecord(medicineOnList.Find(x => x.MedicineID.Equals(medicineList[operatingIndex].Split(' ')[0])));
-                    currentA.EndTime = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds((operatingSum - 1) * 5);
-                    medicineRecordRepository.setEndTime(currentA);
+                    
                     if (medicineData.Rows[templeIndex].Cells[operatingSum - 1].Value.Equals(continuousSign))
                         medicineData.Rows[templeIndex].Cells[operatingSum - 1].Value = stopSign;
                     else
@@ -348,8 +397,8 @@ namespace WindowsFormsApp1
                     (x.Split(' ').Length == 1 || (x.Split(' ')[1] + " " + x.Split(' ')[2]).Equals(m.ActualAmount))))
                 {
                     DataGridViewRow row = (DataGridViewRow)medicineData.Rows[medicineList.IndexOf(m.MedicineID + " " + m.ActualAmount)];
-                    row.Cells[(int)((m.StartTime - StaticPatient.anesthesiaData.Thebeginningofsurgery).TotalSeconds / 5)].Value = m.FlowRate + startContinuousSign;
-                    for (int i = (int)((m.StartTime - StaticPatient.anesthesiaData.Thebeginningofsurgery).TotalSeconds / 5) + 1; i <= (int)((sum - 1) / 5); i++)
+                    row.Cells[operatingSum].Value = m.FlowRate + startContinuousSign;
+                    for (int i = operatingSum + 1; i <= (int)((sum - 1) / 5); i++)
                         row.Cells[i].Value = continuousSign;
 
                     medicineOnList.Add(m);
@@ -363,8 +412,8 @@ namespace WindowsFormsApp1
                     this.medicineLst.Rows.Insert(0, medicineDataRepository.selectById(m.MedicineID).MName + " "
                                                     + m.ActualAmount);
 
-                    row.Cells[(int)((m.StartTime - StaticPatient.anesthesiaData.Thebeginningofsurgery).TotalSeconds / 5)].Value = m.FlowRate + startContinuousSign;
-                    for (int i = (int)((m.StartTime - StaticPatient.anesthesiaData.Thebeginningofsurgery).TotalSeconds / 5) + 1; i < medicineData.ColumnCount; i++)
+                    row.Cells[operatingSum].Value = m.FlowRate + startContinuousSign;
+                    for (int i = operatingSum + 1; i < medicineData.ColumnCount; i++)
                         row.Cells[i].Value = continuousSign;
 
                     medicineOnList.Add(m);
@@ -398,10 +447,12 @@ namespace WindowsFormsApp1
         }
 
         //要改
-        public void continuousMStop(AnesthesiaMedicineRecord m)
+        public void continuousMStop(Medicinedata a)
         {
             //修改资料库注射停止时间
+            AnesthesiaMedicineRecord m = new AnesthesiaMedicineRecord();
             m.AnesthesiaID = StaticPatient.AnesthesiaID;
+            m.MedicineID = a.MId;
             m.StartTime = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * operatingSum);
             m = medicineRecordRepository.findRecordByTime(m);
             m.EndTime = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * operatingSum);
@@ -600,9 +651,7 @@ namespace WindowsFormsApp1
         private void medicineRecord_Click(object sender, EventArgs e)
         {
             operatingSum = (int)((sum - 1) / 5);
-            AnesthesiaMedicineRecord m = new AnesthesiaMedicineRecord();
-            m.StartTime = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * operatingSum);
-            MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(m, this);
+            MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(this);
             medicineDataAddForm_InListView.ShowDialog();
         }
 
@@ -660,9 +709,7 @@ namespace WindowsFormsApp1
             operatingIndex = medicineData.CurrentCell.RowIndex;
             if (medicineData.CurrentCell.RowIndex == medicineData.Rows.Count-1)
             {
-                AnesthesiaMedicineRecord m = new AnesthesiaMedicineRecord();
-                m.StartTime = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * operatingSum);
-                MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(m, this);
+                MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(this);
                 medicineDataAddForm_InListView.ShowDialog();
             }
             else
@@ -679,7 +726,8 @@ namespace WindowsFormsApp1
                     //所操作的單元格為空則默認新增
                     if (medicineData.CurrentCell.Value == null)
                     {
-                        MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(m, this, 0);
+                        MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(medicineDataRepository.
+                            selectById(medicineList[medicineData.CurrentCell.RowIndex].Split(' ')[0]), this, 0);
                         medicineDataAddForm_InListView.ShowDialog();
                     }
                     //若不為空則跳出視窗供使用者選擇 刪除/修改
@@ -694,7 +742,8 @@ namespace WindowsFormsApp1
                     //所操作的單元格為空則默認新增
                     if (medicineData.CurrentCell.Value == null)
                     {
-                        MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(m, this, 0);
+                        MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(medicineDataRepository.
+                            selectById(medicineList[medicineData.CurrentCell.RowIndex].Split(' ')[0]), this, 0);
                         medicineDataAddForm_InListView.ShowDialog();
                     }
                     //若不為空則跳出視窗供使用者選擇 刪除/修改
@@ -808,11 +857,8 @@ namespace WindowsFormsApp1
             a.MedicineID = medicineList[operatingIndex].Split(' ')[0];
             a.ActualAmount = medicineList[operatingIndex].Split(' ')[1] + " " + medicineList[operatingIndex].Split(' ')[2];
             a.AnesthesiaID = StaticPatient.AnesthesiaID;
-            a = medicineRecordRepository.findNewestRecord(a);
-            a.StartTime = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * operatingSum);
-            //a.EndTime = null;
 
-            addMedicine(a);
+            addMedicine(medicineRecordRepository.findNewestRecord(a));
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -844,36 +890,31 @@ namespace WindowsFormsApp1
                 operatingSum = (int)((sum - 1) / 5);
                 operatingIndex = medicineLst.CurrentCell.RowIndex;
                 Medicinedata m = medicineDataRepository.selectById(medicineList[medicineLst.CurrentCell.RowIndex].Split(' ')[0]);
-                AnesthesiaMedicineRecord a = new AnesthesiaMedicineRecord();
-                a.StartTime = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * operatingSum);
-                a.MedicineID = medicineList[medicineData.CurrentCell.RowIndex].Split(' ')[0];
-                a.AnesthesiaID = StaticPatient.AnesthesiaID;
-                a.ActualAmount = m.Unit;
-                a.FlowRate = m.FlowRate;
                 if (m.Method == 0)
                 {
-                    MedicineRecordOperation medicineRecordOperation = new MedicineRecordOperation(a, this, 2);
+                    MedicineRecordOperation medicineRecordOperation = new MedicineRecordOperation(medicineDataRepository.selectById(medicineList[this.medicineLst.
+                                                                    CurrentCell.RowIndex].Split(' ')[0]), this, 2);
                     medicineRecordOperation.ShowDialog();
                 }
                 else
                 {
                     if(medicineOnList.Exists(x => x.MedicineID.Equals(m.MId)))
                     {
-                        MedicineRecordOperation medicineRecordOperation = new MedicineRecordOperation(a, this, 1);
+                        MedicineRecordOperation medicineRecordOperation = new MedicineRecordOperation(medicineDataRepository.selectById(medicineList[this.medicineLst.
+                                                                    CurrentCell.RowIndex].Split(' ')[0]), this, 1);
                         medicineRecordOperation.ShowDialog();
                     }
                     else
                     {
-                        MedicineRecordOperation medicineRecordOperation = new MedicineRecordOperation(a, this, 0);
+                        MedicineRecordOperation medicineRecordOperation = new MedicineRecordOperation(medicineDataRepository.selectById(medicineList[this.medicineLst.
+                                                                    CurrentCell.RowIndex].Split(' ')[0]), this, 0);
                         medicineRecordOperation.ShowDialog();
                     }
                 }
             }
             catch(Exception)
             {
-                AnesthesiaMedicineRecord m = new AnesthesiaMedicineRecord();
-                m.StartTime = StaticPatient.anesthesiaData.Thebeginningofsurgery.AddSeconds(25 * operatingSum);
-                MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(m, this);
+                MedicineDataAddForm_InListView medicineDataAddForm_InListView = new MedicineDataAddForm_InListView(this);
                 medicineDataAddForm_InListView.ShowDialog();
             }
             
@@ -1005,7 +1046,6 @@ namespace WindowsFormsApp1
             changeData.Enabled = false;
             endIt.Enabled = false;
         }
-
         private void SetButtomsValid()
         {
             patientDetail.Enabled = true;

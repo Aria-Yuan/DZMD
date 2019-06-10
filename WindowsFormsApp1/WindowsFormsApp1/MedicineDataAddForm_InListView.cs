@@ -24,11 +24,10 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        public MedicineDataAddForm_InListView(AnesthesiaMedicineRecord m, MainView mainView)
+        public MedicineDataAddForm_InListView(MainView mainView)
         {
             this.mainView = mainView;
             InitializeComponent();
-            this.medicineRecord = m;
             LoadData();
         }
 
@@ -53,6 +52,25 @@ namespace WindowsFormsApp1
 
         }
 
+        public MedicineDataAddForm_InListView(Medicinedata m, MainView mainView, int flag)
+        {
+            this.mainView = mainView;
+            this.flag = flag;
+            InitializeComponent();
+            LoadData();
+            Mname.SelectedIndex = Mname.FindStringExact(m.MName);
+            Mname.Enabled = false;
+
+            NMvalue.Text = m.Unit.Split(' ')[0];
+            MCvalue.Text = m.Unit.Split(' ')[0];
+            MRvalue.Text = m.FlowRate.Split(' ')[0];
+
+            NMunit.SelectedIndex = NMunit.FindStringExact(m.Unit.Split(' ')[1]);
+            MCunit.SelectedIndex = NMunit.FindStringExact(m.Unit.Split(' ')[1]);
+            MRunit.SelectedIndex = NMunit.FindStringExact(m.Unit.Split(' ')[1]);
+
+        }
+
         private void LoadData()
         {
             medicineDataList = medicineDataRepository.selectAll();
@@ -69,21 +87,6 @@ namespace WindowsFormsApp1
             NMunit.DataSource = NMunitLst;
             MCunit.DataSource = NMunitLst;
             MRunit.DataSource = NMunitLst;
-
-            DateTimeChoser.AddTo(startTimeTextBox);
-            DateTimeChoser.AddTo(endTimeTextBox, "請選擇");
-            /*
-            DateTime dt = StaticPatient.anesthesiaData.Thebeginningofsurgery;
-            
-            for (int i = -(int)(medicineRecord.StartTime - dt).TotalSeconds / 5; i <= 
-                -(int)(medicineRecord.StartTime - DateTime.Now).TotalSeconds / 5; i++)
-                StartDomainUpDown.Items.Add(medicineRecord.StartTime.AddSeconds(5 * i).ToString("yyyy-MM-dd HH:mm:ss"));
-             
-            StartDomainUpDown.SelectedIndex = (int)(medicineRecord.StartTime - dt).TotalSeconds / 5;
-
-            for (int i = -StartDomainUpDown.SelectedIndex; i <= -(int)(medicineRecord.StartTime - DateTime.Now).TotalSeconds / 5; i++)
-                endDomainUpDown.Items.Add(medicineRecord.StartTime.AddSeconds(5 * i).ToString("yyyy-MM-dd HH:mm:ss"));
-                */
         }
 
 
@@ -102,24 +105,7 @@ namespace WindowsFormsApp1
                 medicineRecord.FlowRate = MRvalue.Text + " " + MRunit.Text;
             }
 
-            /*
-            medicineRecord.StartTime = DateTime.Parse(StartDomainUpDown.SelectedItem.ToString()).AddSeconds
-                ((medicineRecord.StartTime - DateTime.Parse(StartDomainUpDown.SelectedItem.ToString())).TotalSeconds % 5);
-                */
-
-            medicineRecord.StartTime = DateTime.Parse(startTimeTextBox.Text).AddSeconds
-                ((medicineRecord.StartTime - DateTime.Parse(startTimeTextBox.Text)).TotalSeconds % 5);
-            try
-            {
-                medicineRecord.EndTime = DateTime.Parse(endTimeTextBox.Text).AddSeconds
-                ((DateTime.Parse(endTimeTextBox.Text) - DateTime.Parse(startTimeTextBox.Text)).TotalSeconds % 5);
-            }
-            catch (Exception)
-            {
-                medicineRecord.EndTime = new DateTime(1997,8,1,0,0,0);
-            }
-
-            if (flag == 0)
+            if(flag == 0)
                 this.mainView.addMedicine(medicineRecord);
             else if(flag == 1)
                 this.mainView.modifyFlowRate(medicineRecord);
@@ -162,26 +148,6 @@ namespace WindowsFormsApp1
             concentrationUnit.Visible = !b;
             flowRate.Visible = !b;
             flowRateUnit.Visible = !b;
-            endDomainUpDown.Visible = !b;
-            endTimeLabel.Visible = !b;
-            endTimeTextBox.Visible = !b;
-        }
-
-        private void StartDomainUpDown_TextChanged(object sender, EventArgs e)
-        {
-            DateTime dt = StaticPatient.anesthesiaData.Thebeginningofsurgery;
-            try
-            {
-                StartDomainUpDown.SelectedIndex = (int)(DateTime.Parse(StartDomainUpDown.Text) - dt).TotalSeconds / 5;
-            }
-            catch (Exception)
-            {
-                StartDomainUpDown.SelectedIndex = (int)(medicineRecord.StartTime - dt).TotalSeconds / 5;
-            }
-
-            endDomainUpDown.Items.Clear();
-            for (int i = -StartDomainUpDown.SelectedIndex; i <= -(int)(medicineRecord.StartTime - DateTime.Now).TotalSeconds / 5; i++)
-                endDomainUpDown.Items.Add(medicineRecord.StartTime.AddSeconds(5 * i).ToString("yyyy-MM-dd HH:mm:ss"));
         }
         
     }
